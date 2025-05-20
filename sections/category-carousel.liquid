@@ -1,0 +1,108 @@
+{% schema %}
+{
+  "name": "Category Carousel",
+  "blocks": [
+    {
+      "type": "category",
+      "name": "分类项",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "图片" },
+        { "type": "text", "id": "title", "label": "分类名", "default": "Furniture" },
+        { "type": "url", "id": "link", "label": "链接" }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    { "name": "Category Carousel", "category": "Navigation" }
+  ]
+}
+{% endschema %}
+
+<div class="category-carousel">
+  <div class="category-carousel__track" id="category-carousel-track">
+    {% for block in section.blocks %}
+      <div class="category-carousel__item">
+        <a href="{{ block.settings.link }}" class="category-carousel__link">
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.title, class: 'category-carousel__img' }}
+          {% endif %}
+          <div class="category-carousel__title">{{ block.settings.title }}</div>
+          <span class="category-carousel__shop">Shop Now</span>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.category-carousel {
+  background: #fff;
+  padding: 2rem 0 1.5rem 0;
+  font-family: Arial, sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+}
+.category-carousel__track {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 0 2vw;
+  scroll-snap-type: x mandatory;
+}
+.category-carousel__item {
+  flex: 0 0 160px;
+  background: #fafafa;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.7rem;
+  scroll-snap-align: start;
+}
+.category-carousel__img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+.category-carousel__title {
+  font-size: 0.95rem;
+  color: #222;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+.category-carousel__shop {
+  display: inline-block;
+  color: #d32f2f;
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 0.2rem;
+}
+@media (max-width: 900px) {
+  .category-carousel__item {
+    flex: 0 0 120px;
+    padding: 0.7rem 0.3rem;
+  }
+  .category-carousel__img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .category-carousel__track {
+    gap: 0.7rem;
+    padding: 0 1vw;
+  }
+  .category-carousel__item {
+    flex: 0 0 90px;
+    padding: 0.5rem 0.2rem;
+  }
+  .category-carousel__img {
+    width: 40px;
+    height: 40px;
+  }
+}
+</style> 

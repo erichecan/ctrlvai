@@ -1,0 +1,292 @@
+{% schema %}
+{
+  "name": "Brand Showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Shop by Brand"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show Navigation Arrows",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Brand Logo"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Brand Name",
+          "default": "Brand Name"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Brand Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Showcase",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        },
+        {
+          "type": "brand"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="brand-showcase">
+  {% if section.settings.title != blank %}
+    <h2 class="brand-showcase__title">{{ section.settings.title }}</h2>
+  {% endif %}
+  
+  <div class="brand-showcase__container">
+    {% if section.settings.show_arrows %}
+      <button class="brand-showcase__arrow brand-showcase__arrow--prev" aria-label="Previous brands">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {% endif %}
+    
+    <div class="brand-showcase__scroll">
+      <div class="brand-showcase__track">
+        {% for block in section.blocks %}
+          {% if block.type == 'brand' %}
+            <a href="{{ block.settings.link }}" class="brand-showcase__item" {{ block.shopify_attributes }}>
+              {% if block.settings.logo %}
+                {{ block.settings.logo | image_url: width: 200 | image_tag:
+                  loading: 'lazy',
+                  class: 'brand-showcase__logo',
+                  alt: block.settings.name
+                }}
+              {% endif %}
+              <span class="brand-showcase__name">{{ block.settings.name }}</span>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    
+    {% if section.settings.show_arrows %}
+      <button class="brand-showcase__arrow brand-showcase__arrow--next" aria-label="Next brands">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+.brand-showcase {
+  padding: 3rem 1rem;
+  background-color: #fff;
+}
+
+.brand-showcase__title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.brand-showcase__container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.brand-showcase__scroll {
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.brand-showcase__track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.brand-showcase__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  min-width: 150px;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.brand-showcase__item:hover {
+  background-color: #f5f5f5;
+  transform: translateY(-2px);
+}
+
+.brand-showcase__logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.brand-showcase__name {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.brand-showcase__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.brand-showcase__arrow:hover {
+  background-color: #f5f5f5;
+  border-color: #999;
+}
+
+.brand-showcase__arrow--prev {
+  left: -20px;
+}
+
+.brand-showcase__arrow--next {
+  right: -20px;
+}
+
+@media screen and (max-width: 768px) {
+  .brand-showcase__arrow {
+    display: none;
+  }
+  
+  .brand-showcase__scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .brand-showcase__scroll::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .brand-showcase__track {
+    padding: 0 1rem;
+  }
+  
+  .brand-showcase__item {
+    min-width: 120px;
+  }
+  
+  .brand-showcase__logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+</style>
+
+<script>
+class BrandShowcase {
+  constructor(element) {
+    this.element = element;
+    this.track = element.querySelector('.brand-showcase__track');
+    this.prevButton = element.querySelector('.brand-showcase__arrow--prev');
+    this.nextButton = element.querySelector('.brand-showcase__arrow--next');
+    this.scrollContainer = element.querySelector('.brand-showcase__scroll');
+    
+    this.init();
+  }
+  
+  init() {
+    if (this.prevButton && this.nextButton) {
+      this.prevButton.addEventListener('click', () => this.scroll('prev'));
+      this.nextButton.addEventListener('click', () => this.scroll('next'));
+    }
+    
+    // Handle touch events for mobile
+    let startX, scrollLeft;
+    this.scrollContainer.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].pageX - this.scrollContainer.offsetLeft;
+      scrollLeft = this.scrollContainer.scrollLeft;
+    });
+    
+    this.scrollContainer.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      e.preventDefault();
+      const x = e.touches[0].pageX - this.scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2;
+      this.scrollContainer.scrollLeft = scrollLeft - walk;
+    });
+  }
+  
+  scroll(direction) {
+    const scrollAmount = this.scrollContainer.offsetWidth * 0.8;
+    const currentScroll = this.scrollContainer.scrollLeft;
+    
+    if (direction === 'prev') {
+      this.scrollContainer.scrollTo({
+        left: currentScroll - scrollAmount,
+        behavior: 'smooth'
+      });
+    } else {
+      this.scrollContainer.scrollTo({
+        left: currentScroll + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  }
+}
+
+// Initialize brand showcase when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const brandShowcase = document.querySelector('.brand-showcase');
+  if (brandShowcase) {
+    new BrandShowcase(brandShowcase);
+  }
+});
+</script> 

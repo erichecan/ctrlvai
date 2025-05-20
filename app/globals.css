@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 248, 250, 252;
+  --background-end-rgb: 255, 255, 255;
+  --primary-color: 107, 70, 193;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* 自定义样式 */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+}
+
+.section {
+  @apply py-12 md:py-16;
+}
+
+.heading-1 {
+  @apply text-3xl md:text-4xl font-bold text-gray-900;
+}
+
+.heading-2 {
+  @apply text-2xl md:text-3xl font-bold text-gray-900;
+}
+
+.heading-3 {
+  @apply text-xl md:text-2xl font-bold text-gray-900;
+}
+
+.paragraph {
+  @apply text-base text-gray-700 leading-relaxed;
+}
+
+.btn-primary {
+  @apply bg-purple-700 hover:bg-purple-800 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-100 text-purple-700 font-medium py-2 px-4 border border-purple-700 rounded-md transition-colors;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow;
+}
+
+.nav-link {
+  @apply text-gray-700 hover:text-purple-700 font-medium transition-colors;
+}
+
+.nav-link-active {
+  @apply text-purple-700 font-medium;
+}
+
+.tag {
+  @apply inline-block bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full mr-2 mb-2;
+}
+
+.category-badge {
+  @apply inline-block bg-purple-700 text-white text-xs px-2 py-1 rounded-md mr-2;
+}

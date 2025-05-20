@@ -1,0 +1,219 @@
+<!-- sections/header.liquid -->
+<header class="custom-header">
+  <div class="header-bar container">
+    <div class="header-left" style="min-width:60px;max-width:{{ settings.logo_width | default: 180 }}px;flex:0 0 auto;overflow:hidden;display:flex;align-items:center;">
+      <a href="{{ shop.url }}" style="display:block;width:100%;">
+        {{ settings.logo | image_url: width: settings.logo_width | image_tag: width: settings.logo_width, class: 'header-logo', alt: shop.name, style: 'display:block;max-width:100%;height:auto;' }}
+      </a>
+    </div>
+    <div class="header-center" style="flex:1 1 auto;max-width:600px;display:flex;justify-content:center;">
+      <form action="/search" method="get" class="header-search-form">
+        <input type="search" name="q" placeholder="Start your search" value="{{ search.terms }}" class="header-search-input">
+      </form>
+    </div>
+    <div class="header-right" style="min-width:120px;max-width:180px;flex:0 0 auto;display:flex;align-items:center;gap:18px;justify-content:flex-end;">
+      <a href="/account" class="header-icon"><svg width="22" height="22" fill="none" stroke="currentColor"><circle cx="11" cy="8" r="4"/><path d="M2 20c0-4.418 3.582-8 8-8s8 3.582 8 8"/></svg></a>
+      <a href="/notifications" class="header-icon"><svg width="22" height="22" fill="none" stroke="currentColor"><path d="M18 16v-5a6 6 0 10-12 0v5l-2 2v1h16v-1l-2-2z"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></a>
+      <a href="/cart" class="header-icon"><svg width="22" height="22" fill="none" stroke="currentColor"><circle cx="9" cy="20" r="2"/><circle cx="17" cy="20" r="2"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h7.72a2 2 0 002-1.61L21 6H6"/></svg>
+        {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+      <button class="header-hamburger" id="header-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="header-nav" role="navigation" aria-label="Main menu">
+    <div class="container">
+      <ul class="header-menu" role="menubar">
+        <!-- 这里插入原 mega-menu.liquid 的菜单结构，可用 section blocks 或直接写死 -->
+        <!-- 示例：
+        <li class="header-menu-item" role="none" style="position:relative;">
+          <button class="header-menu-link" role="menuitem" aria-haspopup="true" aria-expanded="false">
+            Furniture
+            <span class="visually-hidden">submenu</span>
+          </button>
+          <div class="mega-menu" role="menu" aria-label="Furniture submenu" aria-hidden="true" style="display:none;">
+            <div class="mega-menu-content">
+              <div class="mega-menu-group" role="none">
+                <h3 class="mega-menu-group-title">Living Room Furniture</h3>
+                <ul role="menu">
+                  <li role="none"><a href="#" role="menuitem">Sofas</a></li>
+                  <!-- ... -->
+                </ul>
+              </div>
+              <!-- ... -->
+            </div>
+          </div>
+        </li>
+        -->
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<style>
+/* Container for strict alignment */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-header { font-family: Arial, Helvetica, sans-serif; }
+.header-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px; background: #fff; border-bottom: 1.5px solid #eee; position: relative; z-index: 20;
+}
+.header-logo { height: 64px; }
+.header-center { flex: 1; display: flex; justify-content: center; }
+.header-search-form { width: 420px; }
+.header-search-input {
+  width: 100%; padding: 8px 16px; border: 1px solid #ddd; border-radius: 20px;
+  font-size: 16px; background: #fafafa;
+}
+.header-right { display: flex; align-items: center; gap: 18px; }
+.header-icon { color: #222; display: inline-flex; align-items: center; position: relative; }
+.cart-count {
+  position: absolute; top: -7px; right: -10px; background: #ff0000; color: #fff; font-size: 11px;
+  border-radius: 10px; padding: 0 5px; min-width: 18px; text-align: center; font-weight: bold;
+}
+.header-hamburger { display: none; background: none; border: none; flex-direction: column; gap: 3px; cursor: pointer; }
+.header-hamburger span { display: block; width: 22px; height: 3px; background: #222; border-radius: 2px; }
+
+/* Main Menu */
+.header-nav { background: #fff; border-bottom: 2px solid #ff0000; }
+.header-nav .container {
+  display: flex; justify-content: center;
+}
+.header-menu {
+  display: flex; gap: 40px; align-items: center; margin: 0; padding: 0; list-style: none; width: 100%;
+}
+.header-menu-item { position: relative; }
+.header-menu-link {
+  display: block; padding: 18px 0; font-size: 14px; font-weight: 700; color: #222; cursor: pointer; border-bottom: 2px solid transparent; transition: border 0.2s;
+  letter-spacing: 0.01em; text-align: left;
+}
+.header-menu-link:hover, .header-menu-item:hover > .header-menu-link { border-bottom: 2px solid #222; color: #d32f2f; }
+.mega-menu {
+  display: none; position: fixed; left: 0; top: 64px; width: 100vw;
+  background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  border-radius: 0 0 10px 10px; z-index: 1200; overflow-x: auto;
+}
+.header-menu-item:hover .mega-menu { display: block; }
+.mega-menu-content {
+  max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 0 48px; justify-content: flex-start; align-items: flex-start;
+  padding-top: 32px; padding-bottom: 28px; padding-left: 0; padding-right: 0;
+  text-align: left;
+}
+.mega-menu-group {
+  min-width: 200px; max-width: 200px; margin-bottom: 18px;
+}
+.mega-menu-group-title {
+  font-weight: 700; font-size: 13px; margin-bottom: 12px; color: #222; letter-spacing: 0.01em; text-align: left;
+}
+.mega-menu-group ul {
+  text-align: left;
+  margin: 0; padding: 0; list-style: none;
+}
+.mega-menu-group ul li {
+  text-align: left; margin-bottom: 2px;
+}
+.mega-menu-group ul li a {
+  color: #222; text-decoration: none; font-size: 12px; line-height: 1.05; transition: color 0.2s; font-weight: 400; text-align: left;
+}
+.mega-menu-group ul li a:hover { color: #d32f2f; text-decoration: underline; }
+
+/* Mobile Menu */
+@media (max-width: 1300px) {
+  .container { max-width: 98vw; padding: 0 8px; }
+  .mega-menu-group { min-width: 140px; max-width: 140px; }
+  .mega-menu .container { gap: 0 18px; }
+}
+@media (max-width: 1024px) {
+  .container { max-width: 100vw; padding: 0 2vw; }
+  .mega-menu-group { min-width: 110px; max-width: 110px; }
+  .mega-menu .container { gap: 0 8px; }
+}
+@media (max-width: 900px) {
+  .header-center { display: none; }
+  .header-nav .container { display: none; }
+  .header-hamburger { display: flex; }
+  .mega-menu { display: none !important; }
+}
+@media (max-width: 600px) {
+  .header-bar { padding: 0 4px; }
+  .container { padding: 0 2px; }
+  .header-search-form { width: 120px; }
+  .header-menu-link { font-size: 12px; padding: 10px 0; }
+}
+
+/* Mobile Side Menu */
+.mobile-menu-overlay {
+  display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.18); z-index: 100;
+}
+.mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; width: 85vw; max-width: 340px; height: 100vh;
+  background: #fff; z-index: 120; box-shadow: 2px 0 16px rgba(0,0,0,0.08); padding: 0;
+  overflow-y: auto; transition: transform 0.25s;
+}
+.mobile-menu.open, .mobile-menu-overlay.open { display: block; }
+.mobile-menu-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 18px 8px 18px; font-size: 18px; font-weight: 700; border-bottom: 1px solid #eee;
+}
+#mobile-menu-close { background: none; border: none; font-size: 32px; line-height: 1; cursor: pointer; color: #222; }
+.mobile-menu-list { list-style: none; margin: 0; padding: 0; }
+.mobile-menu-item { padding: 12px 18px; border-bottom: 1px solid #f2f2f2; }
+.mobile-menu-title { font-size: 16px; font-weight: 700; color: #222; margin-bottom: 6px; display: block; }
+.mobile-menu-group-title { font-size: 14px; font-weight: 700; color: #444; margin: 8px 0 4px 0; }
+.mobile-menu-groups { list-style: none; margin: 0; padding: 0; }
+.mobile-menu-groups ul { list-style: none; margin: 0; padding: 0; }
+.mobile-menu-groups ul li { margin-bottom: 6px; }
+.mobile-menu-groups ul li a { color: #222; text-decoration: none; font-size: 14px; }
+.mobile-menu-groups ul li a:hover { color: #d32f2f; text-decoration: underline; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Mobile menu open/close
+  var hamburger = document.getElementById('header-hamburger');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var overlay = document.getElementById('mobile-menu-overlay');
+  var closeBtn = document.getElementById('mobile-menu-close');
+  if (hamburger && mobileMenu && overlay && closeBtn) {
+    hamburger.addEventListener('click', function() {
+      mobileMenu.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    closeBtn.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    overlay.addEventListener('click', function() {
+      mobileMenu.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  }
+
+  function setMegaMenuTop() {
+    var header = document.querySelector('.header-bar');
+    var megaMenus = document.querySelectorAll('.mega-menu');
+    if (header && megaMenus.length) {
+      var rect = header.getBoundingClientRect();
+      megaMenus.forEach(function(menu) {
+        menu.style.top = (rect.bottom + 64) + 'px';
+      });
+    }
+  }
+  setMegaMenuTop();
+  window.addEventListener('resize', setMegaMenuTop);
+});
+</script>

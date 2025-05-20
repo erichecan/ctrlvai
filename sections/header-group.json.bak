@@ -1,0 +1,188 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "left_text": "TheBayOutlets",
+        "left_link": "https://www.thebayoutlets.com",
+        "center_text": "Tennerama",
+        "center_link": "https://www.tennerama.com",
+        "right_text": "AuctionEvent",
+        "right_link": "https://www.thebayoutlets.com",
+        "background": "#d32f2f",
+        "text_color": "#ffffff",
+        "text_alignment": "center"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "menu_furniture": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Furniture",
+            "group1_title": "Living Room",
+            "group1_link1_text": "Sofas",
+            "group1_link1_url": "/collections/sofas",
+            "group1_link2_text": "Chairs",
+            "group1_link2_url": "/collections/chairs",
+            "group2_title": "Bedroom",
+            "group2_link1_text": "Beds",
+            "group2_link1_url": "/collections/beds",
+            "group2_link2_text": "Nightstands",
+            "group2_link2_url": "/collections/nightstands"
+          }
+        },
+        "menu_rugs": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Rugs",
+            "group1_title": "By Size",
+            "group1_link1_text": "Small Rugs",
+            "group1_link1_url": "/collections/small-rugs",
+            "group1_link2_text": "Large Rugs",
+            "group1_link2_url": "/collections/large-rugs",
+            "group2_title": "By Style",
+            "group2_link1_text": "Modern Rugs",
+            "group2_link1_url": "/collections/modern-rugs",
+            "group2_link2_text": "Traditional Rugs",
+            "group2_link2_url": "/collections/traditional-rugs"
+          }
+        },
+        "menu_decor_lighting": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Decor & Lighting",
+            "group1_title": "Decor",
+            "group1_link1_text": "Wall Art",
+            "group1_link1_url": "/collections/wall-art",
+            "group1_link2_text": "Vases",
+            "group1_link2_url": "/collections/vases",
+            "group2_title": "Lighting",
+            "group2_link1_text": "Table Lamps",
+            "group2_link1_url": "/collections/table-lamps",
+            "group2_link2_text": "Floor Lamps",
+            "group2_link2_url": "/collections/floor-lamps"
+          }
+        },
+        "menu_outdoor": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Outdoor",
+            "group1_title": "Furniture",
+            "group1_link1_text": "Patio Sets",
+            "group1_link1_url": "/collections/patio-sets",
+            "group1_link2_text": "Outdoor Chairs",
+            "group1_link2_url": "/collections/outdoor-chairs",
+            "group2_title": "Decor",
+            "group2_link1_text": "Planters",
+            "group2_link1_url": "/collections/planters",
+            "group2_link2_text": "Outdoor Lighting",
+            "group2_link2_url": "/collections/outdoor-lighting"
+          }
+        },
+        "menu_bed_bath": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Bed & Bath",
+            "group1_title": "Bedding",
+            "group1_link1_text": "Bed Sheets",
+            "group1_link1_url": "/collections/bed-sheets",
+            "group1_link2_text": "Comforters",
+            "group1_link2_url": "/collections/comforters",
+            "group2_title": "Bath",
+            "group2_link1_text": "Towels",
+            "group2_link1_url": "/collections/towels",
+            "group2_link2_text": "Bath Mats",
+            "group2_link2_url": "/collections/bath-mats"
+          }
+        },
+        "menu_kitchen": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Kitchen",
+            "group1_title": "Cookware",
+            "group1_link1_text": "Pots & Pans",
+            "group1_link1_url": "/collections/pots-pans",
+            "group1_link2_text": "Bakeware",
+            "group1_link2_url": "/collections/bakeware",
+            "group2_title": "Tableware",
+            "group2_link1_text": "Dinnerware",
+            "group2_link1_url": "/collections/dinnerware",
+            "group2_link2_text": "Drinkware",
+            "group2_link2_url": "/collections/drinkware"
+          }
+        },
+        "menu_apparel": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Apparel",
+            "group1_title": "Women",
+            "group1_link1_text": "Dresses",
+            "group1_link1_url": "/collections/women-dresses",
+            "group1_link2_text": "Tops",
+            "group1_link2_url": "/collections/women-tops",
+            "group2_title": "Men",
+            "group2_link1_text": "Shirts",
+            "group2_link1_url": "/collections/men-shirts",
+            "group2_link2_text": "Pants",
+            "group2_link2_url": "/collections/men-pants"
+          }
+        },
+        "menu_jewelry_watches": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Jewelry & Watches",
+            "group1_title": "Jewelry",
+            "group1_link1_text": "Necklaces",
+            "group1_link1_url": "/collections/necklaces",
+            "group1_link2_text": "Earrings",
+            "group1_link2_url": "/collections/earrings",
+            "group2_title": "Watches",
+            "group2_link1_text": "Women's Watches",
+            "group2_link1_url": "/collections/womens-watches",
+            "group2_link2_text": "Men's Watches",
+            "group2_link2_url": "/collections/mens-watches"
+          }
+        },
+        "menu_flash_price_drops": {
+          "type": "mega_menu_item",
+          "settings": {
+            "menu_title": "Flash Price Drops",
+            "group1_title": "Today's Deals",
+            "group1_link1_text": "New Arrivals",
+            "group1_link1_url": "/collections/new-arrivals",
+            "group1_link2_text": "Best Sellers",
+            "group1_link2_url": "/collections/best-sellers",
+            "group2_title": "Special Offers",
+            "group2_link1_text": "Clearance",
+            "group2_link1_url": "/collections/clearance",
+            "group2_link2_text": "Limited Time",
+            "group2_link2_url": "/collections/limited-time"
+          }
+        }
+      },
+      "block_order": [
+        "menu_furniture",
+        "menu_rugs",
+        "menu_decor_lighting",
+        "menu_outdoor",
+        "menu_bed_bath",
+        "menu_kitchen",
+        "menu_apparel",
+        "menu_jewelry_watches",
+        "menu_flash_price_drops"
+      ],
+      "settings": {
+        "logo": "shopify://shop_images/1.png"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
+  

@@ -1,0 +1,295 @@
+{% schema %}
+{
+  "name": "Deals of the Day",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Deals of the Day"
+    },
+    {
+      "type": "text",
+      "id": "end_time",
+      "label": "Deal End Time",
+      "info": "Format: YYYY-MM-DD HH:mm:ss",
+      "default": "2024-12-31 23:59:59"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 2,
+      "default": 6,
+      "label": "Number of products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Deals of the Day",
+      "category": "Collection"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="deals-section" data-end-time="{{ section.settings.end_time }}">
+  <div class="deals-header">
+    <h2 class="deals-title">{{ section.settings.title }}</h2>
+    <div class="deals-countdown">
+      <div class="countdown-item">
+        <span class="countdown-value" id="days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="minutes">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value" id="seconds">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="deals-grid">
+    {% assign collection = collections[section.settings.collection] %}
+    {% for product in collection.products limit: section.settings.products_to_show %}
+      <div class="deals-product">
+        <a href="{{ product.url }}" class="deals-product__link">
+          <div class="deals-product__image-wrapper">
+            {{ product.featured_image | image_url: width: 300 | image_tag:
+              loading: 'lazy',
+              class: 'deals-product__image',
+              alt: product.title
+            }}
+            {% if product.compare_at_price > product.price %}
+              <div class="deals-product__badge">
+                Save {{ product.compare_at_price | minus: product.price | money }}
+              </div>
+            {% endif %}
+          </div>
+          <div class="deals-product__info">
+            <h3 class="deals-product__title">{{ product.title }}</h3>
+            <div class="deals-product__price">
+              <span class="price">{{ product.price | money }}</span>
+              {% if product.compare_at_price > product.price %}
+                <span class="compare-price">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+.deals-section {
+  padding: 3rem 1rem;
+  background-color: #f8f8f8;
+}
+
+.deals-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.deals-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.deals-countdown {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 80px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.countdown-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.countdown-label {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.deals-product {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.deals-product:hover {
+  transform: translateY(-5px);
+}
+
+.deals-product__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.deals-product__image-wrapper {
+  position: relative;
+  padding-top: 100%;
+}
+
+.deals-product__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.deals-product__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ff4444;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.deals-product__info {
+  padding: 1rem;
+}
+
+.deals-product__title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.deals-product__price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.compare-price {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: line-through;
+}
+
+@media screen and (max-width: 768px) {
+  .deals-countdown {
+    flex-wrap: wrap;
+  }
+  
+  .countdown-item {
+    min-width: 70px;
+    padding: 0.75rem;
+  }
+  
+  .countdown-value {
+    font-size: 1.2rem;
+  }
+  
+  .deals-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .deals-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<script>
+class DealsCountdown {
+  constructor(element) {
+    this.element = element;
+    this.endTime = new Date(element.dataset.endTime).getTime();
+    this.daysElement = element.querySelector('#days');
+    this.hoursElement = element.querySelector('#hours');
+    this.minutesElement = element.querySelector('#minutes');
+    this.secondsElement = element.querySelector('#seconds');
+    
+    this.init();
+  }
+  
+  init() {
+    this.updateCountdown();
+    setInterval(() => this.updateCountdown(), 1000);
+  }
+  
+  updateCountdown() {
+    const now = new Date().getTime();
+    const distance = this.endTime - now;
+    
+    if (distance < 0) {
+      this.element.querySelector('.deals-countdown').style.display = 'none';
+      return;
+    }
+    
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+    this.daysElement.textContent = String(days).padStart(2, '0');
+    this.hoursElement.textContent = String(hours).padStart(2, '0');
+    this.minutesElement.textContent = String(minutes).padStart(2, '0');
+    this.secondsElement.textContent = String(seconds).padStart(2, '0');
+  }
+}
+
+// Initialize countdown when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const dealsSection = document.querySelector('.deals-section');
+  if (dealsSection) {
+    new DealsCountdown(dealsSection);
+  }
+});
+</script> 

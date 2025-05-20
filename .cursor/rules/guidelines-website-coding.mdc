@@ -1,0 +1,145 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+---
+description: 通过 Cursor 高效开发导航网站的前端最佳实践
+globs: src/**/*.js, src/**/*.jsx, src/**/*.ts, src/**/*.tsx
+alwaysApply: true
+---
+
+# Website Development Guidelines
+
+- **Code Structure and Organization**
+  - ✅ DO: Break functionality into independent components
+    ```typescript
+    // Good: Single responsibility component
+    export function ToolCard({ tool }: { tool: Tool }) {
+      return <div>{/* Component logic */}</div>;
+    }
+    ```
+  - ❌ DON'T: Create overly complex components
+    ```typescript
+    // Bad: Component doing too many things
+    export function ToolSection({ tools, filters, sorting, pagination }) {
+      // Too many responsibilities in one component
+    }
+    ```
+  - Organize files in meaningful directories:
+    - `components/` - Reusable UI components
+    - `hooks/` - Custom React hooks
+    - `utils/` - Helper functions
+    - `types/` - TypeScript type definitions
+
+- **Performance Optimization**
+  - ✅ DO: Use lazy loading and code splitting
+    ```typescript
+    // Good: Lazy load components
+    const ToolDetails = lazy(() => import('./ToolDetails'));
+    ```
+  - ✅ DO: Optimize component rendering
+    ```typescript
+    // Good: Memoize expensive components
+    export const ToolList = memo(function ToolList({ tools }: ToolListProps) {
+      return <div>{/* Render logic */}</div>;
+    });
+    ```
+  - ❌ DON'T: Load all resources eagerly
+    ```typescript
+    // Bad: Import everything at once
+    import { AllTools, AllCategories, AllTags } from './data';
+    ```
+
+- **Styling and Design**
+  - ✅ DO: Use Tailwind CSS for maintainable styles
+    ```typescript
+    // Good: Use Tailwind classes
+    <div className="flex items-center space-x-4 p-4 rounded-lg shadow-md">
+    ```
+  - ✅ DO: Implement responsive design
+    ```typescript
+    // Good: Responsive classes
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    ```
+  - ❌ DON'T: Use inline styles
+    ```typescript
+    // Bad: Hard-coded styles
+    <div style={{ display: 'flex', gap: '1rem' }}>
+    ```
+
+- **Accessibility**
+  - ✅ DO: Add accessibility attributes
+    ```typescript
+    // Good: Accessible buttons
+    <button aria-label="Submit tool" role="button">
+    ```
+  - ✅ DO: Use semantic HTML
+    ```typescript
+    // Good: Semantic structure
+    <main>
+      <header>
+        <nav>{/* Navigation content */}</nav>
+      </header>
+      <article>{/* Main content */}</article>
+    </main>
+    ```
+  - ❌ DON'T: Ignore keyboard navigation
+    ```typescript
+    // Bad: Non-interactive elements
+    <div onClick={handleClick}>{/* Should be a button */}</div>
+    ```
+
+- **Development Tools**
+  - Use ESLint and Prettier for code consistency
+  - Implement unit tests with Jest and React Testing Library
+  - Follow Git commit conventions
+
+- **Project Management**
+  - Follow Agile methodology
+  - Use project management tools
+  - Maintain up-to-date documentation
+
+- **Security**
+  - ✅ DO: Validate user input
+    ```typescript
+    // Good: Input validation
+    function validateToolSubmission(data: ToolSubmission) {
+      if (!data.name || !data.description || !data.url) {
+        throw new Error('Missing required fields');
+      }
+    }
+    ```
+  - ✅ DO: Use secure authentication
+    ```typescript
+    // Good: Secure auth handling
+    export const authOptions = {
+      providers: [
+        GithubProvider({
+          clientId: process.env.GITHUB_ID,
+          clientSecret: process.env.GITHUB_SECRET,
+        }),
+      ],
+    };
+    ```
+
+- **User Experience**
+  - Implement intuitive navigation
+  - Use loading states and error boundaries
+  - Collect and analyze user feedback
+
+- **Performance Monitoring**
+  - Monitor key metrics
+  - Optimize based on analytics
+  - Regular performance audits
+
+- **Continuous Integration**
+  - Automated testing
+  - Deployment pipelines
+  - Version control best practices
+
+See also: [cursor_rules.mdc](mdc:.cursor/rules/cursor_rules.mdc) for general rule formatting guidelines.
+
+---
+
+*此规则旨在帮助您通过 Cursor 高效开发导航网站，结合最佳实践和经验以提高开发质量。*

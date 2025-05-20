@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "THE SOURCE FOR LIQUIDATION IN CANADA"
+          }
+        }
+      },
+      "block_order": [
+        "heading"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/types_of_warehouse_blog.webp",
+        "image_overlay_opacity": 40,
+        "desktop_content_position": "bottom-center"
+      }
+    },
+    "home_product_list_gyAEk9": {
+      "type": "home_product_list",
+      "settings": {
+        "auction_events_title": "Auction Events",
+        "auction_events_collection": "auction-today",
+        "auction_events_link": "https://w4aav3-g6.myshopify.com/collections/auction-today",
+        "daily_auctions_title": "Daily Auctions",
+        "daily_auctions_collection": "daily-auction",
+        "daily_auctions_link": "https://w4aav3-g6.myshopify.com/collections/daily-auction",
+        "online_shop_title": "Online Shop",
+        "online_shop_collection": "online-shop",
+        "online_shop_link": "https://w4aav3-g6.myshopify.com/collections/online-shop"
+      }
+    },
+    "coupon_popup": {
+      "type": "coupon-popup"
+    }
+  },
+  "order": [
+    "image_banner",
+    "home_product_list_gyAEk9",
+    "coupon_popup"
+  ]
+}
+  

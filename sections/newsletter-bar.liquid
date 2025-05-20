@@ -1,0 +1,119 @@
+{% schema %}
+{
+  "name": "Newsletter Bar",
+  "settings": [
+    { "type": "text", "id": "title", "label": "标题", "default": "Get an additional 15% off your first order*" },
+    { "type": "text", "id": "desc", "label": "副标题", "default": "the best online deals, straight to your inbox." },
+    { "type": "text", "id": "button_label", "label": "按钮文字", "default": "Sign Up" }
+  ],
+  "presets": [
+    { "name": "Newsletter Bar", "category": "Footer" }
+  ]
+}
+{% endschema %}
+
+<div class="newsletter-bar">
+  <div class="newsletter-bar__container">
+    <div class="newsletter-bar__text">
+      <span class="newsletter-bar__title">{{ section.settings.title }}</span>
+      <span class="newsletter-bar__desc">{{ section.settings.desc }}</span>
+    </div>
+    <form class="newsletter-bar__form" action="#" method="post">
+      <input type="email" class="newsletter-bar__input" placeholder="Your email" required>
+      <button type="submit" class="newsletter-bar__button">{{ section.settings.button_label }}</button>
+    </form>
+  </div>
+</div>
+
+<style>
+.newsletter-bar {
+  width: 100%;
+  background: #d32f2f;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 1.2rem 0;
+}
+.newsletter-bar__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 0 2vw;
+}
+.newsletter-bar__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.newsletter-bar__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.newsletter-bar__desc {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+.newsletter-bar__form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.newsletter-bar__input {
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 2px;
+  font-size: 1rem;
+  color: #222;
+  background: #fff;
+  min-width: 220px;
+}
+.newsletter-bar__input:focus {
+  outline: 2px solid #fff;
+}
+.newsletter-bar__button {
+  background: #fff;
+  color: #d32f2f;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.newsletter-bar__button:hover {
+  background: #ffe6e6;
+  color: #b71c1c;
+}
+@media (max-width: 900px) {
+  .newsletter-bar__container {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  .newsletter-bar__form {
+    width: 100%;
+  }
+  .newsletter-bar__input {
+    min-width: 0;
+    flex: 1 1 0;
+  }
+}
+@media (max-width: 600px) {
+  .newsletter-bar {
+    padding: 0.7rem 0;
+  }
+  .newsletter-bar__title {
+    font-size: 1rem;
+  }
+  .newsletter-bar__desc {
+    font-size: 0.85rem;
+  }
+  .newsletter-bar__button {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}
+</style> 

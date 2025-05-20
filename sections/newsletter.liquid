@@ -1,0 +1,267 @@
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Subscribe to our newsletter"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Get the latest updates on new products and upcoming sales"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="newsletter" style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
+  <div class="newsletter__container">
+    {% if section.settings.title != blank %}
+      <h2 class="newsletter__title">{{ section.settings.title }}</h2>
+    {% endif %}
+    
+    {% if section.settings.subtitle != blank %}
+      <p class="newsletter__subtitle">{{ section.settings.subtitle }}</p>
+    {% endif %}
+    
+    <form class="newsletter__form" action="/contact#contact_form" method="post" id="contact_form">
+      <input type="hidden" name="form_type" value="customer">
+      <input type="hidden" name="utf8" value="✓">
+      
+      <div class="newsletter__input-group">
+        <input type="email" 
+               name="contact[email]" 
+               id="ContactForm-email" 
+               class="newsletter__input" 
+               placeholder="Enter your email"
+               required>
+        
+        <button type="submit" class="newsletter__button">
+          {{ section.settings.button_label }}
+        </button>
+      </div>
+      
+      {% if form.posted_successfully? %}
+        <p class="newsletter__message newsletter__message--success">
+          Thanks for subscribing!
+        </p>
+      {% endif %}
+      
+      {% if form.errors %}
+        <p class="newsletter__message newsletter__message--error">
+          {{ form.errors.messages['email'] }}
+        </p>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+<style>
+.newsletter {
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter__container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter__title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.newsletter__subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.newsletter__form {
+  margin-top: 2rem;
+}
+
+.newsletter__input-group {
+  display: flex;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter__input {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.newsletter__input:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 0 3px rgba(102, 102, 102, 0.1);
+}
+
+.newsletter__input::placeholder {
+  color: #999;
+}
+
+.newsletter__button {
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+.newsletter__button:hover {
+  background-color: #555;
+  transform: translateY(-2px);
+}
+
+.newsletter__button:active {
+  transform: translateY(0);
+}
+
+.newsletter__message {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+}
+
+.newsletter__message--success {
+  color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.newsletter__message--error {
+  color: #f44336;
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+@media screen and (max-width: 1024px) {
+  .newsletter {
+    padding: 3.5rem 1.5rem;
+  }
+  
+  .newsletter__title {
+    font-size: 1.75rem;
+  }
+  
+  .newsletter__subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .newsletter {
+    padding: 3rem 1rem;
+  }
+  
+  .newsletter__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .newsletter__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .newsletter__input-group {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .newsletter__input {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .newsletter__button {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+    width: 100%;
+  }
+  
+  .newsletter__message {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .newsletter {
+    padding: 2.5rem 0.75rem;
+  }
+  
+  .newsletter__title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .newsletter__subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .newsletter__input {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .newsletter__button {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .newsletter__message {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+}
+</style> 
