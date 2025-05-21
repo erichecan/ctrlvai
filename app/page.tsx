@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-import MainLayout from '../../components/layout/MainLayout';
+import MainLayout from '../components/layout/MainLayout';
 import { Button, Typography, Card, Row, Col, Divider, Tag } from 'antd';
 import Link from 'next/link';
 import Image from 'next/image';
