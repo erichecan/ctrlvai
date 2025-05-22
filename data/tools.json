@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "ChatGPT",
+    "description": "A powerful AI conversational model for writing, coding, and creative generation.",
+    "logo": "/images/tools/chatgpt.png",
+    "category": "Text & Writing",
+    "link": "/tools/text-writing/chatgpt"
+  },
+  {
+    "id": 2,
+    "name": "Midjourney",
+    "description": "High-quality AI image generation tool for creative and commercial use.",
+    "logo": "/images/tools/midjourney.png",
+    "category": "Image",
+    "link": "/tools/image/midjourney"
+  },
+  {
+    "id": 3,
+    "name": "DALL-E",
+    "description": "AI image generation model by OpenAI that creates images from text descriptions.",
+    "logo": "/images/tools/dalle.png",
+    "category": "Image",
+    "link": "/tools/image/dalle"
+  },
+  {
+    "id": 4,
+    "name": "Heygen",
+    "description": "Professional AI video generation platform for creating digital person videos.",
+    "logo": "/images/tools/heygen.png",
+    "category": "Video",
+    "link": "/tools/video/heygen"
+  },
+  {
+    "id": 5,
+    "name": "Notion AI",
+    "description": "AI assistant integrated in Notion to enhance writing and content organization.",
+    "logo": "/images/tools/notion.png",
+    "category": "Text & Writing",
+    "link": "/tools/text-writing/notion"
+  },
+  {
+    "id": 6,
+    "name": "CapCut",
+    "description": "AI-powered video editing tool to simplify video creation.",
+    "logo": "/images/tools/capcut.png",
+    "category": "Video",
+    "link": "/tools/video/capcut"
+  }
+]

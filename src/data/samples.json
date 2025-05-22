@@ -1,0 +1,23 @@
+{
+  "samples": [
+    {
+      "id": "course1",
+      "name": "Introduction to AI",
+      "lessons": [
+        {
+          "id": "lesson1",
+          "title": "What is AI?",
+          "videos": [
+            {
+              "title": "Introduction to AI",
+              "thumbnail": "/images/learning/intro-to-ai.jpg",
+              "duration": "5:30",
+              "youtubeUrl": "https://youtu.be/example1",
+              "description": "Learn the basics of Artificial Intelligence."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

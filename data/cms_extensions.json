@@ -1,0 +1,68 @@
+{
+  "content_types": {
+    "blog_post": {
+      "fields": {
+        "core": [
+          {"name": "title", "type": "string", "required": true},
+          {"name": "content", "type": "markdown", "required": true},
+          {"name": "excerpt", "type": "string", "required": true}
+        ],
+        "seo": [
+          {"name": "meta_title", "type": "string", "max_length": 65},
+          {"name": "meta_description", "type": "string", "max_length": 160},
+          {"name": "slug", "type": "string", "pattern": "^[a-z0-9-]+$"}
+        ],
+        "media": [
+          {"name": "featured_image", "type": "image", "formats": ["jpg", "webp"]},
+          {"name": "video_embed", "type": "url", "required": false}
+        ],
+        "taxonomy": [
+          {"name": "categories", "type": "array", "options": ["AI Models", "Developer Tools", "Industry Trends"]},
+          {"name": "tags", "type": "array", "max_items": 10}
+        ]
+      },
+      "workflows": {
+        "draft": ["edit", "preview"],
+        "review": ["approve", "request_changes"],
+        "published": ["update", "archive"]
+      }
+    }
+  },
+  "editor_features": {
+    "markdown": {
+      "extensions": ["tables", "fenced_code", "footnotes"],
+      "shortcodes": ["video", "cta", "tooltip"]
+    },
+    "media": {
+      "image_editor": true,
+      "video_thumbnails": true,
+      "asset_library": true
+    },
+    "collaboration": {
+      "multi_author": true,
+      "comments": true,
+      "versioning": true
+    }
+  },
+  "integrations": {
+    "seo_tools": {
+      "google_analytics": true,
+      "search_console": true,
+      "keyword_research": true
+    },
+    "social": {
+      "auto_post": ["twitter", "linkedin"],
+      "embed_tools": true
+    }
+  },
+  "performance": {
+    "previews": {
+      "instant": true,
+      "devices": ["desktop", "tablet", "mobile"]
+    },
+    "search": {
+      "indexing": "realtime",
+      "filters": ["category", "tags", "date"]
+    }
+  }
+}

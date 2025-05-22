@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "The BROKE Principal: The AI Secret You've Never Heard Of",
+    "description": "Discover the secrets of AI thinking and master the BROKE principle to improve your AI interaction efficiency.",
+    "thumbnail": "/images/videos/broke-principal.png",
+    "link": "/academy/broke-model/the-broke-principal"
+  },
+  {
+    "id": 2,
+    "title": "Digital Person: Meet Your AI Doppelgänger",
+    "description": "Explore digital person technology and learn how to create your AI twin.",
+    "thumbnail": "/images/videos/digital-person.png",
+    "link": "/academy/digital-person/meet-your-ai-doppelganger"
+  },
+  {
+    "id": 3,
+    "title": "How to Use ChatGPT for Content Creation",
+    "description": "A step-by-step guide to using ChatGPT for writing articles, code, and more. Includes hands-on demo.",
+    "thumbnail": "/images/videos/chatgpt-content.png",
+    "link": "/academy/chatgpt/how-to-use-chatgpt-for-content-creation"
+  }
+]

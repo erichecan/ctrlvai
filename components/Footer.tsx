@@ -12,50 +12,50 @@ const AppFooter = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-4">关于 ctrlvAI</h3>
+            <h3 className="text-lg font-bold mb-4">About ctrlvAI</h3>
             <p className="text-gray-600 mb-4">
-              ctrlvAI 是您的一站式 AI 学习与工具导航平台，提供 AI 工具推荐、使用教程和行业趋势分析，助您快速掌握 AI 技能。
+              ctrlvAI is your one-stop AI learning and tool navigation platform, offering AI tool recommendations, tutorials, and industry trend analysis to help you quickly master AI skills.
             </p>
           </div>
           
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-4">快速链接</h3>
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-600 hover:text-purple-700">首页</Link></li>
-              <li><Link href="/blog" className="text-gray-600 hover:text-purple-700">博客</Link></li>
-              <li><Link href="/academy" className="text-gray-600 hover:text-purple-700">AI学习中心</Link></li>
-              <li><Link href="/tools" className="text-gray-600 hover:text-purple-700">AI工具导航</Link></li>
+              <li><Link href="/" className="text-gray-600 hover:text-purple-700">Home</Link></li>
+              <li><Link href="/blog" className="text-gray-600 hover:text-purple-700">Blog</Link></li>
+              <li><Link href="/academy" className="text-gray-600 hover:text-purple-700">AI Academy</Link></li>
+              <li><Link href="/tools" className="text-gray-600 hover:text-purple-700">AI Tools</Link></li>
             </ul>
           </div>
           
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-4">热门分类</h3>
+            <h3 className="text-lg font-bold mb-4">Popular Categories</h3>
             <ul className="space-y-2">
-              <li><Link href="/blog/category/ai-tools" className="text-gray-600 hover:text-purple-700">AI 工具推荐</Link></li>
-              <li><Link href="/blog/category/ai-tips" className="text-gray-600 hover:text-purple-700">AI 使用技巧</Link></li>
-              <li><Link href="/blog/category/ai-trends" className="text-gray-600 hover:text-purple-700">AI 行业趋势</Link></li>
-              <li><Link href="/blog/category/ai-cases" className="text-gray-600 hover:text-purple-700">AI 案例研究</Link></li>
+              <li><Link href="/blog/category/ai-tools" className="text-gray-600 hover:text-purple-700">AI Tool Recommendations</Link></li>
+              <li><Link href="/blog/category/ai-tips" className="text-gray-600 hover:text-purple-700">AI Tips</Link></li>
+              <li><Link href="/blog/category/ai-trends" className="text-gray-600 hover:text-purple-700">AI Trends</Link></li>
+              <li><Link href="/blog/category/ai-cases" className="text-gray-600 hover:text-purple-700">AI Case Studies</Link></li>
             </ul>
           </div>
           
           <div className="col-span-1">
-            <h3 className="text-lg font-bold mb-4">联系我们</h3>
+            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2">
-              <li><Link href="/contact" className="text-gray-600 hover:text-purple-700">联系方式</Link></li>
-              <li><Link href="/about" className="text-gray-600 hover:text-purple-700">关于我们</Link></li>
+              <li><Link href="/contact" className="text-gray-600 hover:text-purple-700">Contact</Link></li>
+              <li><Link href="/about" className="text-gray-600 hover:text-purple-700">About Us</Link></li>
             </ul>
             <div className="mt-4">
               <form className="flex flex-col space-y-2">
                 <input 
                   type="email" 
-                  placeholder="您的邮箱" 
+                  placeholder="Your email" 
                   className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 />
                 <button 
                   type="submit" 
                   className="btn-primary"
                 >
-                  订阅更新
+                  Subscribe Updates
                 </button>
               </form>
             </div>
@@ -65,7 +65,7 @@ const AppFooter = () => {
         <Divider className="my-6" />
         
         <div className="text-center text-gray-600">
-          <p>© {currentYear} ctrlvAI. 保留所有权利。</p>
+          <p>© {currentYear} ctrlvAI. All rights reserved.</p>
         </div>
       </div>
     </Footer>

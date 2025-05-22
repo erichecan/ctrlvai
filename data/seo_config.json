@@ -1,0 +1,55 @@
+{
+  "site_metadata": {
+    "title": "AI Tools Hub - Expert Reviews & Guides",
+    "description": "Comprehensive resource for AI tools, technologies and best practices. Stay updated with the latest in artificial intelligence.",
+    "keywords": "AI tools, machine learning, generative AI, technology reviews",
+    "author": "AI Insights Team",
+    "site_url": "https://aitoolshub.example.com",
+    "image": "/images/site-preview.jpg"
+  },
+  "default_meta": {
+    "og_type": "article",
+    "twitter_card": "summary_large_image",
+    "canonical": true,
+    "structured_data": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI Tools Hub",
+      "url": "https://aitoolshub.example.com"
+    }
+  },
+  "content_rules": {
+    "title_length": {
+      "min": 40,
+      "max": 65
+    },
+    "meta_description": {
+      "min": 120,
+      "max": 160
+    },
+    "heading_structure": {
+      "h1": 1,
+      "h2": "3-5",
+      "h3": "as_needed"
+    },
+    "image_requirements": {
+      "alt_text": "required",
+      "compression": "webp",
+      "max_size": "1200px"
+    },
+    "semantic_markup": {
+      "faq": "recommended",
+      "howto": "recommended",
+      "breadcrumb": "required"
+    }
+  },
+  "performance": {
+    "lazy_loading": true,
+    "cache_ttl": 3600,
+    "cdn_enabled": true
+  },
+  "social_profiles": [
+    "https://twitter.com/aitoolshub",
+    "https://linkedin.com/company/aitoolshub"
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "sections": {
+    "learningcenter_z9GLFq": {
+      "type": "learningcenter",
+      "blocks": {
+        "card_0001": {
+          "type": "card",
+          "settings": {
+            "title": "The BROKE Principal: The AI Secret You’ve Never Heard Of",
+            "desc": "What if we told you there’s a secret behind how AI thinks? Meet the BROKE Principal—the ultimate cheat code to understanding artificial intelligence. This isn’t just theory; it’s the key to mastering AI interactions. Watch now and unlock the mystery!",
+            "youtube_url": "https://youtu.be/NSkGO8tftwg"
+          }
+        },
+        "card_0002": {
+          "type": "card",
+          "settings": {
+            "title": "Cracking the BROKE Model: How AI Really Thinks",
+            "desc": "AI isn’t magic—it’s a system, and the BROKE Model is your roadmap. Learn how to decode AI’s logic, predict its responses, and even outsmart it. This video will blow your mind and change how you see AI forever. Don’t miss it!",
+            "youtube_url": "https://youtu.be/QBAryRdmE34"
+          }
+        },
+        "card_0003": {
+          "type": "card",
+          "settings": {
+            "title": "HACK ChatGPT with the BROKE Model: Get EXACTLY What You Want",
+            "desc": "Tired of getting vague or useless answers from ChatGPT? The BROKE Model is your ultimate hack. Learn how to craft prompts like a pro and make ChatGPT work for YOU. This is the secret sauce you’ve been waiting for—don’t skip this one!",
+            "youtube_url": "https://youtu.be/BAn3Atn2IoM"
+          }
+        },
+        "card_0004": {
+          "type": "card",
+          "settings": {
+            "title": "Digital Person: Meet Your AI Doppelgänger",
+            "desc": "What if you could create an AI version of yourself that talks, thinks, and acts like you? Welcome to the world of digital persons. This isn’t sci-fi—it’s happening now. Watch this video to meet the future… and maybe even your AI twin.",
+            "youtube_url": "https://youtu.be/Jf6PpxFnot4"
+          }
+        },
+        "card_0005": {
+          "type": "card",
+          "settings": {
+            "title": "Build a Digital Person: Create Your AI Clone in Minutes",
+            "desc": "Ever dreamed of having your own AI clone? In this video, we’ll show you step-by-step how to create a digital person that can talk, think, and even act for you. It’s easier than you think. Ready to meet your AI self? Let’s go!",
+            "youtube_url": "https://youtu.be/vH0kUWbzTL8"
+          }
+        },
+        "card_0006": {
+          "type": "card",
+          "settings": {
+            "title": "Make a Video with Your Digital Person: No Camera, No Problem!",
+            "desc": "Forget expensive cameras and studios—your digital person can now make videos for you! Learn how to turn scripts into professional videos in just a few clicks. This is the future of content creation, and you’re about to master it.",
+            "youtube_url": "https://youtu.be/k22lq2tLaho"
+          }
+        },
+        "card_0007": {
+          "type": "card",
+          "settings": {
+            "title": "ChatGPT + Heygen = Mind-Blowing AI Videos",
+            "desc": "What happens when you combine ChatGPT’s genius with Heygen’s video magic? Absolute brilliance. Learn how to create jaw-dropping AI videos with this unstoppable duo. This is the secret weapon every creator needs—watch now!",
+            "youtube_url": "https://youtu.be/BYnaimYGvTc"
+          }
+        },
+        "card_0008": {
+          "type": "card",
+          "settings": {
+            "title": "AI Marketing Hack: Create Viral Videos in Minutes",
+            "desc": "Want to create marketing videos that go viral? AI has your back. Learn how to use ChatGPT and digital persons to make videos that grab attention, tell your story, and drive results. This is marketing in the AI age—get started now!",
+            "youtube_url": "https://youtu.be/4pcJt64mIbo"
+          }
+        },
+        "card_0009": {
+          "type": "card",
+          "settings": {
+            "title": "Make Your Digital Person Speak ANY Language (Yes, Really!)",
+            "desc": "Break language barriers with AI! Your digital person can now speak any language fluently, opening doors to a global audience. Learn how to make multilingual videos effortlessly. The world is waiting—are you ready to go global?",
+            "youtube_url": "https://youtu.be/Mh0Y5KnUg4A"
+          }
+        }
+      },
+      "block_order": [
+        "card_0001",
+        "card_0002",
+        "card_0003",
+        "card_0004",
+        "card_0005",
+        "card_0006",
+        "card_0007",
+        "card_0008",
+        "card_0009"
+      ],
+      "name": "learningcenter",
+      "settings": {
+        "section_title": "CtrlV AI  Academy",
+        "section_desc": "CtrlV AI is your one-stop destination for mastering AI and discovering the best tools to boost your productivity. Explore our AI Academy for expert-led tutorials and insights, and visit the AI Toolbox to find, compare, and access the most powerful AI tools on the web. Whether you're a beginner or an advanced user, CtrlV AI empowers you to unlock the full potential of artificial intelligence."
+      }
+    }
+  },
+  "order": [
+    "learningcenter_z9GLFq"
+  ]
+}
+{% schema %}
+{
+  "name": "learningcenter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "学习中心主标题",
+      "default": "AI123 学习中心"
+    },
+    {
+      "type": "textarea",
+      "id": "section_desc",
+      "label": "学习中心简介",
+      "default": "欢迎来到 AI123 工具学习中心，帮助你高效掌握 AI 工具的使用方法。"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "学习卡片",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "卡片标题"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "卡片简介"
+        },
+        {
+          "type": "url",
+          "id": "youtube_url",
+          "label": "YouTube 视频链接"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "learningcenter"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="ai123-learning-center" style="background: #f7fafc; padding: 32px 0;">
+  <!-- Modal Player -->
+  <div id="videoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center;">
+    <div style="position: relative; width: 1200px; height: 800px; background: #000; border-radius: 12px; padding: 20px;">
+      <button onclick="closeVideoModal()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">✕</button>
+      <div style="position: relative; width: 100%; height: 100%; overflow: hidden;">
+        <iframe
+          id="modalVideo"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 8px;"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <h2 style="text-align:center; margin-bottom: 16px;">{{ section.settings.section_title }}</h2>
+    <p style="text-align:center; margin-bottom: 32px; font-size: 18px;">{{ section.settings.section_desc }}</p>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
+      {% for block in section.blocks %}
+        <div class="video-card" style="background: #fff; border-radius: 12px; box-shadow: 0 2px 8px #f0f1f2; width: 340px; padding: 20px 20px 28px 20px; display: flex; flex-direction: column; align-items: center; cursor: pointer; border: 2px solid transparent; transition: border 0.2s;" onclick="openVideoModal('{{ block.settings.youtube_url | replace: 'youtu.be/', 'www.youtube.com/embed/' }}', '{{ block.settings.title }}')" onmouseover="this.style.borderColor='#d1c4f6'" onmouseout="this.style.borderColor='transparent'">
+          <div style="width: 100%; margin-bottom: 12px; background: #000; border-radius: 8px; position: relative;">
+            <!-- YouTube官方1:1复刻播放按钮 -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; z-index: 2;">
+              <svg viewBox='0 0 68 48' width='68' height='48' style='display: block;'>
+                <g>
+                  <path d='M66.52 7.02a8.27 8.27 0 0 0-5.82-5.82C56.36 0 34 0 34 0S11.64 0 7.3 1.2A8.27 8.27 0 0 0 1.48 7.02C0 11.36 0 24 0 24s0 12.64 1.48 16.98a8.27 8.27 0 0 0 5.82 5.82C11.64 48 34 48 34 48s22.36 0 26.7-1.2a8.27 8.27 0 0 0 5.82-5.82C68 36.64 68 24 68 24s0-12.64-1.48-16.98z' fill='#f00'/>
+                  <path d='M45 24 27 14v20z' fill='#fff'/>
+                </g>
+              </svg>
+            </div>
+            <!-- 右下角"Watch on YouTube"按钮 -->
+            <a href="{{ block.settings.youtube_url }}" target="_blank" rel="noopener" style="position: absolute; bottom: 10px; right: 10px; z-index: 3; text-decoration: none;">
+              <div style="display: flex; align-items: center; background: rgba(33,37,41,0.8); color: #fff; border-radius: 18px; padding: 0 16px 0 10px; height: 36px; font-size: 15px; font-weight: 500; box-shadow: 0 1.5px 3px rgba(0,0,0,0.2);">
+                <svg viewBox='0 0 24 24' width='22' height='22' style='margin-right: 4px; display: block;' fill='#fff' xmlns='http://www.w3.org/2000/svg'><g><path d='M21.8 8.001a2.75 2.75 0 0 0-1.93-1.94C18.2 5.5 12 5.5 12 5.5s-6.2 0-7.87.56A2.75 2.75 0 0 0 2.2 8.001 28.6 28.6 0 0 0 1.5 12a28.6 28.6 0 0 0 .7 3.999 2.75 2.75 0 0 0 1.93 1.94C5.8 18.5 12 18.5 12 18.5s6.2 0 7.87-.56a2.75 2.75 0 0 0 1.93-1.94A28.6 28.6 0 0 0 22.5 12a28.6 28.6 0 0 0-.7-3.999zM10 15.5v-7l6 3.5-6 3.5z'></path></g></svg>
+                <span style="color: #fff; font-weight: 500;">Watch on YouTube</span>
+              </div>
+            </a>
+            <img
+              src="{{ block.settings.youtube_url | replace: 'youtu.be/', 'img.youtube.com/vi/' | replace: 'www.youtube.com/watch?v=', 'img.youtube.com/vi/' | append: '/maxresdefault.jpg' }}"
+              alt="{{ block.settings.title }}"
+              style="width: 100%; height: 160px; object-fit: cover; border-radius: 8px;"
+            />
+          </div>
+          <h3 style="font-size: 20px; margin: 8px 0 4px 0;">{{ block.settings.title }}</h3>
+          <p style="color: #888; font-size: 15px;">{{ block.settings.desc }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+function openVideoModal(videoUrl, title) {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.src = videoUrl;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.src = '';
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside the video
+document.getElementById('videoModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeVideoModal();
+  }
+});
+
+// Close modal when pressing Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeVideoModal();
+  }
+});
+</script>
