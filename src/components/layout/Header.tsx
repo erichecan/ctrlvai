@@ -23,7 +23,7 @@ const HeaderComponent: React.FC = () => {
   return (
     <Header 
       className="bg-transparent shadow-none p-0 h-24 flex items-center justify-between"
-      style={{ background: 'transparent !important', borderBottom: 'none' }}
+      style={{ background: 'transparent !important', borderBottom: 'none !important' }}
     >
       <div className="container mx-auto px-4 flex items-center justify-between w-full">
         <div className="flex items-center flex-shrink-0" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
