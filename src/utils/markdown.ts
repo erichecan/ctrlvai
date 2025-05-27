@@ -52,6 +52,10 @@ export async function getRelatedPosts(currentPost: BlogPost, limit = 3): Promise
 }
 
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
+  if (typeof window !== 'undefined') {
+    throw new Error('getAllBlogPosts can only be called on the server side.');
+  }
+
   // 检查缓存
   const now = Date.now();
   if (cache.posts && now - cache.lastUpdated < cache.ttl) {
@@ -59,46 +63,23 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
   }
 
   try {
-    // 获取blogs目录下的所有文件名
     const fileNames = await fs.promises.readdir(blogsDirectory);
-    
-    // 并行获取每个文件的内容并解析
     const allPostsData = await Promise.all(fileNames.map(async (fileName) => {
-      // 移除 ".md" 获取文件名作为id
-      const slug = fileName.replace(/\.md$/, '');
-
-      // 读取markdown文件内容
       const fullPath = path.join(blogsDirectory, fileName);
       const fileContents = await fs.promises.readFile(fullPath, 'utf8');
-
-      // 使用gray-matter解析markdown文件的元数据部分
       const matterResult = matter(fileContents);
-
-      // 合并数据与内容
       return {
-        slug,
+        slug: fileName.replace(/\.md$/, ''),
         content: matterResult.content,
         ...(matterResult.data as Omit<BlogPost, 'content'>),
-      } as BlogPost;
+      };
     }));
-
-    // 按日期排序并过滤草稿
-    const sortedPosts = allPostsData.sort((a, b) => {
-      if (a.date < b.date) {
-        return 1;
-      } else {
-        return -1;
-      }
-    }).filter(post => !post.draft);
-
-    // 更新缓存
-    cache.posts = sortedPosts;
-    cache.lastUpdated = now;
-
-    return sortedPosts;
+    cache.posts = allPostsData;
+    cache.lastUpdated = Date.now();
+    return allPostsData;
   } catch (error) {
-    console.error('Error getting all blog posts:', error);
-    throw error;
+    console.error('Error reading blog posts:', error);
+    return [];
   }
 }
 

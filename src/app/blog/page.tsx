@@ -1,17 +1,12 @@
-import { Metadata } from 'next';
+'use client';
 import MainLayout from '@/components/layout/MainLayout';
-import { getAllBlogPosts, getAllCategories, getAllTags } from '@/utils/markdown';
+import { useEffect, useState } from 'react';
 import BlogCard from '@/components/blog/BlogCard';
 import { Pagination, Select, Input, Tag, Divider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Typography } from 'antd';
-
-export const metadata: Metadata = {
-  title: 'Blog - CtrlV AI',
-  description: 'Read the latest articles about AI tools, resources, trends, and usage tips.',
-  keywords: 'AI blog, artificial intelligence articles, AI tools tips, AI trends',
-};
+import { BlogPost } from '@/types';
 
 // Helper function to safely get string from searchParams
 function getStringParam(param: string | string[] | undefined): string {
@@ -19,31 +14,46 @@ function getStringParam(param: string | string[] | undefined): string {
   return Array.isArray(param) ? param[0] : param;
 }
 
-export default async function BlogPage({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
-  // Get all blog posts
-  const allPosts = await getAllBlogPosts();
-  // Get all categories and tags
-  const categories = await getAllCategories();
-  const tags = await getAllTags();
+export default function BlogPage({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
+  const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
 
-  // Parse query parameters
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const postsResponse = await fetch('/api/blogs');
+        const posts: BlogPost[] = await postsResponse.json();
+        setAllPosts(posts);
+
+        // Mock categories and tags fetching for now
+        setCategories(['Category1', 'Category2']);
+        setTags(['Tag1', 'Tag2']);
+      } catch (error) {
+        console.error('Failed to fetch data:', error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   const currentPage = searchParams.page ? parseInt(getStringParam(searchParams.page)) : 1;
   const selectedCategory = getStringParam(searchParams.category);
   const selectedTag = getStringParam(searchParams.tag);
-  const searchQuery = getStringParam(searchParams.q);
+  const queryParam = getStringParam(searchParams.q);
 
   // Filter posts based on query parameters
   let filteredPosts = allPosts;
 
   if (selectedCategory) {
-    filteredPosts = filteredPosts.filter((post: any) => post.category === selectedCategory);
+    filteredPosts = filteredPosts.filter((post) => post.category === selectedCategory);
   }
   if (selectedTag) {
-    filteredPosts = filteredPosts.filter((post: any) => post.tags.includes(selectedTag));
+    filteredPosts = filteredPosts.filter((post) => post.tags.includes(selectedTag));
   }
-  if (searchQuery) {
-    const query = searchQuery.toLowerCase();
-    filteredPosts = filteredPosts.filter((post: any) =>
+  if (queryParam) {
+    const query = queryParam.toLowerCase();
+    filteredPosts = filteredPosts.filter((post) =>
       post.title.toLowerCase().includes(query) ||
       post.excerpt.toLowerCase().includes(query) ||
       post.content.toLowerCase().includes(query)
@@ -82,7 +92,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
               placeholder="Search articles..." 
               prefix={<SearchOutlined />} 
               size="large"
-              defaultValue={searchQuery}
+              defaultValue={queryParam}
               onChange={(e) => {
                 // In a real app, this would use client-side routing
                 const url = new URL(window.location.href);
@@ -140,7 +150,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
       </section>
       
       {/* Active Filters */}
-      {(selectedCategory || selectedTag || searchQuery) && (
+      {(selectedCategory || selectedTag || queryParam) && (
         <section className="mb-8">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-gray-600">Active filters:</span>
@@ -172,7 +182,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
               </Tag>
             )}
             
-            {searchQuery && (
+            {queryParam && (
               <Tag 
                 closable
                 onClose={() => {
@@ -181,7 +191,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
                   window.history.pushState({}, '', url);
                 }}
               >
-                Search: {searchQuery}
+                Search: {queryParam}
               </Tag>
             )}
             
