@@ -1,5 +1,4 @@
 'use client';
-import MainLayout from '@/components/layout/MainLayout';
 import { useEffect, useState } from 'react';
 import BlogCard from '@/components/blog/BlogCard';
 import { Pagination, Select, Input, Tag, Divider } from 'antd';
@@ -7,14 +6,19 @@ import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Typography } from 'antd';
 import { BlogPost } from '@/types';
+import { useSearchParams } from 'next/navigation';
 
 // Helper function to safely get string from searchParams
 function getStringParam(param: string | string[] | undefined): string {
-  if (!param) return '';
+  if (!param) {
+    return '';
+  }
   return Array.isArray(param) ? param[0] : param;
 }
 
-export default function BlogPage({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
+export default function BlogPage() {
+  const searchParams = useSearchParams();
+
   const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
@@ -37,25 +41,29 @@ export default function BlogPage({ searchParams }: { searchParams: Record<string
     fetchData();
   }, []);
 
-  const currentPage = searchParams.page ? parseInt(getStringParam(searchParams.page)) : 1;
-  const selectedCategory = getStringParam(searchParams.category);
-  const selectedTag = getStringParam(searchParams.tag);
-  const queryParam = getStringParam(searchParams.q);
+  if (!searchParams) {
+    return <div>Error: Unable to fetch search parameters.</div>;
+  }
+
+  const currentPage = searchParams.get('page') ? parseInt(searchParams.get('page') || '1') : 1;
+  const selectedCategory = searchParams.get('category') || '';
+  const selectedTag = searchParams.get('tag') || '';
+  const queryParam = searchParams.get('q') || '';
 
   // Filter posts based on query parameters
-  let filteredPosts = allPosts;
+  let filteredPosts: BlogPost[] = allPosts;
 
   if (selectedCategory) {
-    filteredPosts = filteredPosts.filter((post) => post.category === selectedCategory);
+    filteredPosts = filteredPosts.filter((post: BlogPost) => post.category === selectedCategory);
   }
   if (selectedTag) {
-    filteredPosts = filteredPosts.filter((post) => post.tags.includes(selectedTag));
+    filteredPosts = filteredPosts.filter((post: BlogPost) => post.tags.includes(selectedTag));
   }
   if (queryParam) {
     const query = queryParam.toLowerCase();
-    filteredPosts = filteredPosts.filter((post) =>
+    filteredPosts = filteredPosts.filter((post: BlogPost) =>
       post.title.toLowerCase().includes(query) ||
-      post.excerpt.toLowerCase().includes(query) ||
+      (post.excerpt && post.excerpt.toLowerCase().includes(query)) ||
       post.content.toLowerCase().includes(query)
     );
   }
@@ -64,14 +72,13 @@ export default function BlogPage({ searchParams }: { searchParams: Record<string
   const postsPerPage = 9;
   const totalPosts = filteredPosts.length;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
-  // Get current page posts
   const currentPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
 
   return (
-    <MainLayout>
+    <>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
         <div className="container mx-auto">
@@ -271,6 +278,6 @@ export default function BlogPage({ searchParams }: { searchParams: Record<string
           ))}
         </div>
       </section>
-    </MainLayout>
+    </>
   );
 }
