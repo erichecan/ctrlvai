@@ -7,9 +7,6 @@ import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Typography } from 'antd';
 
-const { Title, Paragraph } = Typography;
-const { Option } = Select;
-
 export const metadata: Metadata = {
   title: 'Blog - CtrlV AI',
   description: 'Read the latest articles about AI tools, resources, trends, and usage tips.',
@@ -68,12 +65,12 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
         <div className="container mx-auto">
-          <Title level={1} className="text-white text-center mb-4">
+          <Typography.Title level={1} className="text-white text-center mb-4">
             AI Blog
-          </Title>
-          <Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
+          </Typography.Title>
+          <Typography.Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
             Discover the latest insights, tips, and trends in the world of AI tools and technologies.
-          </Paragraph>
+          </Typography.Paragraph>
         </div>
       </section>
       
@@ -114,13 +111,8 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
                 url.searchParams.delete('page');
                 window.history.pushState({}, '', url);
               }}
-            >
-              {categories.map((category) => (
-                <Option key={category} value={category}>
-                  {category}
-                </Option>
-              ))}
-            </Select>
+              options={categories.map((category) => ({ label: category, value: category }))}
+            />
           </div>
           
           <div>
@@ -141,13 +133,8 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
                 url.searchParams.delete('page');
                 window.history.pushState({}, '', url);
               }}
-            >
-              {tags.map((tag) => (
-                <Option key={tag} value={tag}>
-                  {tag}
-                </Option>
-              ))}
-            </Select>
+              options={tags.map((tag) => ({ label: tag, value: tag }))}
+            />
           </div>
         </div>
       </section>
@@ -229,10 +216,10 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
           </div>
         ) : (
           <div className="text-center py-12">
-            <Title level={3}>No articles found</Title>
-            <Paragraph className="text-gray-600">
+            <Typography.Title level={3}>No articles found</Typography.Title>
+            <Typography.Paragraph className="text-gray-600">
               Try adjusting your filters or search query.
-            </Paragraph>
+            </Typography.Paragraph>
           </div>
         )}
       </section>
@@ -258,7 +245,7 @@ export default async function BlogPage({ searchParams }: { searchParams: Record<
       {/* Popular Tags Section */}
       <section className="mb-8">
         <Divider>
-          <Title level={4}>Popular Tags</Title>
+          <Typography.Title level={4}>Popular Tags</Typography.Title>
         </Divider>
         
         <div className="flex flex-wrap justify-center gap-2 mt-4">
