@@ -59,41 +59,20 @@ export default async function Home() {
             <Button type="link">View All</Button>
           </Link>
         </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {latestPosts.map((post) => (
-            <div key={post.slug} className="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-              {post.image && (
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
-              )}
-              <div className="p-4">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-lg font-semibold">{post.title}</h3>
-                  {post.category && (
-                    <span className="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">
-                      {post.category}
-                    </span>
-                  )}
-                </div>
-                <p className="text-gray-600 mb-3">{post.excerpt}</p>
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-gray-500">
-                    {post.date ? new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    }) : ''}
-                  </span>
-                  {post.author && (
-                    <span className="text-gray-500">By {post.author}</span>
-                  )}
-                </div>
-              </div>
-            </div>
+          {latestPosts.map((post, idx) => (
+            <BlogCard
+              key={post.slug || idx}
+              id={idx}
+              title={post.title}
+              excerpt={post.excerpt || ''}
+              date={post.date}
+              category={post.category || ''}
+              tags={post.tags || []}
+              slug={post.slug || ''}
+              image={post.coverImage || ''}
+              author={post.author}
+            />
           ))}
         </div>
       </section>
