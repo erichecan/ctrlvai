@@ -3,6 +3,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const { Footer } = Layout;
 
@@ -12,7 +13,9 @@ const FooterComponent: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">CtrlV AI</h3>
+            <div className="flex items-center flex-shrink-0 mb-4" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
+              <Image src="/images/logo.png" alt="CtrlV AI Logo" width={178} height={72} style={{ width: 178, height: 72, minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72, display: 'block' }} />
+            </div>
             <p className="text-gray-300">
               Your one-stop destination for mastering AI and discovering the best tools to boost your productivity.
             </p>

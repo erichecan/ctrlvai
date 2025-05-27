@@ -1,16 +1,15 @@
 'use client';
 
 import React from 'react';
-import { Layout, Menu, Button, Dropdown } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
+import { Layout } from 'antd';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 const { Header } = Layout;
 
 const HeaderComponent: React.FC = () => {
   const pathname = usePathname();
-  const [menuVisible, setMenuVisible] = React.useState(false);
 
   const menuItems = [
     { key: '/', label: 'Home' },
@@ -22,54 +21,33 @@ const HeaderComponent: React.FC = () => {
   ];
 
   return (
-    <Header className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] p-0 h-16 flex items-center justify-between">
+    <Header 
+      className="bg-transparent shadow-none p-0 h-24 flex items-center justify-between"
+      style={{ background: 'transparent !important', borderBottom: 'none' }}
+    >
       <div className="container mx-auto px-4 flex items-center justify-between w-full">
-        <div className="flex items-center">
-          <Link href="/" className="text-white text-xl font-bold">
-            CtrlV AI
+        <div className="flex items-center flex-shrink-0" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
+          <Link href="/">
+            <img
+              src="/images/logo.png"
+              alt="CtrlV AI Logo"
+              width={178}
+              height={72}
+              style={{ width: 178, height: 72, minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72, display: 'block' }}
+            />
           </Link>
         </div>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex">
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            selectedKeys={[pathname]}
-            style={{ background: 'transparent', borderBottom: 'none' }}
-            className="flex items-center"
-            items={menuItems.map((item) => ({
-              key: item.key,
-              label: <Link href={item.key}>{item.label}</Link>,
-            }))}
-          />
-        </div>
-
-        {/* Mobile Navigation */}
-        <div className="md:hidden">
-          <Dropdown
-            menu={{
-              items: menuItems.map((item) => ({
-                key: item.key,
-                label: (
-                  <Link href={item.key}>
-                    {item.label}
-                  </Link>
-                ),
-              })),
-            }}
-            placement="bottomRight"
-            trigger={['click']}
-            open={menuVisible}
-            onOpenChange={setMenuVisible}
-          >
-            <Button
-              type="text"
-              icon={<MenuOutlined style={{ color: 'white', fontSize: '20px' }} />}
-              onClick={() => setMenuVisible(!menuVisible)}
-            />
-          </Dropdown>
-        </div>
+        <nav className="flex gap-8 items-center">
+          {menuItems.map((item) => (
+            <Link
+              key={item.key}
+              href={item.key}
+              className={`text-base font-medium px-2 py-1 rounded transition-colors duration-150 ${pathname === item.key ? 'text-blue-600' : 'text-gray-700'} hover:text-blue-600`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </Header>
   );
