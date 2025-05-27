@@ -1,11 +1,11 @@
 'use client';
 
 import React from 'react';
-import { Button, Typography } from 'antd';
+import { Button } from 'antd';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
-
-const { Title, Paragraph } = Typography;
+import Title from 'antd/es/typography/Title';
+import Paragraph from 'antd/es/typography/Paragraph';
 
 export default function NotFound() {
   return (

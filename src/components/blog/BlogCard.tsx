@@ -43,8 +43,8 @@ const BlogCard: React.FC<BlogCardProps> = ({
       cover={
         <div className="relative h-48 overflow-hidden">
           <Image 
-            src={image}
-            alt={title}
+            src={image && image.trim() !== '' ? image : '/images/blog/default.png'}
+            alt={title || 'Blog image'}
             width={400}
             height={225}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

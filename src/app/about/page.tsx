@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
-import { Typography, Card, Row, Col } from 'antd';
-
-const { Title, Paragraph } = Typography;
+import { Card, Row, Col } from 'antd';
+import Title from 'antd/es/typography/Title';
+import Paragraph from 'antd/es/typography/Paragraph';
 
 export const metadata: Metadata = {
   title: 'About Us - CtrlV AI',

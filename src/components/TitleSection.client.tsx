@@ -1,8 +1,7 @@
 'use client';
 
-import { Typography } from 'antd';
-
-const { Title, Paragraph } = Typography;
+import Title from 'antd/es/typography/Title';
+import Paragraph from 'antd/es/typography/Paragraph';
 
 export default function TitleSection() {
   return (

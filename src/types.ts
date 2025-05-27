@@ -30,3 +30,13 @@ export interface BlogPostResponse {
   post: BlogPost;
   relatedPosts: BlogPostMeta[];
 }
+
+// 课程视频基础类型
+export interface LearningVideo {
+  id: string;
+  title: string;
+  desc: string;
+  youtube_url: string;
+  tags?: string[];
+  category?: string;
+}
