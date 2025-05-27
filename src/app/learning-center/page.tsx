@@ -8,6 +8,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Typography, Input } from 'antd';
 import { metadata } from './metadata';
+import { useRouter } from 'next/navigation';
 
 const { Title, Paragraph } = Typography;
 const { Option } = Select;
@@ -17,6 +18,8 @@ export default function LearningCenterPage({
 }: {
   searchParams: { page?: string; tag?: string; q?: string };
 }) {
+  const router = useRouter();
+
   // Get all videos
   const allVideos = getAllVideos();
   
@@ -192,10 +195,9 @@ export default function LearningCenterPage({
             total={totalVideos}
             pageSize={videosPerPage}
             onChange={(page) => {
-              // In a real app, this would use client-side routing
-              const url = new URL(window.location.href);
-              url.searchParams.set('page', page.toString());
-              window.history.pushState({}, '', url);
+              const params = new URLSearchParams(window.location.search);
+              params.set('page', page.toString());
+              router.push(`/learning-center?${params.toString()}`);
             }}
             showSizeChanger={false}
           />
