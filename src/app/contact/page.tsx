@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
-import { Typography, Form, Input, Button, Card, Row, Col } from 'antd';
+import { Form, Input, Button, Card, Row, Col } from 'antd';
+import Title from 'antd/es/typography/Title';
+import Paragraph from 'antd/es/typography/Paragraph';
 
-const { Title, Paragraph } = Typography;
 const { TextArea } = Input;
 
 export const metadata: Metadata = {
