@@ -143,9 +143,11 @@ export async function getAllTags(): Promise<string[]> {
   const posts = await getAllBlogPosts();
   const tags = new Set<string>();
   posts.forEach(post => {
-    post.tags.forEach(tag => {
-      tags.add(tag);
-    });
+    if (Array.isArray(post.tags)) {
+      post.tags.forEach(tag => {
+        tags.add(tag);
+      });
+    }
   });
   return Array.from(tags);
 }
