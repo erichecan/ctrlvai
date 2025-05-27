@@ -127,41 +127,37 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
 }
 
 // 获取所有分类
-export function getAllCategories(): string[] {
-  const posts = getAllBlogPosts();
+export async function getAllCategories(): Promise<string[]> {
+  const posts = await getAllBlogPosts();
   const categories = new Set<string>();
-  
   posts.forEach(post => {
     if (post.category) {
       categories.add(post.category);
     }
   });
-  
   return Array.from(categories);
 }
 
 // 获取所有标签
-export function getAllTags(): string[] {
-  const posts = getAllBlogPosts();
+export async function getAllTags(): Promise<string[]> {
+  const posts = await getAllBlogPosts();
   const tags = new Set<string>();
-  
   posts.forEach(post => {
     post.tags.forEach(tag => {
       tags.add(tag);
     });
   });
-  
   return Array.from(tags);
 }
 
 // 根据分类获取文章
-export function getPostsByCategory(category: string): BlogPost[] {
-  const posts = getAllBlogPosts();
+export async function getPostsByCategory(category: string): Promise<BlogPost[]> {
+  const posts = await getAllBlogPosts();
   return posts.filter(post => post.category === category);
 }
 
 // 根据标签获取文章
-export function getPostsByTag(tag: string): BlogPost[] {
-  const posts = getAllBlogPosts();
+export async function getPostsByTag(tag: string): Promise<BlogPost[]> {
+  const posts = await getAllBlogPosts();
   return posts.filter(post => post.tags.includes(tag));
 }

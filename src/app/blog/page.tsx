@@ -15,55 +15,51 @@ export const metadata: Metadata = {
   keywords: 'AI blog, artificial intelligence articles, AI tools tips, AI trends',
 };
 
-export default function BlogPage({
+export default async function BlogPage({
   searchParams,
 }: {
   searchParams: { page?: string; category?: string; tag?: string; q?: string };
 }) {
   // Get all blog posts
-  const allPosts = getAllBlogPosts();
-  
+  const allPosts = await getAllBlogPosts();
   // Get all categories and tags
-  const categories = getAllCategories();
-  const tags = getAllTags();
-  
+  const categories = await getAllCategories();
+  const tags = await getAllTags();
+
   // Parse query parameters
   const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
   const selectedCategory = searchParams.category || '';
   const selectedTag = searchParams.tag || '';
   const searchQuery = searchParams.q || '';
-  
+
   // Filter posts based on query parameters
   let filteredPosts = allPosts;
-  
+
   if (selectedCategory) {
-    filteredPosts = filteredPosts.filter(post => post.category === selectedCategory);
+    filteredPosts = filteredPosts.filter((post: any) => post.category === selectedCategory);
   }
-  
   if (selectedTag) {
-    filteredPosts = filteredPosts.filter(post => post.tags.includes(selectedTag));
+    filteredPosts = filteredPosts.filter((post: any) => post.tags.includes(selectedTag));
   }
-  
   if (searchQuery) {
     const query = searchQuery.toLowerCase();
-    filteredPosts = filteredPosts.filter(post => 
-      post.title.toLowerCase().includes(query) || 
+    filteredPosts = filteredPosts.filter((post: any) =>
+      post.title.toLowerCase().includes(query) ||
       post.excerpt.toLowerCase().includes(query) ||
       post.content.toLowerCase().includes(query)
     );
   }
-  
+
   // Pagination
   const postsPerPage = 9;
   const totalPosts = filteredPosts.length;
   const totalPages = Math.ceil(totalPosts / postsPerPage);
-  
   // Get current page posts
   const currentPosts = filteredPosts.slice(
     (currentPage - 1) * postsPerPage,
     currentPage * postsPerPage
   );
-  
+
   return (
     <MainLayout>
       {/* Hero Section */}
