@@ -1,16 +1,11 @@
-import { Metadata } from 'next';
+'use client';
+
 import MainLayout from '@/components/layout/MainLayout';
-import { Form, Input, Button, Card, Row, Col } from 'antd';
-import Title from 'antd/es/typography/Title';
-import Paragraph from 'antd/es/typography/Paragraph';
+import { Typography, Input, Button, Card, Row, Col, Form } from 'antd';
+
+const { Title, Paragraph } = Typography;
 
 const { TextArea } = Input;
-
-export const metadata: Metadata = {
-  title: 'Contact Us - CtrlV AI',
-  description: 'Get in touch with the CtrlV AI team for questions, feedback, or collaboration opportunities.',
-  keywords: 'contact CtrlV AI, AI tools support, feedback, collaboration',
-};
 
 export default function ContactPage() {
   return (
