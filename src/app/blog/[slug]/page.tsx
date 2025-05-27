@@ -2,6 +2,11 @@ import { BlogPostResponse } from '@/types';
 import { getBlogPostBySlug, getRelatedPosts } from '@/utils/markdown';
 import { notFound } from 'next/navigation';
 import BlogPostWrapper from '@/app/blog/[slug]/BlogPostWrapper';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -46,7 +51,30 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </div>
         <div className="prose max-w-none">
           {post.content ? (
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <ReactMarkdown
+              children={post.content}
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={{
+                code({ node, inline, className, children, ...props }: any) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      style={dracula as any} // Explicitly cast to avoid type mismatch
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    >
+                      {String(children).replace(/\n$/, '')}
+                    </SyntaxHighlighter>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                },
+              }}
+            />
           ) : (
             <p className="text-gray-500">No content available for this post.</p>
           )}
