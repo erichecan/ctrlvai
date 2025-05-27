@@ -2,9 +2,10 @@ import { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
 import { getAllBlogPosts, getAllCategories, getAllTags } from '@/utils/markdown';
 import BlogCard from '@/components/blog/BlogCard';
-import { Pagination, Select, Typography, Input, Tag, Divider } from 'antd';
+import { Pagination, Select, Input, Tag, Divider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { Typography } from 'antd';
 
 const { Title, Paragraph } = Typography;
 const { Option } = Select;
@@ -15,11 +16,13 @@ export const metadata: Metadata = {
   keywords: 'AI blog, artificial intelligence articles, AI tools tips, AI trends',
 };
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: { page?: string; category?: string; tag?: string; q?: string };
-}) {
+// Helper function to safely get string from searchParams
+function getStringParam(param: string | string[] | undefined): string {
+  if (!param) return '';
+  return Array.isArray(param) ? param[0] : param;
+}
+
+export default async function BlogPage({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
   // Get all blog posts
   const allPosts = await getAllBlogPosts();
   // Get all categories and tags
@@ -27,10 +30,10 @@ export default async function BlogPage({
   const tags = await getAllTags();
 
   // Parse query parameters
-  const currentPage = searchParams.page ? parseInt(searchParams.page) : 1;
-  const selectedCategory = searchParams.category || '';
-  const selectedTag = searchParams.tag || '';
-  const searchQuery = searchParams.q || '';
+  const currentPage = searchParams.page ? parseInt(getStringParam(searchParams.page)) : 1;
+  const selectedCategory = getStringParam(searchParams.category);
+  const selectedTag = getStringParam(searchParams.tag);
+  const searchQuery = getStringParam(searchParams.q);
 
   // Filter posts based on query parameters
   let filteredPosts = allPosts;
@@ -211,16 +214,16 @@ export default async function BlogPage({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentPosts.map((post) => (
               <BlogCard
-                key={post.id}
-                id={post.id}
-                title={post.title}
-                excerpt={post.excerpt}
-                date={post.date}
-                category={post.category}
-                tags={post.tags}
-                slug={post.slug || `${post.id}`}
-                image={post.image}
-                author={post.author}
+                key={post.slug}
+                id={post.slug}
+                title={post.title || 'Untitled'}
+                excerpt={post.excerpt || ''}
+                date={post.date || new Date().toISOString()}
+                category={post.category || 'Uncategorized'}
+                tags={post.tags || []}
+                slug={post.slug}
+                image={post.coverImage || '/images/blog/default.png'}
+                author={post.author || 'Anonymous'}
               />
             ))}
           </div>

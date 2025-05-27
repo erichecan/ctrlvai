@@ -8,7 +8,7 @@ import Image from 'next/image';
 const { Title, Paragraph } = Typography;
 
 interface BlogCardProps {
-  id: number;
+  id: string;
   title: string;
   excerpt: string;
   date: string;
@@ -27,7 +27,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   category,
   tags,
   slug,
-  image,
+  image = '/images/blog/default.png',
   author
 }) => {
   // 格式化日期
@@ -43,7 +43,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
       cover={
         <div className="relative h-48 overflow-hidden">
           <Image 
-            src={image || '/images/blog-placeholder.jpg'} 
+            src={image}
             alt={title}
             width={400}
             height={225}
