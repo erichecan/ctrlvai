@@ -1,42 +1,10 @@
-import fs from 'fs';
+import videosData from '../../public/data/videos.json';
 import path from 'path';
 import { LearningVideo } from '../types';
 
-// 从samples.json文件中读取视频数据
+// 替换 getAllVideos 函数
 export function getAllVideos(): LearningVideo[] {
-  try {
-    const filePath = path.join(process.cwd(), 'public', 'data', 'samples.json');
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const data = JSON.parse(fileContents);
-    
-    // 提取视频数据
-    const videos: LearningVideo[] = [];
-    
-    // 遍历sections中的learningcenter类型
-    Object.values(data.sections).forEach((section: any) => {
-      if (section.type === 'learningcenter') {
-        // 遍历blocks中的card类型
-        section.block_order.forEach((blockId: string) => {
-          const block = section.blocks[blockId];
-          if (block.type === 'card') {
-            videos.push({
-              id: blockId,
-              title: block.settings.title,
-              desc: block.settings.desc,
-              youtube_url: block.settings.youtube_url,
-              tags: block.settings.tags || [],
-              category: block.settings.category || 'General'
-            });
-          }
-        });
-      }
-    });
-    
-    return videos;
-  } catch (error) {
-    console.error('Error loading videos:', error);
-    return [];
-  }
+  return videosData;
 }
 
 // 根据ID获取视频

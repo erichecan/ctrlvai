@@ -26,7 +26,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ id, title, desc, youtube_url, tag
   };
 
   const videoId = getYoutubeId(youtube_url);
-  const thumbnailUrl = videoId ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '/images/placeholder.jpg';
+  const thumbnailUrl = videoId && videoId.trim() !== '' ? `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg` : '/images/placeholder.jpg';
 
   return (
     <Card 

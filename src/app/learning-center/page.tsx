@@ -1,19 +1,16 @@
-import { Metadata } from 'next';
+'use client';
+
 import MainLayout from '@/components/layout/MainLayout';
 import { getAllVideos, getAllVideoTags } from '@/utils/videos';
 import VideoCard from '@/components/learning/VideoCard';
-import { Pagination, Select, Typography, Input, Tag, Divider } from 'antd';
+import { Pagination, Select, Tag, Divider } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { Typography, Input } from 'antd';
+import { metadata } from './metadata';
 
 const { Title, Paragraph } = Typography;
 const { Option } = Select;
-
-export const metadata: Metadata = {
-  title: 'Learning Center - CtrlV AI',
-  description: 'Learn how to use AI tools effectively with our video tutorials and guides.',
-  keywords: 'AI tutorials, AI learning, AI tools guides, AI video tutorials',
-};
 
 export default function LearningCenterPage({
   searchParams,
@@ -62,12 +59,12 @@ export default function LearningCenterPage({
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
         <div className="container mx-auto">
-          <Title level={1} className="text-white text-center mb-4">
+          <Typography.Title level={1} className="text-white text-center mb-4">
             CtrlV AI Academy
-          </Title>
-          <Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
+          </Typography.Title>
+          <Typography.Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
             Master AI tools with our expert-led video tutorials and guides. Learn practical skills to boost your productivity.
-          </Paragraph>
+          </Typography.Paragraph>
         </div>
       </section>
       
