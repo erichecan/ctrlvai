@@ -1,7 +1,7 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import BlogCard from '@/components/blog/BlogCard';
-import { Pagination, Select, Input, Tag, Divider } from 'antd';
+import { Pagination, Select, Input, Tag, Divider, Spin } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import { Typography } from 'antd';
@@ -16,9 +16,9 @@ function getStringParam(param: string | string[] | undefined): string {
   return Array.isArray(param) ? param[0] : param;
 }
 
-export default function BlogPage() {
+// Separate the main content into a new component
+function BlogContent() {
   const searchParams = useSearchParams();
-
   const [allPosts, setAllPosts] = useState<BlogPost[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
@@ -79,18 +79,6 @@ export default function BlogPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
-        <div className="container mx-auto">
-          <Typography.Title level={1} className="text-white text-center mb-4">
-            AI Blog
-          </Typography.Title>
-          <Typography.Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
-            Discover the latest insights, tips, and trends in the world of AI tools and technologies.
-          </Typography.Paragraph>
-        </div>
-      </section>
-      
       {/* Filters Section */}
       <section className="mb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -101,7 +89,6 @@ export default function BlogPage() {
               size="large"
               defaultValue={queryParam}
               onChange={(e) => {
-                // In a real app, this would use client-side routing
                 const url = new URL(window.location.href);
                 url.searchParams.set('q', e.target.value);
                 url.searchParams.delete('page');
@@ -118,7 +105,6 @@ export default function BlogPage() {
               allowClear
               defaultValue={selectedCategory || undefined}
               onChange={(value) => {
-                // In a real app, this would use client-side routing
                 const url = new URL(window.location.href);
                 if (value) {
                   url.searchParams.set('category', value);
@@ -140,7 +126,6 @@ export default function BlogPage() {
               allowClear
               defaultValue={selectedTag || undefined}
               onChange={(value) => {
-                // In a real app, this would use client-side routing
                 const url = new URL(window.location.href);
                 if (value) {
                   url.searchParams.set('tag', value);
@@ -249,7 +234,6 @@ export default function BlogPage() {
             total={totalPosts}
             pageSize={postsPerPage}
             onChange={(page) => {
-              // In a real app, this would use client-side routing
               const url = new URL(window.location.href);
               url.searchParams.set('page', page.toString());
               window.history.pushState({}, '', url);
@@ -278,6 +262,33 @@ export default function BlogPage() {
           ))}
         </div>
       </section>
+    </>
+  );
+}
+
+// Main component with Suspense boundary
+export default function BlogPage() {
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
+        <div className="container mx-auto">
+          <Typography.Title level={1} className="text-white text-center mb-4">
+            AI Blog
+          </Typography.Title>
+          <Typography.Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
+            Discover the latest insights, tips, and trends in the world of AI tools and technologies.
+          </Typography.Paragraph>
+        </div>
+      </section>
+
+      <Suspense fallback={
+        <div className="flex justify-center items-center min-h-[400px]">
+          <Spin size="large" />
+        </div>
+      }>
+        <BlogContent />
+      </Suspense>
     </>
   );
 }

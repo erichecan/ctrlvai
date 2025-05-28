@@ -9,11 +9,14 @@ import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-interface BlogPostPageProps {
-  params: { slug: string };
+interface PageProps {
+  params: {
+    slug: string;
+  };
+  searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
+export default async function BlogPostPage({ params, searchParams }: PageProps) {
   const post = await getBlogPostBySlug(params.slug);
   if (!post) {
     return notFound();
@@ -61,11 +64,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               components={{
-                code({ node, inline, className, children, ...props }: any) {
+                code({ node, inline, className, children, ...props }) {
                   const match = /language-(\w+)/.exec(className || '');
                   return !inline && match ? (
                     <SyntaxHighlighter
-                      style={dracula as any} // Explicitly cast to avoid type mismatch
+                      style={dracula}
                       language={match[1]}
                       PreTag="div"
                       {...props}
