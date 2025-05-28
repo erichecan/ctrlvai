@@ -15,23 +15,18 @@ const AdminLoginPage = () => {
   const onFinish = async (values: { username: string; password: string }) => {
     setLoading(true);
     try {
-      const response = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(values),
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
+      // 本地验证逻辑
+      if (values.username === 'admin' && values.password === 'admin123') {
         // 保存用户会话
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('user', JSON.stringify({
+          username: 'admin',
+          role: 'admin',
+          isAuthenticated: true
+        }));
         message.success('Login successful!');
         router.push('/admin/dashboard');
       } else {
-        message.error(data.error || 'Login failed. Please check your credentials.');
+        message.error('Login failed. Please check your credentials.');
       }
     } catch (error) {
       console.error('Login error:', error);
