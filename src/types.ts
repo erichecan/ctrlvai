@@ -40,3 +40,16 @@ export interface LearningVideo {
   tags?: string[];
   category?: string;
 }
+
+// AI工具类型定义
+export interface AITool {
+  id: string;
+  name: string;
+  description: string;
+  logo: string;
+  url: string;
+  isPaid: boolean;
+  features: string[];
+  tags: string[];
+  category: string;
+}

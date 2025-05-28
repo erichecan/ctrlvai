@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Typography, Table, Button, Space, Tag, Modal, Form, Input, Select, Switch, message } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import AdminLayout from '@/components/admin/AdminLayout';
@@ -164,13 +165,15 @@ const ToolsAdminPage = () => {
     {
       title: 'Logo',
       key: 'logo',
-      render: (_: any, record: AITool) => (
-        <div style={{ width: '40px', height: '40px', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px', overflow: 'hidden' }}>
+      render: (_: unknown, record: AITool) => (
+        <div style={{ width: '40px', height: '40px', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '4px', overflow: 'hidden', position: 'relative' }}>
           {record.logo ? (
-            <img 
+            <Image 
               src={record.logo} 
               alt={record.name}
-              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              fill
+              sizes="40px"
+              style={{ objectFit: 'contain' }}
             />
           ) : (
             record.name.charAt(0)
@@ -227,7 +230,7 @@ const ToolsAdminPage = () => {
     {
       title: 'Actions',
       key: 'actions',
-      render: (_: any, record: AITool) => (
+      render: (_: unknown, record: AITool) => (
         <Space size="middle">
           <Button 
             type="primary" 

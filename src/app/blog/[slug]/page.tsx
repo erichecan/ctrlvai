@@ -1,4 +1,5 @@
 import { BlogPostResponse } from '@/types';
+import Image from 'next/image';
 import { getBlogPostBySlug, getRelatedPosts } from '@/utils/markdown';
 import { notFound } from 'next/navigation';
 import BlogPostWrapper from '@/app/blog/[slug]/BlogPostWrapper';
@@ -43,10 +44,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
         </header>
         <div className="mb-8">
-          <img 
+          <Image 
             src={post.coverImage || '/images/blog/default.png'} 
             alt={post.title || 'Blog post cover'}
-            className="w-full h-auto rounded-lg"
+            width={1200}
+            height={630}
+            className="w-full rounded-lg"
+            style={{ height: 'auto' }}
+            priority
           />
         </div>
         <div className="prose max-w-none">

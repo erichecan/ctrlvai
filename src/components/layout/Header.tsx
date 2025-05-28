@@ -28,12 +28,13 @@ const HeaderComponent: React.FC = () => {
       <div className="container mx-auto px-4 flex items-center justify-between w-full">
         <div className="flex items-center flex-shrink-0" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
           <Link href="/">
-            <img
+            <Image
               src="/images/logo.png"
               alt="CtrlV AI Logo"
               width={178}
               height={72}
-              style={{ width: 178, height: 72, minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72, display: 'block' }}
+              priority
+              style={{ display: 'block' }}
             />
           </Link>
         </div>

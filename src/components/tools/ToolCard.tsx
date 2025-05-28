@@ -37,7 +37,7 @@ const ToolCard: React.FC<ToolCardProps> = ({
         <div className="flex items-center mb-4">
           <div className="w-12 h-12 mr-3 relative flex-shrink-0">
             <Image 
-              src={logo || '/images/tool-placeholder.png'} 
+              src={logo || '/images/logo.png'} 
               alt={name}
               width={48}
               height={48}

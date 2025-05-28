@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Typography, Table, Button, Space, Tag, Modal, Form, Input, Select, message } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import AdminLayout from '@/components/admin/AdminLayout';
@@ -162,13 +163,15 @@ const LearningAdminPage = () => {
     {
       title: 'Thumbnail',
       key: 'thumbnail',
-      render: (_: any, record: LearningVideo) => {
+      render: (_: unknown, record: LearningVideo) => {
         const videoId = getYoutubeId(record.youtube_url);
         return videoId ? (
-          <img 
+          <Image 
             src={`https://img.youtube.com/vi/${videoId}/default.jpg`} 
             alt={record.title}
-            style={{ width: '120px', height: '90px', objectFit: 'cover' }}
+            width={120}
+            height={90}
+            style={{ objectFit: 'cover' }}
           />
         ) : (
           <div style={{ width: '120px', height: '90px', background: '#f0f0f0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -211,7 +214,7 @@ const LearningAdminPage = () => {
     {
       title: 'Actions',
       key: 'actions',
-      render: (_: any, record: LearningVideo) => (
+      render: (_: unknown, record: LearningVideo) => (
         <Space size="middle">
           <Button 
             type="primary" 

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getAllTools, getToolById } from '@/utils/tools';
+import { getAllTools } from '@/utils/tools';
 
 // 获取所有AI工具的API
 export async function GET() {
@@ -18,7 +18,7 @@ export async function GET() {
 // 创建新AI工具的API
 export async function POST(request: Request) {
   try {
-    const data = await request.json();
+    const _data = await request.json();
     // 在实际应用中，这里应该将数据保存到文件系统或数据库
     // 由于这是一个简化的示例，我们只返回成功
     return NextResponse.json({ success: true, message: 'Tool created successfully' });

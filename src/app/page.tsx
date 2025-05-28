@@ -25,7 +25,7 @@ export default async function Home() {
   const featuredVideos = await getRandomVideos(2);
   
   // Get popular tools (random selection)
-  const popularTools = getRandomTools(6);
+  const popularTools = await getRandomTools(6);
   
   return (
     <MainLayout>

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import MainLayout from '@/components/layout/MainLayout';
 import { Card, Row, Col } from 'antd';
 import Title from 'antd/es/typography/Title';
@@ -40,10 +41,14 @@ export default function AboutPage() {
             </Col>
             <Col xs={24} md={12}>
               <Card className="shadow-lg">
-                <img 
+                <Image 
                   src="/images/about/mission.jpg" 
                   alt="CtrlV AI Mission" 
+                  width={600}
+                  height={400}
                   className="w-full rounded-lg"
+                  style={{ height: 'auto' }}
+                  priority
                 />
               </Card>
             </Col>
