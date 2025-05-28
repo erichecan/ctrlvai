@@ -25,3 +25,14 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Override Ant Design Typography styles for white text sections */
+.text-white h1.ant-typography,
+.text-white .ant-typography-h1,
+.text-white div.ant-typography-h1,
+.text-white div.ant-typography-h1>textarea,
+.text-white .ant-typography,
+.text-white .ant-typography p,
+.text-white div.ant-typography {
+  color: white !important;
+}
