@@ -21,13 +21,16 @@ const HeaderComponent: React.FC = () => {
   ];
 
   return (
-    <Header 
-      className="bg-transparent shadow-none p-0 h-24 flex items-center justify-between"
+    <div
+      className="bg-transparent shadow-none custom-header"
       style={{ background: 'transparent !important', borderBottom: 'none !important' }}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between w-full">
-        <div className="flex items-center flex-shrink-0" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
-          <Link href="/">
+      <Header 
+        className="p-0 h-24 flex items-center justify-between"
+      >
+        <div className="container mx-auto px-4 flex items-center justify-between w-full">
+          <div className="flex items-center flex-shrink-0" style={{ minWidth: 178, minHeight: 72, maxWidth: 178, maxHeight: 72 }}>
+            <Link href="/">
             <Image
               src="/images/logo.png"
               alt="CtrlV AI Logo"
@@ -50,7 +53,8 @@ const HeaderComponent: React.FC = () => {
           ))}
         </nav>
       </div>
-    </Header>
+      </Header>
+    </div>
   );
 };
 

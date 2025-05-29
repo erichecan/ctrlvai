@@ -36,3 +36,9 @@ body {
 .text-white div.ant-typography {
   color: white !important;
 }
+
+/* Custom header style to ensure transparent background */
+.custom-header {
+  background: transparent !important;
+  border-bottom: none !important;
+}
