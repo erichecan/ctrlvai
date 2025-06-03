@@ -21,7 +21,7 @@ interface AdminLayoutProps {
   selectedKey: string;
 }
 
-const AdminLayout: React.FC<AdminLayoutProps> = ({ children, selectedKey }) => {
+export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, selectedKey }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [user, setUser] = useState<any>(null);
   const router = useRouter();
