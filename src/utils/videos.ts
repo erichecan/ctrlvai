@@ -4,7 +4,14 @@ import { LearningVideo } from '../types';
 
 // 替换 getAllVideos 函数
 export function getAllVideos(): LearningVideo[] {
-  return videosData;
+  // Extract YouTube video ID and generate thumbnail URL for all videos
+  return videosData.map(video => {
+    const match = video.youtube_url.match(/(?:\/|%3D|v=)([\w-]{11})/);
+    if (match && match[1]) {
+      return { ...video, thumbnailUrl: `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` } as LearningVideo;
+    }
+    return video;
+  });
 }
 
 // 根据ID获取视频
@@ -17,6 +24,11 @@ export async function getVideoById(id: string): Promise<LearningVideo | null> {
     if (!video) {
       console.warn(`Video with id ${id} not found`);
       return null;
+    }
+    // Extract YouTube video ID and generate thumbnail URL
+    const match = video.youtube_url.match(/(?:\/|%3D|v=)([\w-]{11})/);
+    if (match && match[1]) {
+      (video as any).thumbnailUrl = `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg`;
     }
     return video;
   } catch (error) {

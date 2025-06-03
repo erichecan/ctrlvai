@@ -38,6 +38,7 @@ export interface LearningVideo {
   youtube_url: string;
   tags?: string[];
   category?: string;
+  thumbnailUrl?: string;
 }
 
 // AI工具类型定义

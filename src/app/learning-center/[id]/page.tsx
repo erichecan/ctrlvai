@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import MainLayout from '@/components/layout/MainLayout';
-import { getVideoById } from '@/utils/videos';
+import { getVideoById, getAllVideos } from '@/utils/videos';
 import VideoContent from './VideoContent';
+import RecommendedVideos from './RecommendedVideos';
 
 export const generateMetadata = async ({ params }: { params: { id: string } }): Promise<Metadata> => {
   const video = await getVideoById(params.id);
@@ -14,6 +15,7 @@ export const generateMetadata = async ({ params }: { params: { id: string } }): 
 
 export default async function VideoDetailPage({ params }: { params: { id: string } }) {
   const video = await getVideoById(params.id);
+  const allVideos = getAllVideos();
 
   if (!video) {
     return <div>Video not found</div>;
@@ -21,7 +23,12 @@ export default async function VideoDetailPage({ params }: { params: { id: string
 
   return (
     <MainLayout>
-      <VideoContent video={video} />
+      <div className="flex flex-col md:flex-row gap-8 py-8">
+        <VideoContent video={video} />
+        <div className="w-full md:w-80 flex-shrink-0">
+          <RecommendedVideos videos={allVideos} currentId={video.id} />
+        </div>
+      </div>
     </MainLayout>
   );
 }
