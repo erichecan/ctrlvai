@@ -26,13 +26,21 @@ function BlogContent() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const postsResponse = await fetch('/api/blogs');
-        const posts: BlogPost[] = await postsResponse.json();
-        setAllPosts(posts);
+        const postsResponse = await fetch('/api/blog');
+        const data = await postsResponse.json();
+        if (data.success) {
+          setAllPosts(data.posts);
+        } else {
+          console.error('Failed to fetch posts:', data.message);
+        }
 
-        // Mock categories and tags fetching for now
-        setCategories(['Category1', 'Category2']);
-        setTags(['Tag1', 'Tag2']);
+        // Get unique categories and tags from posts
+        const uniqueCategories = Array.from(new Set(data.posts.map((post: BlogPost) => post.category)))
+          .filter((cat): cat is string => typeof cat === 'string');
+        const uniqueTags = Array.from(new Set(data.posts.flatMap((post: BlogPost) => post.tags || [])))
+          .filter((tag): tag is string => typeof tag === 'string');
+        setCategories(uniqueCategories);
+        setTags(uniqueTags);
       } catch (error) {
         console.error('Failed to fetch data:', error);
       }

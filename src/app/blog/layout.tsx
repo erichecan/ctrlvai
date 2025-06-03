@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import MainLayout from '@/components/layout/MainLayout';
+import BlogLayoutClient from './BlogLayoutClient';
 
 export const metadata: Metadata = {
   title: 'Blog - CtrlV AI',
@@ -12,9 +12,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <MainLayout>
-      {children}
-    </MainLayout>
-  );
+  return <BlogLayoutClient>{children}</BlogLayoutClient>;
 }
