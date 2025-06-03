@@ -8,11 +8,6 @@ const nextConfig = {
     ignoreBuildErrors: true
   },
   images: {
-    domains: [
-      'img.youtube.com',
-      'i.ytimg.com',
-      'ytimg.googleusercontent.com'
-    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,6 +16,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'img.youtube.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'beconnected.esafety.gov.au',
       },
     ],
   },
