@@ -1,11 +1,20 @@
 ---
-title: "Mastering AI Prompt Engineering: The Complete Guide"
-date: "2025-04-10"
-category: "Tips"
-tags: ["Prompt Engineering", "AI Tools", "Productivity", "LLMs"]
-excerpt: "Effective prompt engineering is the key to getting the most out of AI language models. This comprehensive guide covers advanced techniques, best practices, and real-world applications to help you master the art of crafting perfect prompts."
-coverImage: "/images/blog/mastering-prompt-engineering-cover.jpg"
-author: "Michael Chen"
+title: 'Mastering AI Prompt Engineering: The Complete Guide'
+date: '2025-04-10'
+category: Tips
+tags:
+  - Prompt Engineering
+  - AI Tools
+  - Productivity
+  - LLMs
+excerpt: >-
+  Effective prompt engineering is the key to getting the most out of AI language
+  models. This comprehensive guide covers advanced techniques, best practices,
+  and real-world applications to help you master the art of crafting perfect
+  prompts.
+coverImage: /images/blog/mastering-prompt-engineering-cover.jpg
+author: Michael Chen
+image: 'https://images.pexels.com/photos/17887854/pexels-photo-17887854.jpeg'
 ---
 
 # Mastering AI Prompt Engineering: The Complete Guide

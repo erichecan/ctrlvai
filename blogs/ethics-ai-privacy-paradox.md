@@ -1,11 +1,19 @@
 ---
-title: "The AI Privacy Paradox: Balancing Innovation and Data Protection"
-date: "2025-05-25"
-category: "Ethics & Impact"
-tags: ["AI Ethics", "Privacy", "Data Protection", "Regulation"]
-excerpt: "As AI systems become more powerful and pervasive, we face a growing tension between technological innovation and personal privacy. This article explores the AI privacy paradox and offers frameworks for responsible development."
-coverImage: "/images/blog/ai-privacy-paradox-cover.jpg"
-author: "Rebecca Chen"
+title: 'The AI Privacy Paradox: Balancing Innovation and Data Protection'
+date: '2025-05-25'
+category: Ethics & Impact
+tags:
+  - AI Ethics
+  - Privacy
+  - Data Protection
+  - Regulation
+excerpt: >-
+  As AI systems become more powerful and pervasive, we face a growing tension
+  between technological innovation and personal privacy. This article explores
+  the AI privacy paradox and offers frameworks for responsible development.
+coverImage: /images/blog/ai-privacy-paradox-cover.jpg
+author: Rebecca Chen
+image: 'https://images.pexels.com/photos/8090299/pexels-photo-8090299.jpeg'
 ---
 
 # The AI Privacy Paradox: Balancing Innovation and Data Protection

@@ -1,11 +1,17 @@
 ---
-title: "Cracking the BROKE Model: How AI Really Thinks"
-date: "2025-05-05"
-category: "Tips & Tutorials"
-tags: ["AI", "BROKE Model", "Cognitive Science"]
-excerpt: "AI isn't magic—it's a system, and the BROKE Model is your roadmap. Learn how to decode AI's logic, predict its responses, and even outsmart it."
-coverImage: "/images/blog/cracking-broke-model-cover.jpg"
-author: "Sarah Williams"
+title: 'Cracking the BROKE Model: How AI Really Thinks'
+date: '2025-05-05'
+category: Tips & Tutorials
+tags:
+  - AI
+  - BROKE Model
+  - Cognitive Science
+excerpt: >-
+  AI isn't magic—it's a system, and the BROKE Model is your roadmap. Learn how
+  to decode AI's logic, predict its responses, and even outsmart it.
+coverImage: /images/blog/cracking-broke-model-cover.jpg
+author: Sarah Williams
+image: 'https://images.pexels.com/photos/18512795/pexels-photo-18512795.jpeg'
 ---
 
 # Cracking the BROKE Model: How AI Really Thinks

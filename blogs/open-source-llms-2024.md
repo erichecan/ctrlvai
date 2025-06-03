@@ -1,10 +1,12 @@
 ---
 id: 7
-title: "Comparing Open Source LLMs: A Comprehensive 2024 Guide"
-category: "AI Models"
-date: "2024-04-05"
-image: "/images/blog-ai7.jpg"
-excerpt: "An in-depth analysis of 8 leading open source language models evaluating performance, efficiency and enterprise readiness for 2024 deployments."
+title: 'Comparing Open Source LLMs: A Comprehensive 2024 Guide'
+category: AI Models
+date: '2024-04-05'
+image: 'https://images.pexels.com/photos/16125027/pexels-photo-16125027.jpeg'
+excerpt: >-
+  An in-depth analysis of 8 leading open source language models evaluating
+  performance, efficiency and enterprise readiness for 2024 deployments.
 ---
 
 The open source large language model landscape has undergone remarkable evolution in 2024, offering enterprises viable alternatives to proprietary models. This guide examines the current state through multiple dimensions:

@@ -1,23 +1,27 @@
 ---
 id: 8
-title: "Best AI Tools for Content Creators in 2024 - Ultimate Guide"
-slug: "ai-tools-content-creators-2024"
-date: "2024-02-08"
-category: "Productivity"
-author: "Content Tech Team"
-meta_description: "Curated selection of the most powerful AI tools for content creators in 2024, covering writing, design, audio and video production."
-tags: 
-  - "content creation"
-  - "AI writing tools"
-  - "AI design tools"
-  - "video editing AI"
-  - "productivity tools"
-  - "creative software"
-image: "/images/blog-ai8.jpg"
-image_alt: "Collection of AI tools for content creators"
-video: "https://youtu.be/example8"
-video_thumbnail: "/images/content-tools-thumb.jpg"
-excerpt: "From writing assistants to AI voiceovers, these cutting-edge tools can supercharge your content creation workflow in 2024."
+title: Best AI Tools for Content Creators in 2024 - Ultimate Guide
+slug: ai-tools-content-creators-2024
+date: '2024-02-08'
+category: Productivity
+author: Content Tech Team
+meta_description: >-
+  Curated selection of the most powerful AI tools for content creators in 2024,
+  covering writing, design, audio and video production.
+tags:
+  - content creation
+  - AI writing tools
+  - AI design tools
+  - video editing AI
+  - productivity tools
+  - creative software
+image: 'https://images.pexels.com/photos/16689311/pexels-photo-16689311.jpeg'
+image_alt: Collection of AI tools for content creators
+video: 'https://youtu.be/example8'
+video_thumbnail: /images/content-tools-thumb.jpg
+excerpt: >-
+  From writing assistants to AI voiceovers, these cutting-edge tools can
+  supercharge your content creation workflow in 2024.
 draft: false
 priority: 0.85
 schema_markup: |

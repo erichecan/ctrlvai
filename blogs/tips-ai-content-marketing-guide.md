@@ -1,11 +1,20 @@
 ---
-title: "AI for Content Marketing: A Strategic Guide"
-date: "2025-02-05"
-category: "Tips"
-tags: ["Content Marketing", "AI Strategy", "Digital Marketing", "Content Creation"]
-excerpt: "Artificial intelligence is transforming content marketing from ideation to distribution and analytics. This comprehensive guide explores how marketers can strategically implement AI tools to enhance content quality, personalization, and performance."
-coverImage: "/images/blog/ai-content-marketing-guide-cover.jpg"
-author: "Jennifer Martinez"
+title: 'AI for Content Marketing: A Strategic Guide'
+date: '2025-02-05'
+category: Tips
+tags:
+  - Content Marketing
+  - AI Strategy
+  - Digital Marketing
+  - Content Creation
+excerpt: >-
+  Artificial intelligence is transforming content marketing from ideation to
+  distribution and analytics. This comprehensive guide explores how marketers
+  can strategically implement AI tools to enhance content quality,
+  personalization, and performance.
+coverImage: /images/blog/ai-content-marketing-guide-cover.jpg
+author: Jennifer Martinez
+image: 'https://images.pexels.com/photos/16474955/pexels-photo-16474955.jpeg'
 ---
 
 # AI for Content Marketing: A Strategic Guide

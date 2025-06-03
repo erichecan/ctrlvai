@@ -1,10 +1,13 @@
 ---
 id: 10
-title: "Responsible AI Development: Ethical Frameworks for 2024"
-category: "Industry Trends"
-date: "2024-03-20"
-image: "/images/blog-ai10.jpg"
-excerpt: "As AI systems grow more powerful, ethical considerations have never been more critical. Explore the latest frameworks and best practices for responsible AI development."
+title: 'Responsible AI Development: Ethical Frameworks for 2024'
+category: Industry Trends
+date: '2024-03-20'
+image: 'https://images.pexels.com/photos/8439098/pexels-photo-8439098.jpeg'
+excerpt: >-
+  As AI systems grow more powerful, ethical considerations have never been more
+  critical. Explore the latest frameworks and best practices for responsible AI
+  development.
 ---
 
 The rapid advancement of AI capabilities in 2024 has brought ethical considerations to the forefront of technological development. Based on analysis of 200+ enterprise AI deployments, this guide outlines the most effective approaches to responsible AI implementation.

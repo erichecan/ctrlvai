@@ -1,11 +1,17 @@
 ---
-title: "The BROKE Principal: The AI Secret You've Never Heard Of"
-date: "2025-05-01"
-category: "Tips & Tutorials"
-tags: ["AI", "Machine Learning", "Prompt Engineering"]
-excerpt: "What if we told you there's a secret behind how AI thinks? Meet the BROKE Principal—the ultimate cheat code to understanding artificial intelligence."
-coverImage: "/images/blog/broke-principal-cover.jpg"
-author: "Alex Johnson"
+title: 'The BROKE Principal: The AI Secret You''ve Never Heard Of'
+date: '2025-05-01'
+category: Tips & Tutorials
+tags:
+  - AI
+  - Machine Learning
+  - Prompt Engineering
+excerpt: >-
+  What if we told you there's a secret behind how AI thinks? Meet the BROKE
+  Principal—the ultimate cheat code to understanding artificial intelligence.
+coverImage: /images/blog/broke-principal-cover.jpg
+author: Alex Johnson
+image: 'https://images.pexels.com/photos/8294674/pexels-photo-8294674.jpeg'
 ---
 
 # The BROKE Principal: The AI Secret You've Never Heard Of

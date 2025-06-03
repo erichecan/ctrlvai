@@ -1,11 +1,19 @@
 ---
-title: "The Future of Work in the Age of AI: Collaboration, Not Replacement"
-date: "2025-05-30"
-category: "Ethics & Impact"
-tags: ["AI and Work", "Future of Employment", "Human-AI Collaboration", "Workforce Transformation"]
-excerpt: "As AI transforms the workplace, the narrative is shifting from job replacement to human-AI collaboration. Discover how this partnership is creating new opportunities and changing the nature of work itself."
-coverImage: "/images/blog/future-work-ai-collaboration-cover.jpg"
-author: "James Wilson"
+title: 'The Future of Work in the Age of AI: Collaboration, Not Replacement'
+date: '2025-05-30'
+category: Ethics & Impact
+tags:
+  - AI and Work
+  - Future of Employment
+  - Human-AI Collaboration
+  - Workforce Transformation
+excerpt: >-
+  As AI transforms the workplace, the narrative is shifting from job replacement
+  to human-AI collaboration. Discover how this partnership is creating new
+  opportunities and changing the nature of work itself.
+coverImage: /images/blog/future-work-ai-collaboration-cover.jpg
+author: James Wilson
+image: 'https://images.pexels.com/photos/8439069/pexels-photo-8439069.jpeg'
 ---
 
 # The Future of Work in the Age of AI: Collaboration, Not Replacement

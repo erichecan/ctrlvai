@@ -1,10 +1,12 @@
 ---
 id: 8
-title: "The Ultimate Guide to AI Marketing Tools in 2024"
-category: "Business Applications"
-date: "2024-03-30"
-image: "/images/blog-ai8.jpg"
-excerpt: "Discover how cutting-edge AI marketing tools are transforming customer engagement, content creation and campaign optimization in 2024."
+title: The Ultimate Guide to AI Marketing Tools in 2024
+category: Business Applications
+date: '2024-03-30'
+image: 'https://images.pexels.com/photos/17887854/pexels-photo-17887854.jpeg'
+excerpt: >-
+  Discover how cutting-edge AI marketing tools are transforming customer
+  engagement, content creation and campaign optimization in 2024.
 ---
 
 The marketing technology landscape has undergone a radical transformation in 2024, with AI-powered tools delivering unprecedented capabilities across every marketing function. Based on analysis of 150+ enterprise deployments, here's what leading organizations are implementing:

@@ -8,8 +8,7 @@ excerpt: >-
   How AI is both empowering cyber defenders and being weaponized by attackers in
   2024's security landscape.
 author: AI Analysis Team
-image: >-
-  https://beconnected.esafety.gov.au/pluginfile.php/99437/mod_resource/content/2/what-is-ai%20%281%29.jpg
+image: 'https://images.pexels.com/photos/5473955/pexels-photo-5473955.jpeg'
 draft: false
 ---
 ![AI Cybersecurity](https://example.com/ai-security.jpg)

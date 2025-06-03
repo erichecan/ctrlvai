@@ -1,11 +1,19 @@
 ---
-title: "GPT-5: What We Know and What to Expect"
-date: "2025-04-01"
-category: "News"
-tags: ["GPT-5", "OpenAI", "Large Language Models", "AI Development"]
-excerpt: "OpenAI's GPT-5 is rumored to be launching soon. Here's what we know so far about this next-generation AI model, potential capabilities, and how it might transform the AI landscape."
-coverImage: "/images/blog/gpt5-expectations-cover.jpg"
-author: "Thomas Reynolds"
+title: 'GPT-5: What We Know and What to Expect'
+date: '2025-04-01'
+category: News
+tags:
+  - GPT-5
+  - OpenAI
+  - Large Language Models
+  - AI Development
+excerpt: >-
+  OpenAI's GPT-5 is rumored to be launching soon. Here's what we know so far
+  about this next-generation AI model, potential capabilities, and how it might
+  transform the AI landscape.
+coverImage: /images/blog/gpt5-expectations-cover.jpg
+author: Thomas Reynolds
+image: 'https://images.pexels.com/photos/16125027/pexels-photo-16125027.jpeg'
 ---
 
 # GPT-5: What We Know and What to Expect

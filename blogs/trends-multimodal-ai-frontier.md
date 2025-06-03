@@ -1,11 +1,21 @@
 ---
-title: "Multimodal AI: The New Frontier of Artificial Intelligence"
-date: "2025-03-15"
-category: "Trends"
-tags: ["Multimodal AI", "Computer Vision", "Natural Language Processing", "AI Development", "Future Technology"]
-excerpt: "Multimodal AI systems that can process and integrate information across different formats—text, images, audio, and video—are revolutionizing how machines understand and interact with the world. This article explores the rapid development of multimodal AI and its far-reaching implications."
-coverImage: "/images/blog/multimodal-ai-frontier-cover.jpg"
-author: "Dr. Sophia Martinez"
+title: 'Multimodal AI: The New Frontier of Artificial Intelligence'
+date: '2025-03-15'
+category: Trends
+tags:
+  - Multimodal AI
+  - Computer Vision
+  - Natural Language Processing
+  - AI Development
+  - Future Technology
+excerpt: >-
+  Multimodal AI systems that can process and integrate information across
+  different formats—text, images, audio, and video—are revolutionizing how
+  machines understand and interact with the world. This article explores the
+  rapid development of multimodal AI and its far-reaching implications.
+coverImage: /images/blog/multimodal-ai-frontier-cover.jpg
+author: Dr. Sophia Martinez
+image: 'https://images.pexels.com/photos/16125027/pexels-photo-16125027.jpeg'
 ---
 
 # Multimodal AI: The New Frontier of Artificial Intelligence

@@ -21,6 +21,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'beconnected.esafety.gov.au',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
     ],
   },
 }

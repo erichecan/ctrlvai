@@ -1,11 +1,20 @@
 ---
-title: "AI for Small Business: A Practical Guide to Implementation and ROI"
-date: "2025-03-15"
-category: "Tips"
-tags: ["Small Business", "AI Implementation", "ROI", "Business Strategy"]
-excerpt: "Small businesses can leverage AI to compete with larger enterprises. This practical guide explores cost-effective AI implementation strategies, realistic ROI expectations, and step-by-step approaches for businesses with limited resources."
-coverImage: "/images/blog/ai-small-business-guide-cover.jpg"
-author: "Michael Rodriguez"
+title: 'AI for Small Business: A Practical Guide to Implementation and ROI'
+date: '2025-03-15'
+category: Tips
+tags:
+  - Small Business
+  - AI Implementation
+  - ROI
+  - Business Strategy
+excerpt: >-
+  Small businesses can leverage AI to compete with larger enterprises. This
+  practical guide explores cost-effective AI implementation strategies,
+  realistic ROI expectations, and step-by-step approaches for businesses with
+  limited resources.
+coverImage: /images/blog/ai-small-business-guide-cover.jpg
+author: Michael Rodriguez
+image: 'https://images.pexels.com/photos/6476783/pexels-photo-6476783.jpeg'
 ---
 
 # AI for Small Business: A Practical Guide to Implementation and ROI

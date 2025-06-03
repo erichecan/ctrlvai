@@ -1,11 +1,22 @@
 ---
-title: "AI and Creativity: How Artificial Intelligence is Transforming Art, Music, and Design"
-date: "2025-03-10"
-category: "Trends"
-tags: ["AI Art", "Generative AI", "Creative Tools", "Digital Art"]
-excerpt: "Artificial intelligence is revolutionizing creative fields, enabling new forms of expression and collaboration between humans and machines. This article explores how AI is transforming art, music, design, and other creative domains."
-coverImage: "/images/blog/ai-creativity-transformation-cover.jpg"
-author: "Olivia Chen"
+title: >-
+  AI and Creativity: How Artificial Intelligence is Transforming Art, Music, and
+  Design
+date: '2025-03-10'
+category: Trends
+tags:
+  - AI Art
+  - Generative AI
+  - Creative Tools
+  - Digital Art
+excerpt: >-
+  Artificial intelligence is revolutionizing creative fields, enabling new forms
+  of expression and collaboration between humans and machines. This article
+  explores how AI is transforming art, music, design, and other creative
+  domains.
+coverImage: /images/blog/ai-creativity-transformation-cover.jpg
+author: Olivia Chen
+image: 'https://images.pexels.com/photos/17485742/pexels-photo-17485742.png'
 ---
 
 # AI and Creativity: How Artificial Intelligence is Transforming Art, Music, and Design

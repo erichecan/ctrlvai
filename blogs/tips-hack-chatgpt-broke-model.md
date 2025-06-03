@@ -1,11 +1,18 @@
 ---
-title: "HACK ChatGPT with the BROKE Model: Get EXACTLY What You Want"
-date: "2025-05-10"
-category: "Tips & Tutorials"
-tags: ["ChatGPT", "Prompt Engineering", "AI Tools"]
-excerpt: "Tired of getting vague or useless answers from ChatGPT? The BROKE Model is your ultimate hack. Learn how to craft prompts like a pro and get exactly what you need."
-coverImage: "/images/blog/hack-chatgpt-broke-model-cover.jpg"
-author: "Michael Chen"
+title: 'HACK ChatGPT with the BROKE Model: Get EXACTLY What You Want'
+date: '2025-05-10'
+category: Tips & Tutorials
+tags:
+  - ChatGPT
+  - Prompt Engineering
+  - AI Tools
+excerpt: >-
+  Tired of getting vague or useless answers from ChatGPT? The BROKE Model is
+  your ultimate hack. Learn how to craft prompts like a pro and get exactly what
+  you need.
+coverImage: /images/blog/hack-chatgpt-broke-model-cover.jpg
+author: Michael Chen
+image: 'https://images.pexels.com/photos/17887854/pexels-photo-17887854.jpeg'
 ---
 
 # HACK ChatGPT with the BROKE Model: Get EXACTLY What You Want

@@ -1,11 +1,20 @@
 ---
-title: "AI-Powered Education: Transforming Learning in the Digital Age"
-date: "2025-04-25"
-category: "Trends"
-tags: ["Education Technology", "AI in Education", "Personalized Learning", "EdTech"]
-excerpt: "Artificial intelligence is revolutionizing education through personalized learning paths, intelligent tutoring systems, and automated assessment. Discover how AI is transforming the educational landscape and what it means for students, teachers, and institutions."
-coverImage: "/images/blog/ai-education-transformation-cover.jpg"
-author: "Dr. Sarah Johnson"
+title: 'AI-Powered Education: Transforming Learning in the Digital Age'
+date: '2025-04-25'
+category: Trends
+tags:
+  - Education Technology
+  - AI in Education
+  - Personalized Learning
+  - EdTech
+excerpt: >-
+  Artificial intelligence is revolutionizing education through personalized
+  learning paths, intelligent tutoring systems, and automated assessment.
+  Discover how AI is transforming the educational landscape and what it means
+  for students, teachers, and institutions.
+coverImage: /images/blog/ai-education-transformation-cover.jpg
+author: Dr. Sarah Johnson
+image: 'https://images.pexels.com/photos/18524070/pexels-photo-18524070.jpeg'
 ---
 
 # AI-Powered Education: Transforming Learning in the Digital Age

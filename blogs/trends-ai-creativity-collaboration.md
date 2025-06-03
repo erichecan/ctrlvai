@@ -1,11 +1,19 @@
 ---
-title: "AI and Creativity: Collaboration Not Competition"
-date: "2025-02-01"
-category: "Trends"
-tags: ["Creative AI", "Digital Art", "Content Creation", "Human-AI Collaboration"]
-excerpt: "The relationship between AI and human creativity is evolving rapidly. This article explores how AI is becoming a collaborative partner in creative fields rather than a replacement for human artists and creators."
-coverImage: "/images/blog/ai-creativity-collaboration-cover.jpg"
-author: "Maya Williams"
+title: 'AI and Creativity: Collaboration Not Competition'
+date: '2025-02-01'
+category: Trends
+tags:
+  - Creative AI
+  - Digital Art
+  - Content Creation
+  - Human-AI Collaboration
+excerpt: >-
+  The relationship between AI and human creativity is evolving rapidly. This
+  article explores how AI is becoming a collaborative partner in creative fields
+  rather than a replacement for human artists and creators.
+coverImage: /images/blog/ai-creativity-collaboration-cover.jpg
+author: Maya Williams
+image: 'https://images.pexels.com/photos/25626444/pexels-photo-25626444.jpeg'
 ---
 
 # AI and Creativity: Collaboration Not Competition

@@ -1,11 +1,21 @@
 ---
-title: "The Future of Healthcare in the Age of AI"
-date: "2025-03-20"
-category: "Trends"
-tags: ["Healthcare AI", "Medical Innovation", "Patient Care", "Diagnostic AI", "Health Technology"]
-excerpt: "Artificial intelligence is fundamentally transforming healthcare, from diagnosis and treatment to research and administration. This article explores how AI is reshaping medicine and what it means for patients, providers, and the healthcare system as a whole."
-coverImage: "/images/blog/ai-healthcare-revolution-cover.jpg"
-author: "Dr. James Wilson"
+title: The Future of Healthcare in the Age of AI
+date: '2025-03-20'
+category: Trends
+tags:
+  - Healthcare AI
+  - Medical Innovation
+  - Patient Care
+  - Diagnostic AI
+  - Health Technology
+excerpt: >-
+  Artificial intelligence is fundamentally transforming healthcare, from
+  diagnosis and treatment to research and administration. This article explores
+  how AI is reshaping medicine and what it means for patients, providers, and
+  the healthcare system as a whole.
+coverImage: /images/blog/ai-healthcare-revolution-cover.jpg
+author: Dr. James Wilson
+image: 'https://images.pexels.com/photos/8439072/pexels-photo-8439072.jpeg'
 ---
 
 # The Future of Healthcare in the Age of AI

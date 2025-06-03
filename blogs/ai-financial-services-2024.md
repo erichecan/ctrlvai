@@ -1,10 +1,12 @@
 ---
 id: 6
-title: "AI in Financial Services: 2024 Trends and Predictions"
-category: "Industry Trends"
-date: "2024-04-10"
-image: "/images/blog-ai6.jpg"
-excerpt: "Banks and fintechs are leveraging AI for fraud detection, risk assessment and personalized banking at unprecedented scale in 2024."
+title: 'AI in Financial Services: 2024 Trends and Predictions'
+category: Industry Trends
+date: '2024-04-10'
+image: 'https://images.pexels.com/photos/5716001/pexels-photo-5716001.jpeg'
+excerpt: >-
+  Banks and fintechs are leveraging AI for fraud detection, risk assessment and
+  personalized banking at unprecedented scale in 2024.
 ---
 
 The financial sector's AI adoption has reached a tipping point in 2024, with 78% of institutions reporting active AI deployments according to Deloitte's latest survey. This widespread adoption is transforming three core areas of financial services:

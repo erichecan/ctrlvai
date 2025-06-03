@@ -1,11 +1,19 @@
 ---
-title: "The Future of AI Agents: Autonomous Systems That Work For You"
-date: "2025-04-30"
-category: "Trends"
-tags: ["AI Agents", "Autonomous Systems", "Future Tech", "Productivity"]
-excerpt: "AI agents are evolving from simple assistants to autonomous systems that can handle complex tasks with minimal supervision. Explore how these advanced agents are transforming productivity, business operations, and everyday life."
-coverImage: "/images/blog/future-ai-agents-cover.jpg"
-author: "Daniel Park"
+title: 'The Future of AI Agents: Autonomous Systems That Work For You'
+date: '2025-04-30'
+category: Trends
+tags:
+  - AI Agents
+  - Autonomous Systems
+  - Future Tech
+  - Productivity
+excerpt: >-
+  AI agents are evolving from simple assistants to autonomous systems that can
+  handle complex tasks with minimal supervision. Explore how these advanced
+  agents are transforming productivity, business operations, and everyday life.
+coverImage: /images/blog/future-ai-agents-cover.jpg
+author: Daniel Park
+image: 'https://images.pexels.com/photos/8566636/pexels-photo-8566636.jpeg'
 ---
 
 # The Future of AI Agents: Autonomous Systems That Work For You

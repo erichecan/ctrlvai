@@ -1,11 +1,20 @@
 ---
-title: "Generative AI for Business: Beyond the Hype"
-date: "2025-02-20"
-category: "Trends"
-tags: ["Generative AI", "Business Strategy", "Innovation", "Enterprise AI"]
-excerpt: "Generative AI has moved beyond the initial hype cycle to deliver tangible business value across industries. This article explores practical applications, implementation strategies, and the future of generative AI in enterprise settings."
-coverImage: "/images/blog/generative-ai-business-cover.jpg"
-author: "Dr. James Wilson"
+title: 'Generative AI for Business: Beyond the Hype'
+date: '2025-02-20'
+category: Trends
+tags:
+  - Generative AI
+  - Business Strategy
+  - Innovation
+  - Enterprise AI
+excerpt: >-
+  Generative AI has moved beyond the initial hype cycle to deliver tangible
+  business value across industries. This article explores practical
+  applications, implementation strategies, and the future of generative AI in
+  enterprise settings.
+coverImage: /images/blog/generative-ai-business-cover.jpg
+author: Dr. James Wilson
+image: 'https://images.pexels.com/photos/17887855/pexels-photo-17887855.jpeg'
 ---
 
 # Generative AI for Business: Beyond the Hype

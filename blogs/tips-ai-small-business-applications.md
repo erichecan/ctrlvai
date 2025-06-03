@@ -1,11 +1,19 @@
 ---
-title: "AI for Small Business: Practical Applications That Drive Results"
-date: "2025-04-15"
-category: "Tips"
-tags: ["Small Business", "AI Implementation", "Productivity", "Cost Efficiency"]
-excerpt: "Discover how small businesses can leverage AI tools without enterprise budgets. This guide explores practical, affordable AI applications that deliver measurable results for small and medium-sized businesses."
-coverImage: "/images/blog/ai-small-business-cover.jpg"
-author: "Jennifer Taylor"
+title: 'AI for Small Business: Practical Applications That Drive Results'
+date: '2025-04-15'
+category: Tips
+tags:
+  - Small Business
+  - AI Implementation
+  - Productivity
+  - Cost Efficiency
+excerpt: >-
+  Discover how small businesses can leverage AI tools without enterprise
+  budgets. This guide explores practical, affordable AI applications that
+  deliver measurable results for small and medium-sized businesses.
+coverImage: /images/blog/ai-small-business-cover.jpg
+author: Jennifer Taylor
+image: 'https://images.pexels.com/photos/16094045/pexels-photo-16094045.jpeg'
 ---
 
 # AI for Small Business: Practical Applications That Drive Results

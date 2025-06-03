@@ -1,11 +1,20 @@
 ---
-title: "The Future of AI Regulation: Balancing Innovation and Protection"
-date: "2025-02-10"
-category: "News"
-tags: ["AI Regulation", "Policy", "Digital Governance", "AI Ethics"]
-excerpt: "As AI becomes increasingly integrated into critical systems and daily life, governments worldwide are developing new regulatory frameworks. This article examines the evolving landscape of AI regulation and its implications for technology development and society."
-coverImage: "/images/blog/ai-regulation-future-cover.jpg"
-author: "Dr. Michael Chen"
+title: 'The Future of AI Regulation: Balancing Innovation and Protection'
+date: '2025-02-10'
+category: News
+tags:
+  - AI Regulation
+  - Policy
+  - Digital Governance
+  - AI Ethics
+excerpt: >-
+  As AI becomes increasingly integrated into critical systems and daily life,
+  governments worldwide are developing new regulatory frameworks. This article
+  examines the evolving landscape of AI regulation and its implications for
+  technology development and society.
+coverImage: /images/blog/ai-regulation-future-cover.jpg
+author: Dr. Michael Chen
+image: 'https://images.pexels.com/photos/18498317/pexels-photo-18498317.jpeg'
 ---
 
 # The Future of AI Regulation: Balancing Innovation and Protection

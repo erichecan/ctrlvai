@@ -1,23 +1,29 @@
 ---
 id: 5
-title: "The Rise of Multimodal AI Models - Technology Breakdown 2024"
-slug: "multimodal-ai-models-2024"
-date: "2024-02-22"
-category: "Technology"
-author: "AI Research Team"
-meta_description: "Comprehensive guide to multimodal AI models in 2024 - how they work, leading platforms like Gemini and GPT-4V, and transformative applications across industries."
-tags: 
-  - "multimodal AI"
-  - "Gemini"
-  - "GPT-4V"
-  - "AI technology"
-  - "machine learning"
-  - "computer vision"
-image: "/images/blog-ai5.jpg"
-image_alt: "Diagram showing multimodal AI processing text, images and audio"
-video: "https://youtu.be/example5"
-video_thumbnail: "/images/multimodal-ai-video-thumb.jpg"
-excerpt: "Models that can simultaneously process text, images, audio and video are becoming the new standard. Learn how they work and their industry impact in 2024."
+title: The Rise of Multimodal AI Models - Technology Breakdown 2024
+slug: multimodal-ai-models-2024
+date: '2024-02-22'
+category: Technology
+author: AI Research Team
+meta_description: >-
+  Comprehensive guide to multimodal AI models in 2024 - how they work, leading
+  platforms like Gemini and GPT-4V, and transformative applications across
+  industries.
+tags:
+  - multimodal AI
+  - Gemini
+  - GPT-4V
+  - AI technology
+  - machine learning
+  - computer vision
+image: 'https://images.pexels.com/photos/16587313/pexels-photo-16587313.jpeg'
+image_alt: 'Diagram showing multimodal AI processing text, images and audio'
+video: 'https://youtu.be/example5'
+video_thumbnail: /images/multimodal-ai-video-thumb.jpg
+excerpt: >-
+  Models that can simultaneously process text, images, audio and video are
+  becoming the new standard. Learn how they work and their industry impact in
+  2024.
 draft: false
 priority: 0.8
 ---

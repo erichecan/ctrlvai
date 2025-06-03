@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
         </header>
         <div className="mb-8">
           <Image 
-            src={post.coverImage || '/images/blog/default.png'} 
+            src={post.coverImage || '/images/blog/default.png'}
             alt={post.title || 'Blog post cover'}
             width={1200}
             height={630}
@@ -64,22 +64,14 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
               components={{
-                code({ node, inline, className, children, ...props }) {
+                code({ className, children, ...props }: { className?: any; children?: any; [key: string]: any }) {
                   const match = /language-(\w+)/.exec(className || '');
-                  return !inline && match ? (
-                    <SyntaxHighlighter
-                      style={dracula}
-                      language={match[1]}
-                      PreTag="div"
-                      {...props}
-                    >
-                      {String(children).replace(/\n$/, '')}
-                    </SyntaxHighlighter>
-                  ) : (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  );
+                  if (match) {
+                    const SyntaxHighlighterAny = SyntaxHighlighter as any;
+                    return (<SyntaxHighlighterAny style={ ( dracula as any ) } language={match[1]} PreTag="div" { ... ( props as any ) }> { String(children).replace(/\n$/, '') } </SyntaxHighlighterAny>);
+                  } else {
+                     return (<code className={className} { ... ( props as any ) }> { children } </code>);
+                  }
                 },
               }}
             />

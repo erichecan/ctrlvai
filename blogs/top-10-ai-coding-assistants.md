@@ -1,23 +1,28 @@
 ---
 id: 3
-title: "Top 10 AI Coding Assistants for Developers in 2024 - Expert Reviews"
-slug: "best-ai-coding-assistants-2024"
-date: "2024-03-05"
-category: "Developer Tools"
-author: "DevTools Team"
-meta_description: "Comprehensive guide to the best AI coding assistants in 2024 including GitHub Copilot, Amazon CodeWhisperer, Tabnine and more. Compare features, pricing and performance."
-tags: 
-  - "AI coding"
-  - "GitHub Copilot"
-  - "CodeWhisperer"
-  - "Tabnine"
-  - "programming tools"
-  - "developer productivity"
-image: "/images/blog-ai3.jpg"
-image_alt: "Comparison of AI coding assistant interfaces"
-video: "https://youtu.be/example3"
-video_thumbnail: "/images/coding-tools-video-thumb.jpg"
-excerpt: "From GitHub Copilot to CodeLlama, discover which AI coding assistant best fits your development workflow in 2024 based on our extensive testing."
+title: Top 10 AI Coding Assistants for Developers in 2024 - Expert Reviews
+slug: best-ai-coding-assistants-2024
+date: '2024-03-05'
+category: Developer Tools
+author: DevTools Team
+meta_description: >-
+  Comprehensive guide to the best AI coding assistants in 2024 including GitHub
+  Copilot, Amazon CodeWhisperer, Tabnine and more. Compare features, pricing and
+  performance.
+tags:
+  - AI coding
+  - GitHub Copilot
+  - CodeWhisperer
+  - Tabnine
+  - programming tools
+  - developer productivity
+image: 'https://images.pexels.com/photos/16245254/pexels-photo-16245254.jpeg'
+image_alt: Comparison of AI coding assistant interfaces
+video: 'https://youtu.be/example3'
+video_thumbnail: /images/coding-tools-video-thumb.jpg
+excerpt: >-
+  From GitHub Copilot to CodeLlama, discover which AI coding assistant best fits
+  your development workflow in 2024 based on our extensive testing.
 draft: false
 priority: 0.9
 ---

@@ -1,11 +1,20 @@
 ---
-title: "AI-Powered Customer Experience: The New Competitive Advantage"
-date: "2025-02-15"
-category: "Trends"
-tags: ["Customer Experience", "AI Strategy", "Business Innovation", "Personalization"]
-excerpt: "Artificial intelligence is transforming how businesses interact with customers, creating unprecedented opportunities for personalization, efficiency, and innovation. This article explores how AI is revolutionizing customer experience and what it means for businesses across industries."
-coverImage: "/images/blog/ai-customer-experience-cover.jpg"
-author: "Rebecca Johnson"
+title: 'AI-Powered Customer Experience: The New Competitive Advantage'
+date: '2025-02-15'
+category: Trends
+tags:
+  - Customer Experience
+  - AI Strategy
+  - Business Innovation
+  - Personalization
+excerpt: >-
+  Artificial intelligence is transforming how businesses interact with
+  customers, creating unprecedented opportunities for personalization,
+  efficiency, and innovation. This article explores how AI is revolutionizing
+  customer experience and what it means for businesses across industries.
+coverImage: /images/blog/ai-customer-experience-cover.jpg
+author: Rebecca Johnson
+image: 'https://images.pexels.com/photos/8438944/pexels-photo-8438944.jpeg'
 ---
 
 # AI-Powered Customer Experience: The New Competitive Advantage

@@ -1,23 +1,27 @@
 ---
 id: 4
-title: "How AI is Transforming Healthcare in 2024 - Breakthrough Applications"
-slug: "ai-healthcare-2024"
-date: "2024-02-28"
-category: "Industry Trends"
-author: "HealthTech Research Team"
-meta_description: "Discover how AI is revolutionizing healthcare in 2024 - from drug discovery to personalized medicine and medical imaging breakthroughs."
-tags: 
-  - "AI in healthcare"
-  - "medical AI"
-  - "drug discovery"
-  - "medical imaging"
-  - "personalized medicine"
-  - "healthtech"
-image: "/images/blog-ai4.jpg"
-image_alt: "AI applications in healthcare settings"
-video: "https://youtu.be/example4"
-video_thumbnail: "/images/healthcare-ai-video-thumb.jpg"
-excerpt: "From drug discovery to personalized treatment plans, AI is revolutionizing healthcare faster than ever with groundbreaking applications in 2024."
+title: How AI is Transforming Healthcare in 2024 - Breakthrough Applications
+slug: ai-healthcare-2024
+date: '2024-02-28'
+category: Industry Trends
+author: HealthTech Research Team
+meta_description: >-
+  Discover how AI is revolutionizing healthcare in 2024 - from drug discovery to
+  personalized medicine and medical imaging breakthroughs.
+tags:
+  - AI in healthcare
+  - medical AI
+  - drug discovery
+  - medical imaging
+  - personalized medicine
+  - healthtech
+image: 'https://images.pexels.com/photos/8439076/pexels-photo-8439076.jpeg'
+image_alt: AI applications in healthcare settings
+video: 'https://youtu.be/example4'
+video_thumbnail: /images/healthcare-ai-video-thumb.jpg
+excerpt: >-
+  From drug discovery to personalized treatment plans, AI is revolutionizing
+  healthcare faster than ever with groundbreaking applications in 2024.
 draft: false
 priority: 0.85
 ---

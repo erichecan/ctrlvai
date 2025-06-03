@@ -1,11 +1,20 @@
 ---
-title: "Ethical AI: Navigating the Moral Landscape of Artificial Intelligence"
-date: "2025-03-01"
-category: "Ethics"
-tags: ["AI Ethics", "Responsible AI", "AI Governance", "Technology Ethics"]
-excerpt: "As AI becomes increasingly integrated into our society, ethical considerations are more important than ever. This article explores the key ethical challenges in AI development and deployment, and provides frameworks for responsible innovation."
-coverImage: "/images/blog/ethical-ai-landscape-cover.jpg"
-author: "Dr. Maya Patel"
+title: 'Ethical AI: Navigating the Moral Landscape of Artificial Intelligence'
+date: '2025-03-01'
+category: Ethics
+tags:
+  - AI Ethics
+  - Responsible AI
+  - AI Governance
+  - Technology Ethics
+excerpt: >-
+  As AI becomes increasingly integrated into our society, ethical considerations
+  are more important than ever. This article explores the key ethical challenges
+  in AI development and deployment, and provides frameworks for responsible
+  innovation.
+coverImage: /images/blog/ethical-ai-landscape-cover.jpg
+author: Dr. Maya Patel
+image: 'https://images.pexels.com/photos/18498317/pexels-photo-18498317.jpeg'
 ---
 
 # Ethical AI: Navigating the Moral Landscape of Artificial Intelligence

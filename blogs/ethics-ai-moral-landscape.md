@@ -1,11 +1,20 @@
 ---
-title: "AI Ethics: Navigating the Moral Landscape of Artificial Intelligence"
-date: "2025-02-25"
-category: "Ethics"
-tags: ["AI Ethics", "Responsible AI", "Technology Ethics", "AI Governance"]
-excerpt: "As AI systems become increasingly powerful and ubiquitous, the ethical questions they raise grow more complex and consequential. This article explores the key ethical challenges in AI development and deployment, and provides frameworks for addressing them responsibly."
-coverImage: "/images/blog/ai-ethics-moral-landscape-cover.jpg"
-author: "Dr. Elena Rodriguez"
+title: 'AI Ethics: Navigating the Moral Landscape of Artificial Intelligence'
+date: '2025-02-25'
+category: Ethics
+tags:
+  - AI Ethics
+  - Responsible AI
+  - Technology Ethics
+  - AI Governance
+excerpt: >-
+  As AI systems become increasingly powerful and ubiquitous, the ethical
+  questions they raise grow more complex and consequential. This article
+  explores the key ethical challenges in AI development and deployment, and
+  provides frameworks for addressing them responsibly.
+coverImage: /images/blog/ai-ethics-moral-landscape-cover.jpg
+author: Dr. Elena Rodriguez
+image: 'https://images.pexels.com/photos/18498317/pexels-photo-18498317.jpeg'
 ---
 
 # AI Ethics: Navigating the Moral Landscape of Artificial Intelligence

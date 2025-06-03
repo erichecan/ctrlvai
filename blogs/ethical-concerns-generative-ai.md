@@ -1,21 +1,25 @@
 ---
 id: 7
-title: "Ethical Challenges of Generative AI - Comprehensive 2024 Analysis"
-slug: "generative-ai-ethics-2024"
-date: "2024-02-12"
-category: "AI Ethics"
-author: "Ethics Review Board"
-meta_description: "In-depth examination of the 7 biggest ethical concerns surrounding generative AI in 2024, including copyright, misinformation, bias and accountability."
-tags: 
-  - "AI ethics"
-  - "generative AI"
-  - "responsible AI"
-  - "AI policy"
-  - "machine learning ethics"
-  - "AI regulation"
-image: "/images/blog-ai7.jpg"
-image_alt: "Ethical dimensions of artificial intelligence"
-excerpt: "As generative AI becomes more powerful, ethical questions around copyright, misinformation, and bias require urgent attention in 2024."
+title: Ethical Challenges of Generative AI - Comprehensive 2024 Analysis
+slug: generative-ai-ethics-2024
+date: '2024-02-12'
+category: AI Ethics
+author: Ethics Review Board
+meta_description: >-
+  In-depth examination of the 7 biggest ethical concerns surrounding generative
+  AI in 2024, including copyright, misinformation, bias and accountability.
+tags:
+  - AI ethics
+  - generative AI
+  - responsible AI
+  - AI policy
+  - machine learning ethics
+  - AI regulation
+image: 'https://images.pexels.com/photos/18498317/pexels-photo-18498317.jpeg'
+image_alt: Ethical dimensions of artificial intelligence
+excerpt: >-
+  As generative AI becomes more powerful, ethical questions around copyright,
+  misinformation, and bias require urgent attention in 2024.
 draft: false
 priority: 0.9
 schema_markup: |

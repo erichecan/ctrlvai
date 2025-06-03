@@ -1,11 +1,22 @@
 ---
-title: "The AI Regulation Landscape: Global Approaches and What They Mean for Innovation"
-date: "2025-04-05"
-category: "News"
-tags: ["AI Regulation", "Policy", "EU AI Act", "Governance", "Compliance"]
-excerpt: "As AI becomes more powerful and pervasive, governments worldwide are racing to establish regulatory frameworks. This article examines the emerging global landscape of AI regulation and its implications for innovation."
-coverImage: "/images/blog/ai-regulation-landscape-cover.jpg"
-author: "Sophia Martinez"
+title: >-
+  The AI Regulation Landscape: Global Approaches and What They Mean for
+  Innovation
+date: '2025-04-05'
+category: News
+tags:
+  - AI Regulation
+  - Policy
+  - EU AI Act
+  - Governance
+  - Compliance
+excerpt: >-
+  As AI becomes more powerful and pervasive, governments worldwide are racing to
+  establish regulatory frameworks. This article examines the emerging global
+  landscape of AI regulation and its implications for innovation.
+coverImage: /images/blog/ai-regulation-landscape-cover.jpg
+author: Sophia Martinez
+image: 'https://images.pexels.com/photos/18498317/pexels-photo-18498317.jpeg'
 ---
 
 # The AI Regulation Landscape: Global Approaches and What They Mean for Innovation

@@ -1,11 +1,19 @@
 ---
-title: "AI Agents: The Next Evolution in Artificial Intelligence"
-date: "2025-05-20"
-category: "Trends"
-tags: ["AI Agents", "Autonomous AI", "Future Tech", "AI Development"]
-excerpt: "AI agents are transforming how we interact with technology, moving beyond passive tools to become proactive assistants that can plan, reason, and execute complex tasks autonomously."
-coverImage: "/images/blog/ai-agents-evolution-cover.jpg"
-author: "Emily Parker"
+title: 'AI Agents: The Next Evolution in Artificial Intelligence'
+date: '2025-05-20'
+category: Trends
+tags:
+  - AI Agents
+  - Autonomous AI
+  - Future Tech
+  - AI Development
+excerpt: >-
+  AI agents are transforming how we interact with technology, moving beyond
+  passive tools to become proactive assistants that can plan, reason, and
+  execute complex tasks autonomously.
+coverImage: /images/blog/ai-agents-evolution-cover.jpg
+author: Emily Parker
+image: 'https://images.pexels.com/photos/8294566/pexels-photo-8294566.jpeg'
 ---
 
 # AI Agents: The Next Evolution in Artificial Intelligence

@@ -1,11 +1,20 @@
 ---
-title: "The Future of Work in the Age of AI"
-date: "2025-03-01"
-category: "Trends"
-tags: ["Future of Work", "AI Workforce", "Automation", "Skill Development"]
-excerpt: "Artificial intelligence is fundamentally reshaping the workplace, creating new opportunities while disrupting traditional roles. This article explores how AI is transforming work, the skills that will matter most, and strategies for thriving in an AI-augmented future."
-coverImage: "/images/blog/future-work-ai-age-cover.jpg"
-author: "Dr. Thomas Chen"
+title: The Future of Work in the Age of AI
+date: '2025-03-01'
+category: Trends
+tags:
+  - Future of Work
+  - AI Workforce
+  - Automation
+  - Skill Development
+excerpt: >-
+  Artificial intelligence is fundamentally reshaping the workplace, creating new
+  opportunities while disrupting traditional roles. This article explores how AI
+  is transforming work, the skills that will matter most, and strategies for
+  thriving in an AI-augmented future.
+coverImage: /images/blog/future-work-ai-age-cover.jpg
+author: Dr. Thomas Chen
+image: 'https://images.pexels.com/photos/8438944/pexels-photo-8438944.jpeg'
 ---
 
 # The Future of Work in the Age of AI

@@ -1,23 +1,27 @@
 ---
 id: 6
-title: "AI Video Generation Tools Compared 2024 - Complete Guide"
-slug: "ai-video-generation-tools-2024"
-date: "2024-02-18"
-category: "Creative AI"
-author: "Video Tech Team"
-meta_description: "Detailed comparison of Runway, Pika Labs and Sora AI video tools. Discover which solution best fits your content creation needs in 2024."
-tags: 
-  - "AI video"
-  - "Runway Gen-2"
-  - "Pika Labs"
-  - "Sora AI"
-  - "video generation"
-  - "creative tools"
-image: "/images/blog-ai6.jpg"
-image_alt: "Comparison of AI video generation interfaces"
-video: "https://youtu.be/example6"
-video_thumbnail: "/images/ai-video-tools-thumb.jpg"
-excerpt: "Runway, Pika Labs, and Sora are pushing the boundaries of AI video generation. We test their capabilities for different use cases."
+title: AI Video Generation Tools Compared 2024 - Complete Guide
+slug: ai-video-generation-tools-2024
+date: '2024-02-18'
+category: Creative AI
+author: Video Tech Team
+meta_description: >-
+  Detailed comparison of Runway, Pika Labs and Sora AI video tools. Discover
+  which solution best fits your content creation needs in 2024.
+tags:
+  - AI video
+  - Runway Gen-2
+  - Pika Labs
+  - Sora AI
+  - video generation
+  - creative tools
+image: 'https://images.pexels.com/photos/17485848/pexels-photo-17485848.png'
+image_alt: Comparison of AI video generation interfaces
+video: 'https://youtu.be/example6'
+video_thumbnail: /images/ai-video-tools-thumb.jpg
+excerpt: >-
+  Runway, Pika Labs, and Sora are pushing the boundaries of AI video generation.
+  We test their capabilities for different use cases.
 draft: false
 priority: 0.75
 schema_markup: |

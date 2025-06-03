@@ -1,11 +1,20 @@
 ---
-title: "Building an AI-Powered Content Strategy: A Step-by-Step Guide"
-date: "2025-04-20"
-category: "Tips"
-tags: ["Content Strategy", "AI Tools", "Content Marketing", "SEO"]
-excerpt: "Learn how to leverage AI tools to create, optimize, and distribute content that resonates with your audience and drives measurable results. This comprehensive guide walks you through building an AI-enhanced content strategy from the ground up."
-coverImage: "/images/blog/ai-content-strategy-cover.jpg"
-author: "Alex Rivera"
+title: 'Building an AI-Powered Content Strategy: A Step-by-Step Guide'
+date: '2025-04-20'
+category: Tips
+tags:
+  - Content Strategy
+  - AI Tools
+  - Content Marketing
+  - SEO
+excerpt: >-
+  Learn how to leverage AI tools to create, optimize, and distribute content
+  that resonates with your audience and drives measurable results. This
+  comprehensive guide walks you through building an AI-enhanced content strategy
+  from the ground up.
+coverImage: /images/blog/ai-content-strategy-cover.jpg
+author: Alex Rivera
+image: 'https://images.pexels.com/photos/942331/pexels-photo-942331.jpeg'
 ---
 
 # Building an AI-Powered Content Strategy: A Step-by-Step Guide

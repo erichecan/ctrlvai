@@ -1,23 +1,29 @@
 ---
 id: 2
-title: "Claude 3 vs GPT-4: Comprehensive Comparison of Leading AI Models"
-slug: "claude-3-vs-gpt-4-comparison"
-date: "2024-03-10"
-category: "AI Models"
-author: "AI Analysis Team"
-meta_description: "Detailed technical comparison between Anthropic's Claude 3 and OpenAI's GPT-4. Discover performance benchmarks, pricing, and which AI model best suits your needs."
-tags: 
-  - "Claude 3"
-  - "GPT-4"
-  - "AI comparison"
-  - "large language models"
-  - "Anthropic"
-  - "OpenAI"
-image: "/images/blog-ai2.jpg"
-image_alt: "Side-by-side comparison of Claude 3 and GPT-4 AI models"
-video: "https://youtu.be/example2"
-video_thumbnail: "/images/ai-comparison-video-thumb.jpg"
-excerpt: "Anthropic's Claude 3 series brings serious competition to OpenAI's GPT-4. We compare performance, pricing, and unique features in this comprehensive analysis."
+title: 'Claude 3 vs GPT-4: Comprehensive Comparison of Leading AI Models'
+slug: claude-3-vs-gpt-4-comparison
+date: '2024-03-10'
+category: AI Models
+author: AI Analysis Team
+meta_description: >-
+  Detailed technical comparison between Anthropic's Claude 3 and OpenAI's GPT-4.
+  Discover performance benchmarks, pricing, and which AI model best suits your
+  needs.
+tags:
+  - Claude 3
+  - GPT-4
+  - AI comparison
+  - large language models
+  - Anthropic
+  - OpenAI
+image: 'https://images.pexels.com/photos/30869075/pexels-photo-30869075.jpeg'
+image_alt: Side-by-side comparison of Claude 3 and GPT-4 AI models
+video: 'https://youtu.be/example2'
+video_thumbnail: /images/ai-comparison-video-thumb.jpg
+excerpt: >-
+  Anthropic's Claude 3 series brings serious competition to OpenAI's GPT-4. We
+  compare performance, pricing, and unique features in this comprehensive
+  analysis.
 draft: false
 priority: 0.7
 ---

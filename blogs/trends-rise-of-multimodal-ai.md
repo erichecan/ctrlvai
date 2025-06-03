@@ -1,11 +1,19 @@
 ---
-title: "The Rise of Multimodal AI: Beyond Text-Only Interfaces"
-date: "2025-05-15"
-category: "Trends"
-tags: ["Multimodal AI", "Computer Vision", "Voice AI", "Future Tech"]
-excerpt: "Multimodal AI systems that combine text, vision, audio, and more are revolutionizing how we interact with artificial intelligence. Discover how this trend is shaping the future of AI applications."
-coverImage: "/images/blog/multimodal-ai-cover.jpg"
-author: "David Zhang"
+title: 'The Rise of Multimodal AI: Beyond Text-Only Interfaces'
+date: '2025-05-15'
+category: Trends
+tags:
+  - Multimodal AI
+  - Computer Vision
+  - Voice AI
+  - Future Tech
+excerpt: >-
+  Multimodal AI systems that combine text, vision, audio, and more are
+  revolutionizing how we interact with artificial intelligence. Discover how
+  this trend is shaping the future of AI applications.
+coverImage: /images/blog/multimodal-ai-cover.jpg
+author: David Zhang
+image: 'https://images.pexels.com/photos/8097110/pexels-photo-8097110.jpeg'
 ---
 
 # The Rise of Multimodal AI: Beyond Text-Only Interfaces
