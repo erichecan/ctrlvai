@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import MainLayout from '@/components/layout/MainLayout';
 import BlogLayoutClient from './BlogLayoutClient';
 
 export const metadata: Metadata = {
