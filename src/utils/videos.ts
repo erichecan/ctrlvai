@@ -8,9 +8,21 @@ export function getAllVideos(): LearningVideo[] {
 }
 
 // 根据ID获取视频
-export function getVideoById(id: string): LearningVideo | null {
-  const videos = getAllVideos();
-  return videos.find(video => video.id === id) || null;
+export async function getVideoById(id: string): Promise<LearningVideo | null> {
+  try {
+    // 模拟异步操作
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const videos = getAllVideos();
+    const video = videos.find(video => video.id === id);
+    if (!video) {
+      console.warn(`Video with id ${id} not found`);
+      return null;
+    }
+    return video;
+  } catch (error) {
+    console.error('Error fetching video by id:', error);
+    throw new Error('Failed to fetch video');
+  }
 }
 
 // 获取相关视频
