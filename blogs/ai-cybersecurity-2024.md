@@ -1,12 +1,17 @@
 ---
-id: 9
-title: "AI in Cybersecurity: Latest Developments"
-category: "Security"
-date: "2024-02-03"
-image: "/images/blog-ai9.jpg"
-excerpt: "How AI is both empowering cyber defenders and being weaponized by attackers in 2024's security landscape."
+title: 'AI in Cybersecurity: Latest Developments？？'
+date: '2025-06-03'
+category: Security
+tags:
+  - medical AI
+excerpt: >-
+  How AI is both empowering cyber defenders and being weaponized by attackers in
+  2024's security landscape.
+author: AI Analysis Team
+image: >-
+  https://beconnected.esafety.gov.au/pluginfile.php/99437/mod_resource/content/2/what-is-ai%20%281%29.jpg
+draft: false
 ---
-
 ![AI Cybersecurity](https://example.com/ai-security.jpg)
 
 The cybersecurity arms race has entered a new phase with AI technologies being deployed by both defenders and attackers.
