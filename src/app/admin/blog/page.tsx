@@ -1,23 +1,24 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Typography, Table, Button, Space, Tag, Modal, Form, Input, Select, message } from 'antd';
+import { Typography, Table, Button, Space, Tag, Modal, Form, Input, Select, message, Popconfirm } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import AdminLayout from '@/components/admin/AdminLayout';
+import { AdminLayout } from '@/components/admin/AdminLayout';
 
 const { Title } = Typography;
 const { Option } = Select;
 const { TextArea } = Input;
 
 interface BlogPost {
-  id: number;
+  id?: number;
   title: string;
   date: string;
   category: string;
   tags: string[];
   excerpt: string;
   author?: string;
-  slug?: string;
+  slug: string;
   image?: string;
   draft?: boolean;
   content: string;
@@ -58,13 +59,11 @@ const BlogAdminPage = () => {
 
   const fetchCategories = async () => {
     try {
-      // In a real app, this would be an API call
-      // For now, we'll use the existing categories from posts
       const response = await fetch('/api/blog');
       const data = await response.json();
       if (data.success) {
         const uniqueCategories = Array.from(new Set(data.posts.map((post: BlogPost) => post.category)));
-        setCategories(uniqueCategories);
+        setCategories(uniqueCategories.filter((cat): cat is string => typeof cat === 'string'));
       }
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -73,14 +72,12 @@ const BlogAdminPage = () => {
 
   const fetchTags = async () => {
     try {
-      // In a real app, this would be an API call
-      // For now, we'll use the existing tags from posts
       const response = await fetch('/api/blog');
       const data = await response.json();
       if (data.success) {
         const allTags = data.posts.flatMap((post: BlogPost) => post.tags);
         const uniqueTags = Array.from(new Set(allTags));
-        setTags(uniqueTags);
+        setTags(uniqueTags.filter((tag): tag is string => typeof tag === 'string'));
       }
     } catch (error) {
       console.error('Error fetching tags:', error);
@@ -88,15 +85,24 @@ const BlogAdminPage = () => {
   };
 
   const handleEdit = (post: BlogPost) => {
+    console.log('Editing post:', post);
     setEditingPost(post);
-    form.setFieldsValue({
+    const formValues = {
       ...post,
-      tags: post.tags,
-    });
+      tags: post.tags || [],
+      category: post.category || '',
+      excerpt: post.excerpt || '',
+      content: post.content || '',
+      author: post.author || 'AI Analysis Team',
+      image: post.image || '',
+    };
+    console.log('Setting form values:', formValues);
+    form.setFieldsValue(formValues);
     setModalVisible(true);
   };
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (slug: string) => {
+    console.log('Delete button clicked for slug:', slug);
     Modal.confirm({
       title: 'Are you sure you want to delete this post?',
       content: 'This action cannot be undone.',
@@ -104,11 +110,22 @@ const BlogAdminPage = () => {
       okType: 'danger',
       cancelText: 'Cancel',
       onOk: async () => {
+        console.log('Delete confirmed, calling API for slug:', slug);
         try {
-          // In a real app, this would be an API call
-          // For now, we'll just update the local state
-          setPosts(posts.filter(post => post.id !== id));
-          message.success('Post deleted successfully');
+          const response = await fetch(`/api/blog/${slug}`, {
+            method: 'DELETE',
+          });
+          
+          console.log('Delete API response status:', response.status);
+          const data = await response.json();
+          console.log('Delete API response data:', data);
+          
+          if (data.success) {
+            setPosts(posts.filter(post => post.slug !== slug));
+            message.success('Post deleted successfully');
+          } else {
+            message.error(data.message || 'Failed to delete post');
+          }
         } catch (error) {
           console.error('Error deleting post:', error);
           message.error('Failed to delete post');
@@ -125,46 +142,90 @@ const BlogAdminPage = () => {
 
   const handleModalOk = async () => {
     try {
+      console.log('Validating form...');
       const values = await form.validateFields();
+      console.log('Form values:', values);
       
+      // Validate required fields
+      const requiredFields = {
+        title: 'Title',
+        excerpt: 'Excerpt',
+        category: 'Category',
+        content: 'Content'
+      };
+
+      for (const [field, label] of Object.entries(requiredFields)) {
+        if (!values[field]?.trim()) {
+          throw new Error(`${label} is required`);
+        }
+      }
+
+      if (!Array.isArray(values.tags) || values.tags.length === 0) {
+        throw new Error('At least one tag is required');
+      }
+
+      // Generate slug if not provided
+      if (!values.slug?.trim()) {
+        values.slug = values.title
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/(^-|-$)/g, '');
+      }
+
+      console.log('Submitting form with values:', values);
+      const url = editingPost ? `/api/blog/${editingPost.slug}` : '/api/blog';
+      const method = editingPost ? 'PUT' : 'POST';
+
+      const response = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(values),
+      });
+
+      console.log('API response status:', response.status);
+      const data = await response.json();
+      console.log('API response data:', data);
+      
+      if (!data.success) {
+        throw new Error(data.message || 'Operation failed');
+      }
+
       if (editingPost) {
-        // Update existing post
-        const updatedPost = { ...editingPost, ...values };
-        // In a real app, this would be an API call
-        setPosts(posts.map(post => post.id === editingPost.id ? updatedPost : post));
+        setPosts(posts.map(post => 
+          post.slug === editingPost.slug ? { ...post, ...values } : post
+        ));
         message.success('Post updated successfully');
       } else {
-        // Create new post
         const newPost = {
           ...values,
-          id: Math.max(0, ...posts.map(p => p.id)) + 1,
-          date: new Date().toISOString().split('T')[0],
+          date: values.date || new Date().toISOString().split('T')[0],
           draft: false,
         };
-        // In a real app, this would be an API call
         setPosts([newPost, ...posts]);
         message.success('Post created successfully');
       }
-      
+
       setModalVisible(false);
+      form.resetFields();
     } catch (error) {
-      console.error('Form validation error:', error);
+      console.error('Form submission error:', error);
+      message.error(error instanceof Error ? error.message : 'Failed to save post. Please check all required fields.');
     }
   };
 
-  const columns = [
+  const columns: ColumnsType<BlogPost> = [
     {
-      title: 'ID',
-      dataIndex: 'id',
-      key: 'id',
-      sorter: (a: BlogPost, b: BlogPost) => a.id - b.id,
+      title: 'Slug',
+      dataIndex: 'slug',
+      key: 'slug',
+      sorter: (a, b) => a.slug.localeCompare(b.slug),
     },
     {
       title: 'Title',
       dataIndex: 'title',
       key: 'title',
       render: (text: string, record: BlogPost) => (
-        <a href={`/blog/${record.slug || record.id}`} target="_blank" rel="noopener noreferrer">
+        <a href={`/blog/${record.slug}`} target="_blank" rel="noopener noreferrer">
           {text}
         </a>
       ),
@@ -173,7 +234,7 @@ const BlogAdminPage = () => {
       title: 'Date',
       dataIndex: 'date',
       key: 'date',
-      sorter: (a: BlogPost, b: BlogPost) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      sorter: (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     },
     {
       title: 'Category',
@@ -181,20 +242,25 @@ const BlogAdminPage = () => {
       key: 'category',
       render: (category: string) => <Tag color="purple">{category}</Tag>,
       filters: categories.map(cat => ({ text: cat, value: cat })),
-      onFilter: (value: string, record: BlogPost) => record.category === value,
+      onFilter: (value, record) => record.category === String(value),
     },
     {
       title: 'Tags',
       dataIndex: 'tags',
       key: 'tags',
-      render: (tags: string[]) => (
-        <>
-          {tags.slice(0, 2).map(tag => (
-            <Tag key={tag}>{tag}</Tag>
-          ))}
-          {tags.length > 2 && <Tag>+{tags.length - 2}</Tag>}
-        </>
-      ),
+      render: (tags: string[] | undefined) => {
+        if (!tags || !Array.isArray(tags)) {
+          return null;
+        }
+        return (
+          <>
+            {tags.slice(0, 2).map(tag => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
+            {tags.length > 2 && <Tag>+{tags.length - 2}</Tag>}
+          </>
+        );
+      },
     },
     {
       title: 'Author',
@@ -204,22 +270,54 @@ const BlogAdminPage = () => {
     {
       title: 'Actions',
       key: 'actions',
-      render: (_: any, record: BlogPost) => (
-        <Space size="middle">
-          <Button 
-            type="primary" 
-            icon={<EditOutlined />} 
+      render: (_, record: BlogPost) => (
+        <Space>
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
           >
             Edit
           </Button>
-          <Button 
-            danger 
-            icon={<DeleteOutlined />} 
-            onClick={() => handleDelete(record.id)}
+          <Popconfirm
+            title="Delete the post"
+            description="Are you sure you want to delete this post? This action cannot be undone."
+            onConfirm={async () => {
+              console.log('Delete confirmed, calling API for slug:', record.slug);
+              try {
+                const response = await fetch(`/api/blog/${record.slug}`, {
+                  method: 'DELETE',
+                });
+                
+                console.log('Delete API response status:', response.status);
+                const data = await response.json();
+                console.log('Delete API response data:', data);
+                
+                if (data.success) {
+                  setPosts(posts.filter(post => post.slug !== record.slug));
+                  message.success('Post deleted successfully');
+                } else {
+                  message.error(data.message || 'Failed to delete post');
+                }
+              } catch (error) {
+                console.error('Error deleting post:', error);
+                message.error('Failed to delete post');
+              }
+            }}
+            okText="Yes, Delete"
+            okType="danger"
+            cancelText="Cancel"
           >
-            Delete
-          </Button>
+            <Button
+              danger
+              icon={<DeleteOutlined />}
+              onClick={() => {
+                console.log('Delete button clicked for slug:', record.slug);
+              }}
+            >
+              Delete
+            </Button>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -242,7 +340,7 @@ const BlogAdminPage = () => {
       <Table 
         columns={columns} 
         dataSource={posts} 
-        rowKey="id" 
+        rowKey="slug"
         loading={loading}
         pagination={{ pageSize: 10 }}
       />
