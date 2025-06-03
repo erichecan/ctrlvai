@@ -68,10 +68,14 @@ export async function getAllBlogPosts(): Promise<BlogPost[]> {
       const fullPath = path.join(blogsDirectory, fileName);
       const fileContents = await fs.promises.readFile(fullPath, 'utf8');
       const matterResult = matter(fileContents);
+      const data = matterResult.data as Omit<BlogPost, 'content'>;
+      // 兼容 image 字段和 coverImage 字段
+      const coverImage = data.coverImage || data.image || undefined;
       return {
         slug: fileName.replace(/\.md$/, ''),
         content: matterResult.content,
-        ...(matterResult.data as Omit<BlogPost, 'content'>),
+        ...data,
+        coverImage, // 优先 coverImage，没有则用 image
       };
     }));
     cache.posts = allPostsData;
