@@ -42,7 +42,7 @@ export default function AboutPage() {
             <Col xs={24} md={12}>
               <Card className="shadow-lg">
                 <Image 
-                  src="/images/about/mission.jpg" 
+                  src="https://images.pexels.com/photos/7413915/pexels-photo-7413915.jpeg" 
                   alt="CtrlV AI Mission" 
                   width={600}
                   height={400}

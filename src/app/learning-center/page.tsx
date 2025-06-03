@@ -63,7 +63,7 @@ export default function LearningCenterPage({
       <section className="bg-gradient-to-r from-[#6A1B9A] to-[#8E24AA] text-white py-12 px-4 rounded-lg mb-8">
         <div className="container mx-auto">
           <Typography.Title level={1} className="text-white text-center mb-4">
-            CtrlV AI Academy
+            ctrlvAI Academy
           </Typography.Title>
           <Typography.Paragraph className="text-white text-center text-lg max-w-3xl mx-auto">
             Master AI tools with our expert-led video tutorials and guides. Learn practical skills to boost your productivity.

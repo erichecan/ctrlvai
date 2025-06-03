@@ -27,7 +27,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   category,
   tags,
   slug,
-  image = '/images/blog/default.png',
+  image = 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image',
   author
 }) => {
   // 格式化日期
@@ -43,7 +43,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
       cover={
         <div className="relative h-48 overflow-hidden">
           <Image 
-            src={image && image.trim() !== '' ? image : '/images/blog/default.png'}
+            src={image && image.trim() !== '' ? image : 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image'}
             alt={title || 'Blog image'}
             width={400}
             height={225}

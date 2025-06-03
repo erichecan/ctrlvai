@@ -48,7 +48,7 @@ export default async function BlogPostPage({ params, searchParams }: PageProps) 
         </header>
         <div className="mb-8">
           <Image 
-            src={post.coverImage || '/images/blog/default.png'}
+            src={post.coverImage || 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image'}
             alt={post.title || 'Blog post cover'}
             width={1200}
             height={630}

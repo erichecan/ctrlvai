@@ -4,7 +4,7 @@ import { getAllTools } from '@/utils/tools';
 // 获取所有AI工具的API
 export async function GET() {
   try {
-    const tools = getAllTools();
+    const tools = await getAllTools();
     return NextResponse.json({ success: true, tools });
   } catch (error) {
     console.error('Error fetching tools:', error);

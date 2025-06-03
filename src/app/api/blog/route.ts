@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       tags: data.tags,
       excerpt: data.excerpt,
       author: data.author || 'AI Analysis Team',
-      image: data.image || '/images/blog/default.png',
+      image: data.image || 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image',
       draft: data.draft || false,
     };
 

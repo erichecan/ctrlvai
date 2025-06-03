@@ -219,7 +219,7 @@ function BlogContent() {
                 category={post.category || 'Uncategorized'}
                 tags={post.tags || []}
                 slug={post.slug}
-                image={post.coverImage || '/images/blog/default.png'}
+                image={post.coverImage || 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image'}
                 author={post.author || 'Anonymous'}
               />
             ))}

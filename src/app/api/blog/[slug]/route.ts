@@ -62,7 +62,7 @@ export async function PUT(
       tags: data.tags.map((tag: string) => tag.trim()),
       excerpt: data.excerpt?.trim() || '',
       author: data.author?.trim() || 'AI Analysis Team',
-      image: data.image?.trim() || '/images/blog/default.png',
+      image: data.image?.trim() || 'https://placehold.co/800x400/e2e8f0/1e293b?text=Blog+Image',
       draft: data.draft || false,
     };
     console.log('Created frontmatter:', JSON.stringify(frontmatter, null, 2));

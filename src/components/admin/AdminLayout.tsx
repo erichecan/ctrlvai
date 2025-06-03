@@ -66,7 +66,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children, selectedKey 
       >
         <div className="p-4 flex items-center justify-center">
           <Title level={collapsed ? 5 : 4} className="m-0 text-[#6A1B9A]">
-            {collapsed ? 'CMS' : 'CtrlV CMS'}
+            {collapsed ? 'CMS' : 'ctrlvAI CMS'}
           </Title>
         </div>
         <Menu
