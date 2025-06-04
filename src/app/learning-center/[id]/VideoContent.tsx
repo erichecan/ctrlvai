@@ -21,15 +21,19 @@ const getYoutubeEmbedUrl = (url: string) => {
 };
 
 const VideoContent: React.FC<VideoContentProps> = ({ video }) => {
+  // Calculate padding-top percentage for 16:9 aspect ratio
+  const aspectRatioPadding = (9 / 16) * 100; // 56.25
+
   return (
     <div className="w-full max-w-3xl">
-      <div className="w-full min-h-[400px] bg-black rounded-lg overflow-hidden mb-6">
+      {/* Container using padding hack for aspect ratio with min-height */}
+      <div className="relative w-full overflow-hidden rounded-lg mb-6" style={{ paddingTop: `${aspectRatioPadding}%`, minHeight: '400px' }}>
         <iframe
           src={getYoutubeEmbedUrl(video.youtube_url)}
           title={video.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          className="w-full h-full border-0"
+          className="absolute top-0 left-0 w-full h-full border-0"
         />
       </div>
       <Title level={3} className="mb-2">{video.title}</Title>
