@@ -244,7 +244,11 @@ export default function ToolsPage() {
         {/* 工具列表 */}
         {loading ? (
           <div className="flex justify-center items-center min-h-[200px]">
-            <Spin size="large" tip="Loading tools..." />
+            <Spin>
+              <div className="p-8">
+                <div className="text-center">Loading tools...</div>
+              </div>
+            </Spin>
           </div>
         ) : currentTools.length > 0 ? (
           <>
