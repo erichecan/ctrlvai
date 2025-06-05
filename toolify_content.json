@@ -1,18 +1,3 @@
 {
-  "categories": [
-    "Home",
-    "Blog",
-    "Learning Center",
-    "AI Tools",
-    "About",
-    "Contact"
-  ],
-  "featuredTools": [],
-  "mainContent": [
-    {
-      "title": "AI Tools Directory",
-      "content": "AI Tools DirectoryDiscover and compare the best AI tools for various tasks and use cases. From language models to image generation, find the perfect tool for your needs.All Select tagsAllFreePaidChatGPTPaidAdvanced language model for natural conversations and content generationLanguage ModelAI AssistantContent GenerationVisit ToolMidjourneyPaidAI-powered image generation tool for creating stunning artworkImage GenerationArtCreativeVisit ToolClaudeFreeAdvanced AI assistant for writing, analysis, and codingLanguage ModelAI AssistantAnalysisVisit Tool"
-    }
-  ],
-  "fullText": "Home Blog Learning Center AI Tools About Contact AI Tools Directory Discover and compare the best AI tools for various tasks and use cases. From language models to image generation, find the perfect tool for your needs. All Select tags All Free Paid ChatGPT Paid Advanced language model for natural conversations and content generation Language Model AI Assistant Content Generation Visit Tool Midjourney Paid AI-powered image generation tool for creating stunning artwork Image Generation Art Creative Visit Tool Claude Free Advanced AI assistant for writing, analysis, and coding Language Model AI Assistant Analysis Visit Tool Your one-stop destination for mastering AI and discovering the best tools to boost your productivity. Quick Links Home Blog Learning Center AI Tools Categories Text Generation Image Generation Video Generation Content Creation Connect About Us Contact Twitter LinkedIn © 2025 CtrlV AI. All rights reserved."
+  "featuredTools": []
 }

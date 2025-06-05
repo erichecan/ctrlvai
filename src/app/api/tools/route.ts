@@ -7,10 +7,16 @@ const DATA_FILE_PATH = path.join(process.cwd(), 'public/data/tools.json');
 // Helper function to read tools data
 async function readToolsData() {
   try {
+    console.log('Attempting to read file from path:', DATA_FILE_PATH);
     const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
-    return JSON.parse(data);
+    console.log('Successfully read data from file. Content length:', data.length);
+    // You might want to log part of the content for verification, e.g., data.substring(0, 200)
+    const parsedData = JSON.parse(data);
+    console.log('Successfully parsed JSON data. Tools array length:', parsedData.tools.length);
+    return parsedData;
   } catch (error) {
     // If file doesn't exist or is invalid, return empty tools array
+    console.error('Error reading or parsing tools.json:', error);
     return { tools: [] };
   }
 }

@@ -4,15 +4,18 @@ import { AITool } from '@/types';
 function isValidTool(tool: any): tool is AITool {
   return (
     typeof tool === 'object' &&
+    tool !== null && // Ensure tool is not null
     typeof tool.name === 'string' &&
     typeof tool.description === 'string' &&
-    // Making logo optional for now
-    (typeof tool.logo === 'string' || typeof tool.logo === 'undefined') &&
-    typeof tool.category === 'string' &&
-    Array.isArray(tool.tags) &&
-    tool.tags.every((tag: any) => typeof tag === 'string') &&
+    // Allow empty string for logo
+    typeof tool.logo === 'string' &&
+    // Allow empty string for url
+    typeof tool.url === 'string' &&
     typeof tool.isPaid === 'boolean' &&
-    typeof tool.url === 'string'
+    Array.isArray(tool.tags) &&
+    // Allow empty tags array, check if all elements are strings if not empty
+    (tool.tags.length === 0 || tool.tags.every((tag: any) => typeof tag === 'string')) &&
+    typeof tool.category === 'string'
   );
 }
 
