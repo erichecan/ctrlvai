@@ -59,34 +59,6 @@
         "Analysis"
       ],
       "category": "Language Models"
-    },
-    {
-      "name": "testersfr",
-      "description": "test the cms",
-      "url": "https://www.youtube.com/shorts/x4mDeWBMi60",
-      "category": "Language Models",
-      "isPaid": true,
-      "tags": [
-        "Art"
-      ],
-      "features": [
-        "test the content"
-      ],
-      "id": "tool_1749141549895"
-    },
-    {
-      "name": "ABC",
-      "description": "adbdsdf",
-      "url": "https://www.youtube.com/shorts/RoWvhILiPJY",
-      "category": "Image Generation",
-      "isPaid": true,
-      "tags": [
-        "Creative"
-      ],
-      "features": [
-        "大东方爱堡"
-      ],
-      "id": "tool_1749142619752"
     }
   ]
 }

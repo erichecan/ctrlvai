@@ -33,6 +33,9 @@ const ToolsAdminPage = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
 
+  // Use useModal hook for context access
+  const [modal, contextHolder] = Modal.useModal();
+
   useEffect(() => {
     fetchTools();
     fetchCategories();
@@ -98,7 +101,9 @@ const ToolsAdminPage = () => {
   };
 
   const handleDelete = (id: string) => {
-    Modal.confirm({
+    console.log('handleDelete called for tool ID:', id);
+    // Use modal.confirm from the hook
+    modal.confirm({
       title: 'Are you sure you want to delete this tool?',
       content: 'This action cannot be undone.',
       okText: 'Yes, Delete',
@@ -248,152 +253,80 @@ const ToolsAdminPage = () => {
         <Space size="middle">
           <Button 
             type="primary" 
-            icon={<EditOutlined />} 
+            icon={<EditOutlined />}
             onClick={() => handleEdit(record)}
           >
             Edit
           </Button>
           <Button 
+            type="primary" 
             danger 
-            icon={<DeleteOutlined />} 
-            onClick={() => handleDelete(record.id)}
+            icon={<DeleteOutlined />}
+            onClick={() => handleDelete(record.id)} // Ensure correct ID is passed
           >
             Delete
           </Button>
         </Space>
       ),
     },
-  ] as const;
+  ];
 
   return (
     <AdminLayout selectedKey="tools">
-      <div className="flex justify-between items-center mb-6">
-        <Title level={2}>AI Tools Management</Title>
-        <Button 
-          type="primary" 
-          icon={<PlusOutlined />} 
-          onClick={handleCreate}
-          className="bg-[#1976D2]"
-        >
-          Add New Tool
-        </Button>
-      </div>
-      
+      {contextHolder} {/* Place the contextHolder here */}
+      <Title level={2}>AI Tools Management</Title>
+      <Button type="primary" icon={<PlusOutlined />} onClick={handleCreate} style={{ marginBottom: 16 }}>
+        Add New Tool
+      </Button>
       <Table 
-        columns={columns} 
-        dataSource={tools} 
-        rowKey="id" 
+        columns={columns}
+        dataSource={tools}
+        rowKey="id"
         loading={loading}
         pagination={{ pageSize: 10 }}
       />
-      
+
       <Modal
         title={editingTool ? 'Edit AI Tool' : 'Add New AI Tool'}
         open={modalVisible}
         onOk={handleModalOk}
         onCancel={() => setModalVisible(false)}
-        width={800}
-        okText={editingTool ? 'Update' : 'Create'}
+        destroyOnClose={true} // Destroy modal content on close
+        width={600}
       >
         <Form
           form={form}
           layout="vertical"
+          name="tool_form"
+          initialValues={editingTool || undefined} // Set initial values for editing
         >
-          <Form.Item
-            name="name"
-            label="Tool Name"
-            rules={[{ required: true, message: 'Please enter the tool name' }]}
-          >
+          <Form.Item name="name" label="Name" rules={[{ required: true, message: 'Please enter tool name' }]}>
             <Input />
           </Form.Item>
-          
-          <Form.Item
-            name="description"
-            label="Description"
-            rules={[{ required: true, message: 'Please enter a description' }]}
-          >
-            <TextArea rows={3} />
+          <Form.Item name="description" label="Description" rules={[{ required: true, message: 'Please enter tool description' }]}>
+            <TextArea rows={4} />
           </Form.Item>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Form.Item
-              name="url"
-              label="Website URL"
-              rules={[
-                { required: true, message: 'Please enter the website URL' },
-                { type: 'url', message: 'Please enter a valid URL' }
-              ]}
-            >
-              <Input placeholder="e.g., https://www.example.com" />
-            </Form.Item>
-            
-            <Form.Item
-              name="logo"
-              label="Logo URL"
-              rules={[{ type: 'url', message: 'Please enter a valid URL' }]}
-            >
-              <Input placeholder="e.g., /images/tools/logo.png" />
-            </Form.Item>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Form.Item
-              name="category"
-              label="Category"
-              rules={[{ required: true, message: 'Please select a category' }]}
-            >
-              <Select
-                placeholder="Select a category"
-                allowClear
-                showSearch
-              >
-                {categories.map(category => (
-                  <Option key={category} value={category}>{category}</Option>
-                ))}
-                <Option key="new-category" value="new-category">+ Add New Category</Option>
-              </Select>
-            </Form.Item>
-            
-            <Form.Item
-              name="isPaid"
-              label="Pricing"
-              valuePropName="checked"
-            >
-              <Switch 
-                checkedChildren="Paid" 
-                unCheckedChildren="Free" 
-              />
-            </Form.Item>
-          </div>
-          
-          <Form.Item
-            name="tags"
-            label="Tags"
-            rules={[{ required: true, message: 'Please add at least one tag' }]}
-          >
-            <Select
-              mode="tags"
-              placeholder="Add tags"
-              style={{ width: '100%' }}
-            >
-              {tags.map(tag => (
-                <Option key={tag} value={tag}>{tag}</Option>
+          <Form.Item name="logo" label="Logo URL">
+            <Input />
+          </Form.Item>
+          <Form.Item name="url" label="Website URL" rules={[{ required: true, message: 'Please enter website URL' }]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="category" label="Category" rules={[{ required: true, message: 'Please select a category' }]}>
+            <Select placeholder="Select a category">
+              {categories.map(cat => (
+                <Option key={cat} value={cat}>{cat}</Option>
               ))}
             </Select>
           </Form.Item>
-          
-          <Form.Item
-            name="features"
-            label="Features (One per line)"
-            rules={[{ required: true, message: 'Please enter at least one feature' }]}
-          >
-            <TextArea 
-              rows={4} 
-              placeholder="Enter features, one per line
-e.g., Natural language processing
-Content generation
-Question answering"
-            />
+          <Form.Item name="tags" label="Tags">
+            <Select mode="tags" placeholder="Enter tags"></Select>
+          </Form.Item>
+          <Form.Item name="features" label="Features (one per line)">
+            <TextArea rows={4} placeholder="Enter features, one per line" />
+          </Form.Item>
+          <Form.Item name="isPaid" label="Is Paid" valuePropName="checked">
+            <Switch />
           </Form.Item>
         </Form>
       </Modal>
