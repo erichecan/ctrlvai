@@ -1,5 +1,33 @@
 import { chromium } from 'playwright';
 import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const TOOLS_DATA_PATH = path.join(__dirname, 'public/data/tools.json');
+
+// Helper to read local tools data
+async function readLocalTools() {
+  try {
+    const data = await fs.readFile(TOOLS_DATA_PATH, 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    console.error('Error reading local tools.json:', error);
+    return { tools: [] };
+  }
+}
+
+// Helper to write local tools data
+async function writeLocalTools(data) {
+  try {
+    await fs.writeFile(TOOLS_DATA_PATH, JSON.stringify(data, null, 2));
+    console.log('Updated tools data written to tools.json');
+  } catch (error) {
+    console.error('Error writing local tools.json:', error);
+  }
+}
 
 async function runScrape() {
   const browser = await chromium.launch();
@@ -18,80 +46,64 @@ async function runScrape() {
   });
 
   try {
-    console.log('Navigating to http://localhost:3000/tools');
-    await page.goto('http://localhost:3000/tools', { waitUntil: 'networkidle' });
-    console.log('Page loaded.');
+    console.log('Navigating to http://toolify.ai');
+    // Increase timeout for page load
+    await page.goto('http://toolify.ai', { waitUntil: 'networkidle', timeout: 60000 });
+    console.log('Page loaded. Attempting to scrape tools...');
 
-    // You can add more interactions here if needed, e.g., clicking filters
-    // await page.click('...');
-    // await page.waitForTimeout(2000); // wait for content to load after interaction
+    // Scrape tool names and logo URLs from the page
+    const scrapedTools = await page.evaluate(() => {
+      const results = [];
+      // *** Adjust these selectors based on toolify.ai's actual HTML structure ***
+      const toolItems = document.querySelectorAll('.resource-card'); // Example selector for each tool item
 
-    const scrapedContent = await page.evaluate(() => {
-      // Helper function to clean text
-      const cleanText = (text) => text ? text.trim().replace(/\s+/g, ' ') : '';
+      toolItems.forEach(item => {
+        const nameElement = item.querySelector('h3 a'); // Example selector for tool name link
+        const logoElement = item.querySelector('img'); // Example selector for logo image
 
-      // *** Refined Selectors based on common listing patterns ***
-      // Look for container elements that likely wrap each tool's information
-      const toolContainers = document.querySelectorAll(
-        '.tool-card, .featured-tool, [class*="tool-item"], [class*="tool-box"], .ai-tool-item, .tool-listing'
-      );
+        const name = nameElement ? nameElement.innerText.trim() : null;
+        const logo = logoElement ? logoElement.getAttribute('src') : null;
 
-      const featuredTools = Array.from(toolContainers)
-        .map(container => {
-          try {
-            // *** Extract data within each container ***
-            const nameElement = container.querySelector('h3, .tool-name, [class*="name"]');
-            const descriptionElement = container.querySelector('p, .tool-description, [class*="description"]');
-            const linkElement = container.querySelector('a[href]');
-            const priceElement = container.querySelector('.paid-tag, .free-tag, [class*="price"]');
+        if (name && logo) {
+          results.push({ name, logo });
+        }
+      });
 
-            const name = cleanText(nameElement?.textContent);
-            const description = cleanText(descriptionElement?.textContent);
-            const url = linkElement?.href || '';
-            const isPaid = priceElement ? priceElement.textContent?.includes('Paid') : null; // Use null if uncertain
-
-            // Basic validation: require at least a name and URL
-            if (!name || !url || url === '#') return null; // Skip if missing essential info or dummy link
-
-            return {
-              name: name,
-              description: description,
-              url: url,
-              isPaid: isPaid,
-              // Placeholder for other properties expected by AITool interface
-              logo: '', // No logo in this scrape
-              features: [], // No features in this scrape
-              tags: [], // No tags in this scrape
-              category: 'Uncategorized', // Default category
-            };
-          } catch (e) {
-            console.error('Error processing tool container:', container, e);
-            return null;
-          }
-        })
-        .filter(tool => tool !== null); // Filter out any null entries resulting from errors or validation
-
-      // You might also want to extract categories or other page info here
-
-      return {
-        featuredTools: featuredTools,
-        // Include other data like categories, main content text if needed
-        // categories: [...],
-        // mainContent: [...],
-        // fullText: cleanText(document.body.innerText)
-      };
+      return results;
     });
 
-    console.log(`Scraped ${scrapedContent.featuredTools.length} tools.`);
+    console.log(`Scraped ${scrapedTools.length} tools from toolify.ai.`);
 
-    // Save the structured content to toolify_content.json
-    await fs.writeFile('toolify_content.json', JSON.stringify(scrapedContent, null, 2));
-    console.log('Scraped data saved to toolify_content.json');
+    // Read local tools data
+    const localToolsData = await readLocalTools();
+
+    // Update local tools data with scraped logos
+    let updatedCount = 0;
+    scrapedTools.forEach(scrapedTool => {
+      // Simple name matching (case-insensitive, trimmed)
+      const matchedTool = localToolsData.tools.find(localTool =>
+        localTool.name.trim().toLowerCase() === scrapedTool.name.trim().toLowerCase()
+      );
+
+      if (matchedTool && !matchedTool.logo) { // Only update if a match is found and local logo is missing
+        matchedTool.logo = scrapedTool.logo;
+        updatedCount++;
+      }
+    });
+
+    if (updatedCount > 0) {
+      console.log(`Updated ${updatedCount} tool logos in local data.`);
+      // Write updated data back to the file
+      await writeLocalTools(localToolsData);
+    } else {
+      console.log('No tool logos updated in local data.');
+    }
 
   } catch (error) {
-    console.error('An error occurred:', error);
+    console.error('An error occurred during scraping or updating:', error);
   } finally {
     await browser.close();
+    console.log('Scraping and update process finished.');
   }
 }
 

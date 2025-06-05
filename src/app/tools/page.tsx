@@ -255,14 +255,20 @@ export default function ToolsPage() {
                     hoverable
                     cover={
                       <div className="p-4 flex items-center justify-center h-48 bg-gray-50">
-                        <Image
-                          src={tool.logo}
-                          alt={tool.name}
-                          width={150}
-                          height={150}
-                          className="max-h-full max-w-full object-contain"
-                          style={{ width: 'auto', height: 'auto' }}
-                        />
+                        {tool.logo && tool.logo !== '' ? (
+                          <Image
+                            src={tool.logo}
+                            alt={tool.name}
+                            width={150}
+                            height={150}
+                            className="max-h-full max-w-full object-contain"
+                            style={{ width: 'auto', height: 'auto' }}
+                          />
+                        ) : (
+                          <span className="text-gray-500 text-4xl font-bold">
+                            {tool.name ? tool.name.charAt(0) : ''}
+                          </span>
+                        )}
                       </div>
                     }
                     className="h-full flex flex-col"
