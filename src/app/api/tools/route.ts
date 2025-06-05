@@ -1,13 +1,31 @@
 import { NextResponse } from 'next/server';
-import { getAllTools } from '@/utils/tools';
+import fs from 'fs/promises';
+import path from 'path';
 
-// 获取所有AI工具的API
+const DATA_FILE_PATH = path.join(process.cwd(), 'public/data/tools.json');
+
+// Helper function to read tools data
+async function readToolsData() {
+  try {
+    const data = await fs.readFile(DATA_FILE_PATH, 'utf-8');
+    return JSON.parse(data);
+  } catch (error) {
+    // If file doesn't exist or is invalid, return empty tools array
+    return { tools: [] };
+  }
+}
+
+// Helper function to write tools data
+async function writeToolsData(data: any) {
+  await fs.writeFile(DATA_FILE_PATH, JSON.stringify(data, null, 2));
+}
+
+// GET /api/tools
 export async function GET() {
   try {
-    const tools = await getAllTools();
-    return NextResponse.json({ success: true, tools });
+    const data = await readToolsData();
+    return NextResponse.json({ success: true, tools: data.tools });
   } catch (error) {
-    console.error('Error fetching tools:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch tools' },
       { status: 500 }
@@ -15,17 +33,77 @@ export async function GET() {
   }
 }
 
-// 创建新AI工具的API
+// POST /api/tools
 export async function POST(request: Request) {
   try {
-    const _data = await request.json();
-    // 在实际应用中，这里应该将数据保存到文件系统或数据库
-    // 由于这是一个简化的示例，我们只返回成功
-    return NextResponse.json({ success: true, message: 'Tool created successfully' });
+    const tool = await request.json();
+    const data = await readToolsData();
+    
+    // Generate a new ID if not provided
+    if (!tool.id) {
+      tool.id = `tool_${Date.now()}`;
+    }
+    
+    // Add the new tool
+    data.tools.push(tool);
+    await writeToolsData(data);
+    
+    return NextResponse.json({ success: true, tool });
   } catch (error) {
-    console.error('Error creating tool:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to create tool' },
+      { status: 500 }
+    );
+  }
+}
+
+// PUT /api/tools
+export async function PUT(request: Request) {
+  try {
+    const updatedTool = await request.json();
+    const data = await readToolsData();
+    
+    const index = data.tools.findIndex((t: any) => t.id === updatedTool.id);
+    if (index === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Tool not found' },
+        { status: 404 }
+      );
+    }
+    
+    data.tools[index] = updatedTool;
+    await writeToolsData(data);
+    
+    return NextResponse.json({ success: true, tool: updatedTool });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: 'Failed to update tool' },
+      { status: 500 }
+    );
+  }
+}
+
+// DELETE /api/tools
+export async function DELETE(request: Request) {
+  try {
+    const { id } = await request.json();
+    const data = await readToolsData();
+    
+    const index = data.tools.findIndex((t: any) => t.id === id);
+    if (index === -1) {
+      return NextResponse.json(
+        { success: false, error: 'Tool not found' },
+        { status: 404 }
+      );
+    }
+    
+    data.tools.splice(index, 1);
+    await writeToolsData(data);
+    
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    return NextResponse.json(
+      { success: false, error: 'Failed to delete tool' },
       { status: 500 }
     );
   }

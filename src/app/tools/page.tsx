@@ -48,6 +48,10 @@ export default function ToolsPage() {
 
   // 处理过滤
   useEffect(() => {
+    console.log('Filtering tools...');
+    console.log('Current tools:', tools);
+    console.log('Current filter parameters:', { searchQuery, selectedCategory, selectedTags, priceFilter });
+
     const filtered = filterTools(
       tools,
       searchQuery,
@@ -55,6 +59,8 @@ export default function ToolsPage() {
       selectedTags,
       priceFilter
     );
+
+    console.log('Filtered tools result:', filtered);
     setFilteredTools(filtered);
   }, [tools, searchQuery, selectedCategory, selectedTags, priceFilter]);
 

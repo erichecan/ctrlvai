@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { Typography, Table, Button, Space, Tag, Modal, Form, Input, Select, Switch, message } from 'antd';
 import { EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import AdminLayout from '@/components/admin/AdminLayout';
+import { ColumnGroupType, ColumnType } from 'antd/es/table';
+import type { Key } from 'antd/es/table/interface';
 
 const { Title } = Typography;
 const { Option } = Select;
@@ -57,8 +59,6 @@ const ToolsAdminPage = () => {
 
   const fetchCategories = async () => {
     try {
-      // In a real app, this would be an API call
-      // For now, we'll use the existing categories from tools
       const response = await fetch('/api/tools');
       const data = await response.json();
       if (data.success) {
@@ -66,7 +66,7 @@ const ToolsAdminPage = () => {
           new Set(
             data.tools.map((tool: AITool) => tool.category)
           )
-        );
+        ) as string[];
         setCategories(uniqueCategories);
       }
     } catch (error) {
@@ -76,12 +76,10 @@ const ToolsAdminPage = () => {
 
   const fetchTags = async () => {
     try {
-      // In a real app, this would be an API call
-      // For now, we'll use the existing tags from tools
       const response = await fetch('/api/tools');
       const data = await response.json();
       if (data.success) {
-        const allTags = data.tools.flatMap((tool: AITool) => tool.tags);
+        const allTags = data.tools.flatMap((tool: AITool) => tool.tags) as string[];
         const uniqueTags = Array.from(new Set(allTags));
         setTags(uniqueTags);
       }
@@ -108,10 +106,21 @@ const ToolsAdminPage = () => {
       cancelText: 'Cancel',
       onOk: async () => {
         try {
-          // In a real app, this would be an API call
-          // For now, we'll just update the local state
-          setTools(tools.filter(tool => tool.id !== id));
-          message.success('Tool deleted successfully');
+          const response = await fetch('/api/tools', {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id }),
+          });
+          
+          const data = await response.json();
+          if (data.success) {
+            setTools(tools.filter(tool => tool.id !== id));
+            message.success('Tool deleted successfully');
+          } else {
+            message.error(data.error || 'Failed to delete tool');
+          }
         } catch (error) {
           console.error('Error deleting tool:', error);
           message.error('Failed to delete tool');
@@ -133,35 +142,40 @@ const ToolsAdminPage = () => {
       // Convert features from string to array
       const features = values.features.split('\n').filter((feature: string) => feature.trim() !== '');
       
-      if (editingTool) {
-        // Update existing tool
-        const updatedTool = { 
-          ...editingTool, 
-          ...values,
-          features,
-        };
-        // In a real app, this would be an API call
-        setTools(tools.map(tool => tool.id === editingTool.id ? updatedTool : tool));
-        message.success('Tool updated successfully');
-      } else {
-        // Create new tool
-        const newTool = {
-          ...values,
-          id: `tool-${Date.now()}`,
-          features,
-        };
-        // In a real app, this would be an API call
-        setTools([newTool, ...tools]);
-        message.success('Tool created successfully');
-      }
+      const toolData = {
+        ...values,
+        features,
+        id: editingTool?.id || `tool_${Date.now()}`,
+      };
       
-      setModalVisible(false);
+      const method = editingTool ? 'PUT' : 'POST';
+      const response = await fetch('/api/tools', {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(toolData),
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        if (editingTool) {
+          setTools(tools.map(tool => tool.id === editingTool.id ? data.tool : tool));
+          message.success('Tool updated successfully');
+        } else {
+          setTools([data.tool, ...tools]);
+          message.success('Tool created successfully');
+        }
+        setModalVisible(false);
+      } else {
+        message.error(data.error || `Failed to ${editingTool ? 'update' : 'create'} tool`);
+      }
     } catch (error) {
       console.error('Form validation error:', error);
     }
   };
 
-  const columns = [
+  const columns: (ColumnGroupType<AITool> | ColumnType<AITool>)[] = [
     {
       title: 'Logo',
       key: 'logo',
@@ -197,22 +211,22 @@ const ToolsAdminPage = () => {
       key: 'category',
       render: (category: string) => <Tag color="purple">{category}</Tag>,
       filters: categories.map(cat => ({ text: cat, value: cat })),
-      onFilter: (value: string, record: AITool) => record.category === value,
+      onFilter: (value: boolean | Key, record: AITool) => record.category === String(value),
     },
     {
-      title: 'Pricing',
+      title: 'Paid',
       dataIndex: 'isPaid',
       key: 'isPaid',
       render: (isPaid: boolean) => (
-        <Tag color={isPaid ? "gold" : "green"}>
-          {isPaid ? "Paid" : "Free"}
+        <Tag color={isPaid ? 'red' : 'green'}>
+          {isPaid ? 'Paid' : 'Free'}
         </Tag>
       ),
       filters: [
         { text: 'Free', value: false },
         { text: 'Paid', value: true },
       ],
-      onFilter: (value: boolean, record: AITool) => record.isPaid === value,
+      onFilter: (value: boolean | Key, record: AITool) => record.isPaid === Boolean(value),
     },
     {
       title: 'Tags',
@@ -249,7 +263,7 @@ const ToolsAdminPage = () => {
         </Space>
       ),
     },
-  ];
+  ] as const;
 
   return (
     <AdminLayout selectedKey="tools">

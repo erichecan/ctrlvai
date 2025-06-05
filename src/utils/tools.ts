@@ -6,7 +6,8 @@ function isValidTool(tool: any): tool is AITool {
     typeof tool === 'object' &&
     typeof tool.name === 'string' &&
     typeof tool.description === 'string' &&
-    typeof tool.logo === 'string' &&
+    // Making logo optional for now
+    (typeof tool.logo === 'string' || typeof tool.logo === 'undefined') &&
     typeof tool.category === 'string' &&
     Array.isArray(tool.tags) &&
     tool.tags.every((tag: any) => typeof tag === 'string') &&
@@ -22,7 +23,8 @@ export async function loadTools(): Promise<AITool[]> {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-    const response = await fetch('/data/tools.json', {
+    // 从 API 加载工具数据
+    const response = await fetch('/api/tools', {
       signal: controller.signal
     });
 
@@ -34,8 +36,8 @@ export async function loadTools(): Promise<AITool[]> {
 
     const data = await response.json();
 
-    if (!Array.isArray(data.tools)) {
-      throw new Error('Invalid data format: tools property is not an array');
+    if (!data.success || !Array.isArray(data.tools)) {
+      throw new Error('Invalid API response format');
     }
 
     // 验证每个工具的数据格式

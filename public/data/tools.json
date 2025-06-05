@@ -13,7 +13,11 @@
         "Code assistance",
         "Language translation"
       ],
-      "tags": ["Language Model", "AI Assistant", "Content Generation"],
+      "tags": [
+        "Language Model",
+        "AI Assistant",
+        "Content Generation"
+      ],
       "category": "Language Models"
     },
     {
@@ -29,7 +33,11 @@
         "Style customization",
         "High resolution output"
       ],
-      "tags": ["Image Generation", "Art", "Creative"],
+      "tags": [
+        "Image Generation",
+        "Art",
+        "Creative"
+      ],
       "category": "Image Generation"
     },
     {
@@ -45,8 +53,40 @@
         "Document analysis",
         "Research assistance"
       ],
-      "tags": ["Language Model", "AI Assistant", "Analysis"],
+      "tags": [
+        "Language Model",
+        "AI Assistant",
+        "Analysis"
+      ],
       "category": "Language Models"
+    },
+    {
+      "name": "test",
+      "description": "test the cms",
+      "url": "https://www.youtube.com/shorts/x4mDeWBMi60",
+      "category": "Language Models",
+      "isPaid": true,
+      "tags": [
+        "Art"
+      ],
+      "features": [
+        "test the content"
+      ],
+      "id": "tool_1749141549895"
+    },
+    {
+      "name": "ABC",
+      "description": "adbdsdf",
+      "url": "https://www.youtube.com/shorts/RoWvhILiPJY",
+      "category": "Image Generation",
+      "isPaid": true,
+      "tags": [
+        "Creative"
+      ],
+      "features": [
+        "大东方爱堡"
+      ],
+      "id": "tool_1749142619752"
     }
   ]
 }
